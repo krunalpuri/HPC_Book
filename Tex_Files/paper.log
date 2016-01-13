@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 JAN 2016 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 JAN 2016 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -732,7 +732,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
  []
 
 [3 <./images/Ecosystems.png>] [4]
-Overfull \hbox (2.30305pt too wide) in paragraph at lines 187--188
+Overfull \hbox (1.77306pt too wide) in paragraph at lines 187--188
  []\T1/clm2/bx/n/10 High Per-for-mance Big Data Sys-tem (HPBDS) project [[]][] 
 \T1/clm2/m/n/10 (-20) : The HPBDS
  []
@@ -788,17 +788,39 @@ Package pdftex.def Info: ./images/model_parallelism.png used on input line 315.
 
 (pdftex.def)             Requested size: 176.15948pt x 152.67155pt.
  [8 <./images/data_parallelism.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
  []
 
 [9 <./images/model_parallelism.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 
  []
 
-[10]
-LaTeX Font Info:    Try loading font information for T1+clm2v on input line 336
+<./images/adam_parallelization.png, id=182, 762.85pt x 548.0475pt>
+File: ./images/adam_parallelization.png Graphic file (type png)
+
+<use ./images/adam_parallelization.png>
+Package pdftex.def Info: ./images/adam_parallelization.png used on input line 3
+32.
+(pdftex.def)             Requested size: 228.85677pt x 164.41551pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
+
+ []
+
+[10 <./images/adam_parallelization.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+[11]
+LaTeX Font Info:    Try loading font information for T1+clm2v on input line 359
 .
  (/usr/local/texlive/2015/texmf-dist/tex/latex/cfr-lm/t1clm2v.fd
 File: t1clm2v.fd 2010/05/25 Fontinst v1.933 font definitions for T1/clm2v.
@@ -808,20 +830,20 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(./paper.bbl [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 346.
- [12] [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 346.
+(./paper.bbl [12] [13])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 346.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 346.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 369.
  ) 
 Here is how much of TeX's memory you used:
- 11817 strings out of 493089
- 188588 string characters out of 6134842
+ 11834 strings out of 493089
+ 188945 string characters out of 6134842
  346767 words of memory out of 5000000
- 14788 multiletter control sequences out of 15000+600000
- 71303 words of font info for 240 fonts, out of 8000000 for 9000
+ 14795 multiletter control sequences out of 15000+600000
+ 71411 words of font info for 243 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  34i,11n,55p,1122b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cfr-lm/dotdigits-clm.enc}
@@ -834,10 +856,10 @@ blic/lm/lmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr
 10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/public/lm/lmvtt10.pfb>
-Output written on paper.pdf (13 pages, 857710 bytes).
+Output written on paper.pdf (14 pages, 1034343 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
- 73 named destinations out of 1000 (max. 500000)
- 21018 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 305 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 21023 words of extra memory for PDF output out of 24883 (max. 10000000)
 

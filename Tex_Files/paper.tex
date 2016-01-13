@@ -320,10 +320,33 @@ In a similar manner, in model parallelization scheme, models are cut into smalle
 
 There are many primary questions to be addressed when thinking about integration of machine learning and HPC. Questions such as, aside from accelerating machine learning applications with GPUs and FPGAs, is traditional HPC ready to be the drive force behind data savvy machine learning applications? Are current top 500 supercomputers capable of powering new AI era of machine learning and deep learning? From software point of view, does conventional HPC require extensive modification to deal with mostly correlated data variables in machine learning application?
 In the remaining of this section we will briefly introduce some of the ongoing researches and projects concentrated empowering machine learning with HPC medium.
+
 \subsection*{Project Adam: Building an Efficient and Scalable Deep Learning Training System \cite{chilimbi2014project}}
 In 2012 Google announced that they have trained an unsupervised image recognition neural network with 1 billion connections using 10 million training images, which can recognize cats from Youtube videos. Their training system consisted of a cluster of 1,000 computers with an aggregate of 16,000 cores \cite{le2013building}.\\
 
 Project Adam by Microsoft could be thought as the successor of Google's project. The goal of the project Adam is to train a photograph classifier using 14 million images of Imagenet \cite{deng2009imagenet} into 22,000 image categories. The trained system by project Adam is claimed to be 50 times faster than the state of the art system. Speed is not the only concern of Microsoft researchers, it is also claimed that the system will be as twice accurate with 30 times less number of machines.\\
+
+\subsection*{High level architecture}
+Adam is similar in architecture to the Multi-Spert system introduced by Farber at Berkeley \cite{farber1997parallel}. A set of machine have the role of providing the inputs of the neural network with the input data, while another set train the model. Adam takes advantage of both model and data parallelism. Models are partitioned into many worker machines. Data is also fragmented to provide data parallelism. In order for each piece of the model to be trained only by a small chunk of data, many replicas of the same piece of model in parallel are trained on different data chunks.\\
+\begin{figure}[h]
+	\includegraphics[scale=0.3]{./images/adam_parallelization.png}
+	\centering
+	\caption{Model and data partitioning in Adam architecture\cite{chilimbi2014project}.}
+	\label{fig:adam_parallelism}
+\end{figure}
+
+A global Parameter Server stores the global values for the updated weights of all model pieces and replicas. The communication between the models and the Partition Server is asynchronous. Although the asynchrony between models and Parameter Servers may seem to introduce inconsistencies, but due to the resilient nature of the neural networks, they usually get trained successfully. As a matter of fact Microsoft researchers found that when they switched from asynchronous to synchronous communication between the models and the Parameter Server, the accuracy of the model dropped. The drop in the accuracy is justified as most of cost functions is datasets such as Imagenet and MNist are not convex functions. As a result, during the training process, the trainer may gets stuck at local optima rather than the global optima. The asynchronous updating of the weights cause the trainer in local optima get some momentum to escape local optima towards a global optima.\\
+
+Convolutional neural networks are a special type of neural networks that has one or more convolution layers. Such networks are primary choice for image classification and vision since convolutional layers are capable of detecting features. It should be noted that Adam is not merely an image classification system and is capable of training any deep neural network with back-propagation. Figure \ref{fig:adam_parallelism} shows that Adam is partitioned in a way that each machine possess some of the convolution and some of the fully connected layers. This type partitioning allows for the communication of the convolution layers across machines be minimized.\\
+
+\subsection{Intra machine architecture and optimizations}
+
+Training process on each single machine is multi-threaded. Threads hold activation functions and weights to use during feed-forward and back-propagation through None Uniform Memory Access (NUMA) fashion to reduce the cross-memory bus traffic.\\
+
+Earlier we mentioned that neural networks are resilient so that we could use asynchronous communication between machines and global Parameter Server for updating weights. Same argument could be applied here for weight updates by threads on a single machine. On each machine a shared model holds the weights from all of threads weight updates. In order to avoid the lock times, threads update weights on the shared model without locking. Resilience of the neural networks along with commutativity and associativity properties of weight updates make the model work despite possible overwriting and race conditions of weight updates. This is one of the most important optimizations that allow scaling of deep neural network training process.
+
+
+
 
 
 \subsection*{Dadiannao: A machine-learning supercomputer \cite{chen2014dadiannao}}
