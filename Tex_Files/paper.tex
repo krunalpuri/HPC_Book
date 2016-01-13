@@ -1,0 +1,346 @@
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage[american]{babel}
+
+\usepackage{graphicx}
+
+%extended enumerate, such as \begin{compactenum}
+\usepackage{paralist}
+
+%put figures inside a text
+%\usepackage{picins}
+%use
+%\piccaptioninside
+%\piccaption{...}
+%\parpic[r]{\includegraphics ...}
+%Text...
+
+%Sorts the citations in the brackets
+%\usepackage{cite}
+
+%for easy quotations: \enquote{text}
+\usepackage{csquotes}
+
+\usepackage[T1]{fontenc}
+
+%enable margin kerning
+\usepackage{microtype}
+
+%better font, similar to the default springer font
+\usepackage[%
+rm={oldstyle=false,proportional=true},%
+sf={oldstyle=false,proportional=true},%
+tt={oldstyle=false,proportional=true,variable=true},%
+qt=false%
+]{cfr-lm}
+%
+%if more space is needed, exchange cfr-lm by mathptmx
+%\usepackage{mathptmx}
+
+%for demonstration purposes only
+\usepackage[math]{blindtext}
+
+\usepackage[
+%pdfauthor={},
+%pdfsubject={},
+%pdftitle={},
+%pdfkeywords={},
+bookmarks=false,
+breaklinks=true,
+colorlinks=true,
+linkcolor=black,
+citecolor=black,
+urlcolor=black,
+%pdfstartpage=19,
+pdfpagelayout=SinglePage
+]{hyperref}
+%enables correct jumping to figures when referencing
+\usepackage[all]{hypcap}
+
+\usepackage[capitalise,nameinlink]{cleveref}
+%Nice formats for \cref
+\crefname{section}{Sect.}{Sect.}
+\Crefname{section}{Section}{Sections}
+\crefname{figure}{Fig.}{Fig.}
+\Crefname{figure}{Figure}{Figures}
+
+\usepackage{xspace}
+%\newcommand{\eg}{e.\,g.\xspace}
+%\newcommand{\ie}{i.\,e.\xspace}
+\newcommand{\eg}{e.\,g.,\ }
+\newcommand{\ie}{i.\,e.,\ }
+
+%introduce \powerset - hint by http://matheplanet.com/matheplanet/nuke/html/viewtopic.php?topic=136492&post_id=997377
+\DeclareFontFamily{U}{MnSymbolC}{}
+\DeclareSymbolFont{MnSyC}{U}{MnSymbolC}{m}{n}
+\DeclareFontShape{U}{MnSymbolC}{m}{n}{
+    <-6>  MnSymbolC5
+   <6-7>  MnSymbolC6
+   <7-8>  MnSymbolC7
+   <8-9>  MnSymbolC8
+   <9-10> MnSymbolC9
+  <10-12> MnSymbolC10
+  <12->   MnSymbolC12%
+}{}
+\DeclareMathSymbol{\powerset}{\mathord}{MnSyC}{180}
+
+%improve wrapping of URLs - hint by http://tex.stackexchange.com/a/10419/9075
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+%Works on MiKTeX only
+%hint by http://goemonx.blogspot.de/2012/01/pdflatex-ligaturen-und-copynpaste.html
+%also http://tex.stackexchange.com/questions/4397/make-ligatures-in-linux-libertine-copyable-and-searchable
+%This allows a copy'n'paste of the text from the paper
+\input glyphtounicode.tex
+\pdfgentounicode=1
+
+\title{Big Data with High Performance Computing (HPC)}
+%If Title is too long, use \titlerunning
+%\titlerunning{Short Title}
+
+%Single insitute
+\author{Tarek El-Ghazawi \and Krunal Puri \and Armin Mehrabian}
+%If there are too many authors, use \authorrunning
+%\authorrunning{First Author et al.}
+\institute{George Washington University}
+
+%Multiple insitutes
+%Currently disabled
+%
+\iffalse
+%Multiple institutes are typeset as follows:
+\author{Tarek El-Ghazawi\inst{1} \and Krunal Puri\inst{1} \and Armin Mehrabian \inst{1} }
+%If there are too many authors, use \authorrunning
+%\authorrunning{First Author et al.}
+
+\institute{
+George Washington University\\
+\email{...}\and
+Insitute 2\\
+\email{...}
+}
+\fi
+			
+\maketitle
+
+\begin{abstract}
+Abstract goes here
+\end{abstract}
+
+\keywords{...}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\blindtext
+With the recent emergence of Big Data over the past few years, one of the questions that arises is, how Big Data is different from High Performance Computing (HPC) at various levels such as application, technology, investment, etc. Another critical question to be asked is if Big Data is widely different from HPC, which of the technologies may we want to adopt or, do we really have to choose one from the two to apply to our problems? Another scenario is that the gap between Big Data and HPC may form a spectrum of choices rather than two independent worlds. To answer these questions in this chapter we will first bring an introduction and look at Big Data and HPC from a high level abstraction view. Then, we explain the state of the art efforts to take advantage of the best of two worlds. Finally, we will address future challenges and future directions.\\
+
+\begin{figure}
+\includegraphics[scale=0.31]{./images/BigData_HPC.png}
+\centering
+\caption{Matrix of data and computation applications.}
+\label{fig:bigdata_hpc_matrix}
+\end{figure}
+In order to answer the above questions we first may need to identify the workloads and computational requirements of workflows for our applications. It is also important to not focus only current trends, and take into account the future data and computation demands. Figure \ref{fig:bigdata_hpc_matrix} shows the matrix of data size versus computation size for some applications. It also shows that the current big data technologies, formed around Apache Big Data Stack (ABDS), is data-intensive but focused less on computational performance. On the other hand the High Performance Computing (HPC), which mostly applied to solving scientific problems, has been mostly concentrated on computation-savvy, data limited application such and iterative simulations.\\
+
+Over the past decade, the rate of data generation has dramatically increased. As a result, we saw the emergence of data-intensive applications to solve a range of problems from data  distribution and management to data processing. The open-source Apache Big Data Stack with it's Hadoop Data File System (HDFS) kernel and many higher abstraction level frameworks for data analytics and machine learning has provided a coherent ecosystem, which has dominated the industry.\\
+
+In contrast, HPC with roots in computational intensive scientific computing, has mainly been applied and fine-tuned for particular problems, which resulted in significantly more limited implementations compared to ABDS.
+\begin{figure}
+	\includegraphics[scale=0.33]{./images/Ecosystems.png}
+	\centering
+	\caption{Apache Big Data Stack (ABDS) ecosystem vs. High Performance Computing (HPC) ecosystem \cite{Jha2014}.}
+	\label{fig:bigdata_hpc_ecosystem}
+\end{figure}
+Figure \ref*{fig:bigdata_hpc_ecosystem} depicts the HPC and Big Data ecosystems from many abstraction level view. The lowest layers are the resources, resource management, and communication layers. The higher layers comprise of processing and analytical components. In remaining parts of this section we compare current typical HPC and Big Data architectures and their respective ecosystems.
+\subsection{HPC Architecture}
+A typical HPC architecture consists of processing units such a multi-core structures, possibly accelerated by GPUs, FPGAs, or even CPUs such as intel Xeon Phi. These processing units are supported by local storage units with Lustre \cite{braam2004lustre} or General Parallel File System (GPFS) \cite{FrankSchmuck} file system or a remote storage connected through a fast network such as Infiniband.\\
+
+Lustre and GPFS are parallel file systems designed mainly for clusters. Lustre, which combines the words Linux and Cluster is generally accepted as the file system with scalability for large scale cluster computing. Due to its high performance it has been continuously used by top supercomputers. On the other hand GPFS introduced by IBM and adopted by many of the biggest companies all around the word. GPFS have it roots in academic grounds and its scalability is a matter of question. Storage resources in HPC are managed by storage management unit such as integrated Rule-Oriented Data-management System (iRODS), Storage Resource Manager interface (SRM) \cite{shaun2007storage} \cite{rajasekar2010irods},  Global Federated File System (GFFS) \cite{grimshaw2013gffs}.\\
+
+While storage resources are usually shared in applications, computational resources are local. Such local compute resources are managed by their own management units such as Slurm \cite{yoo2003slurm}, Torque \cite{staples2006torque}, and Sun Grid Engine (SGE) \cite{gentzsch2001sun}.
+
+In HPC applications, data need to fly around across network using a low latency communication. These fast interconnect networks along with features such as non-blocking and one-sided communications allow for more data-intensive HPC within HPC environment. As a matter of fact, data-intensive applications are not totally unfamiliar to HPC community. There has been many approaches to implement MapReduce compatible with HPC environment such as MapReduce-MPI \cite{plimpton2011mapreduce}, Pilot-MapReduce \cite{mantha2012pilot}, and Twister for machine learning applications \cite{ekanayake2010twister}.In a parallel effort, there has been many implementations of data intensive loosely coupled tasks at run-time level \cite{luckow2012p}\cite{raicu2008many}\cite{deelman2009workflows}.
+\subsection{ABDS Architectures}
+The Apache Big Data Stack is formed around the Hadoop Distributed File System (HDFS), which originated at Yahoo but is an open source implementation of Google's file system \cite{shvachko2010hadoop} \cite{ghemawat2003google}. As we know now, the idea behind ABDS was to bring the computation to data, which is usually stored at cheap commodity hardware. Hadoop 1.0 also took advantage of Google's MapReduce programming model for data processing. MapReduce imposes it's own limitations since all processes is forced to be implemented in the form of a mapper followed by a reducer. MapReduce's inherent limitations along with tight coupling of Hadoop and MapReduce proved to be inflexible when used in applications such as iterative computations, which is an indispensable piece of all Machine Learning algorithms.\\
+
+As a result of such deficits in Hadoop 1.0, Apache YARN was introduced with Hadoop 2.0 as a much more lenient resource manager, enabling many applications and frameworks with higher level abstractions \cite{vavilapalli2013apache}. YARN's key feature was introduction multi-level scheduling, which would allow higher level applications to schedule their own processes. As a results we saw the emerge of many high level applications such as, HBase, a column based distributed database, Spark, Giraph, which are iterative and graph processing applications\cite{borthakur2011apache}\cite{zaharia2012resilient}.
+\newpage
+\section{State of the art projects}
+In this section we will review some of the state of the art researches and projects within HPC-Big Data domains. We categorized these project under four class of research topics, namely,
+\begin{enumerate}
+	\item Integration of HPC and ABDS stack
+	\item Machine Learning (ML) using HPC
+	\item Parallel databases
+	\item Parallel I/O
+	
+\end{enumerate}
+\subsection{Integration of HPC and Big Data stack}
+Big Data and HPC used to be used interchangeably for many years. But, with HPC targeting scientific problems with huge number of iterations, and Big Data aiming for relatively simple model on huge datasets, it seems they diverged for a while. As the rate of data generation increase, deployment of HPC tools and techniques seem more and more inevitable. Following projects are some of the state of the arts in combining HPC and Big Data stack.
+\subsubsection{High Performance Big Data System (HPBDS) project \cite{qiu2014towards}}: The HPBDS project aims for integrating some of the components of the HPC such as scientific libraries, fast communication and resource management features with commercial Big Data ecosystem namely, ABDS.\\
+
+The primary proposed execution of HPBDS is built around Apache Hadoop and therefore named High Performance Computing Big Data Stack (HPC-ABDS). The HPC-ABDS comprise two sub-project,
+\begin{figure}[h]
+	\includegraphics[scale=0.2]{./images/MIDASSPIDAL.png}
+	\centering
+	\caption{MIDAS and SPIDAL within HPC-ABDS stack\cite{qiu2014towards}}
+	\label{fig:MIDAS_SPIDAL}
+\end{figure}
+\begin{enumerate}
+	\item Middleware for Data Intensive Analytics and Science (MIDAS)
+	\item Scalable Parallel Interoperable Data Analytics Library (SPIDAL)  
+\end{enumerate}
+
+Figure \ref{fig:MIDAS_SPIDAL} depicts the structure of the MIDAS-SPIDAL with trespect to the overall HPC-ABDS stack. MIDAS is proposed to provide a lower level infrastructure based on which higher level components such as libraries operates. On the other hand SPIDAL goal is to take advantage of useful tool within HPC such as MPI, PETSc, and SCALAPACK and modify them for data intensive applications.\\
+
+The HPC-ABDS project is inspired by the NIST Big Data initiative in Fall 2013, when NIST provided a collection of use cases. These use cases were analyzed against the identifiers proposed as big data Ogres \cite{fox2014towards}. The result is tabulated in Table \ref{table:NIST_vs_ogres}.
+\begin{table}
+	\centering
+	\caption{Armin}
+	\begin{tabular}{ |p{2cm}|p{1.5cm}|p{8cm}|  }
+		\hline
+		Abbrevation & Count & Description \\
+		\hline
+		PP & 26 & Pleasingly Parallel or Map Only \\
+		\hline
+		MR & 18 & Classic MapReduce MR (add MRStat below for full count) \\
+		\hline
+		MRStats & 7 & Simple version of MR where key computations are simple reduction as found in
+statistical averages such as histograms and averages \\
+\hline
+MRIter & 23 & Iterative MapReduce or MPI \\
+\hline
+Graph & 9 & Complex graph data structure needed in analysis \\
+\hline
+Fusion & 11 & Integrate diverse data to aid discovery/decision making; could involve sophisticated
+algorithms or could just be a portal \\
+\hline
+Streaming & 41 & Some data comes in incrementally and is processed this way \\
+\hline
+Classify & 30 & Classification: divide data into categories\\
+\hline
+S/Q & 12 & Index, Search and Query\\
+\hline
+CF & 4 & Collaborative Filtering for recommender engines \\
+\hline
+LML & 36 & Local Machine Learning (Independent for each parallel entity) \\
+\hline
+GML & 26 & Global Machine Learning: Deep Learning, Clustering, LDA, PLSI, MDS, Large
+Scale Optimizations as in Variational Bayes, MCMC, Lifted Belief Propagation,
+Stochastic Gradient Descent, L-BFGS, Levenberg-Marquardt. Can call EGO or
+Exascale Global Optimization with scalable parallel algorithm \\
+\hline
+ & 51 & Workflow: Universal so no label \\
+\hline 
+ GIS & 16 & Geotagged data and often displayed in ESRI, Microsoft Virtual Earth, Google
+Earth, GeoServer etc. \\
+\hline
+HPC & 5 & Classic large-scale simulation of cosmos, materials, etc. generating (visualization)
+data \\
+\hline
+Agent & 2 & Simulations of models of data-defined macroscopic entities represented as agents \\
+\hline
+
+	\end{tabular}
+	\label{table:NIST_vs_ogres}
+\end{table}
+Based on the data in
+\newpage
+\subsection{Machine Learning and HPC}
+Traditionally the words Machine Learning and HPC would imply two separate worlds with distinct border. But, over the past decade areas of AI such as machine learning and training neural networks of deep learning have found their ways through HPC world.\\
+
+Iterative AI tools such as machine learning and deep learning initially introduced to HPC by adopting GPU accelerators and FPGAs. Such tools adopted to perform a wide range of AI task from image classification, audio recognition, data analytics. Machine learning is not a novel concept and has been around for a relatively long time. But, along with more computational power introduced by accelerators, two major factors played an undeniable role in re-emergence of machine learning and deep learning. First, data generation at the very fast rates fuels up machine learning training algorithms. In a series of reports by Domo, \cite{domo} the amount of data created at the some of the biggest Internet giants, is presented. Table show some of these numbers in only one minute time of Internet. Secondly, introduction of new training algorithms such as those adopted to train deep belief nets and resulted to the birth of the term Deep Learning \cite{hinton2006fast}. Only even twenty years ago it would take very long time, if possible, to train a neural network with only ten hidden layers.
+\begin{table}
+	\centering
+	\caption{One minute of Internet usage \cite{domo}.}
+	\begin{tabular}{ |p{3cm}|p{9cm}|  }
+		\hline
+		Company & Count \\
+		\hline
+		Facebook & Users like \textbf{4,166,667} posts.\\
+		\hline
+		Twitter & Users send \textbf{347,222} tweets.\\
+		\hline
+		Youtube & Users upload \textbf{300} hours of video.\\
+		\hline
+		Instagram & Users like \textbf{1,736,111} photos. \\
+		\hline
+		Pinterest & Users pin \textbf{9,722} images.\\
+		\hline
+		Apple & Users download  \textbf{51,000} apps.\\
+		\hline
+		Netflix & Subscribers stream  \textbf{77.160} hours of video.\\
+		\hline
+		Reddit & Users cast  \textbf{18,327} votes.\\
+		\hline
+		Amazon & Receives  \textbf{4,310} unique visitors.\\
+		\hline
+		Vine & Users play  \textbf{1,041,666} videos.\\
+		\hline
+		Tinder & Users swipe  \textbf{590,276} times.\\
+		\hline
+		Snapchat & Users share  \textbf{284,722} snaps.\\
+		\hline
+		Buzzfeed & Users view  \textbf{34,150} videos.\\
+		\hline
+		Skype & Users make  \textbf{110,040} calls.\\
+		\hline
+		Uber & Passengers take  \textbf{694} rides.\\
+		\hline
+		
+	\end{tabular}
+	\label{table:Domo}
+\end{table}
+
+Deep Learning, which itself is a sub-category of machine learning. The major distinguishing difference between most of machine learning techniques and deep learning is in feature selection stage. In conventional machine learning techniques labeled/unlabeled data is fed into a set of hand crafted feature detectors to extract features. A classifier takes the features as inputs to perform some statistical analysis and decide on the class of each input. Since the engineering of a good set of such hand crafted features is extremely costly and require a lot of expertise and domain knowledge, deep learning is introduced to find and tune such features automatically using machine and data to be used for a particular task.\\
+
+There is a general consensus that scaling up each of the the training data size and model size will increase the accuracy of prediction in deep learning. Therefore, as the size of training data or the model increases, we require to parallelize the process on many machines and processing cores to enable the scaling. Consequently, two parallelization schemes is offered namely, data parallelization and model parallelization.\\
+
+In data parallelization scheme, the training set is sharded into smaller data fragments. Each of these fragments is assigned to a different processing node. Each node replicates the global model so that each model will have a fragment of data with a copy of full model. During the training process the model is updated. Since different copies of the model are updated separately using different data, we need to synchronize all copies of the model into a global model, which is representative of all the data. The issue with such synchronizations is that the model are usually relatively big (up to Gigabytes) that we cannot easily synchronize them frequently. In addition, it is also so hard to fit large models in GPUs' memory. \\
+\begin{figure}[h]
+	\includegraphics[scale=0.3]{./images/data_parallelism.png}
+	\centering
+	\caption{Data parallelism architecture performing Stochastic Gradient Descent (SGC). Model replicas at each node calculate gradients $\Delta w $ on a piece of data. Gradients are later transmitted asynchronously to Parameter Server to calculate updated weights.}
+	\label{fig:data_parallelism}
+\end{figure}
+In a similar manner, in model parallelization scheme, models are cut into smaller pieces, which allows for scaling of the model. A drawback of model parallelization is that you have to synchronize all your copies of the model even more frequently than data parallelization. Synchronization should take place for each model at every layer of it, which for nowadays deep networks can be tens of layers. Thus, networking plays an very important role when it comes to model parallelization. For instance, a typical neural network architecture with 1 billion nodes may require tens of seconds is using a typical Ethernet networking for synchronization. As a results, HPC known tools such a Infiniband and PCI Express would greatly enhance the networking bottleneck for Inter-node and Intra-node communications respectively.\\
+\begin{figure}[h]
+	\includegraphics[scale=0.3]{./images/model_parallelism.png}
+	\centering
+	\caption{An example of model parallelism scheme in DistBelief framework for deep distributed neural networks by Google \cite{dean2012large}. Model is distributed accross four machines. Only nodes, which have edges crossing from one machine to another need to report their state.}
+	\label{fig:model_parallelism}
+\end{figure}
+
+There are many primary questions to be addressed when thinking about integration of machine learning and HPC. Questions such as, aside from accelerating machine learning applications with GPUs and FPGAs, is traditional HPC ready to be the drive force behind data savvy machine learning applications? Are current top 500 supercomputers capable of powering new AI era of machine learning and deep learning? From software point of view, does conventional HPC require extensive modification to deal with mostly correlated data variables in machine learning application?
+In the remaining of this section we will briefly introduce some of the ongoing researches and projects concentrated empowering machine learning with HPC medium.
+\subsection*{Project Adam: Building an Efficient and Scalable Deep Learning Training System \cite{chilimbi2014project}}
+In 2012 Google announced that they have trained an unsupervised image recognition neural network with 1 billion connections using 10 million training images, which can recognize cats from Youtube videos. Their training system consisted of a cluster of 1,000 computers with an aggregate of 16,000 cores \cite{le2013building}.\\
+
+Project Adam by Microsoft could be thought as the successor of Google's project. The goal of the project Adam is to train a photograph classifier using 14 million images of Imagenet \cite{deng2009imagenet} into 22,000 image categories. The trained system by project Adam is claimed to be 50 times faster than the state of the art system. Speed is not the only concern of Microsoft researchers, it is also claimed that the system will be as twice accurate with 30 times less number of machines.\\
+
+
+\subsection*{Dadiannao: A machine-learning supercomputer \cite{chen2014dadiannao}}
+\newpage
+\section{Conclusion and Outlook}
+
+\subsubsection*{Acknowledgments}
+...
+
+In the bibliography, use \texttt{\textbackslash textsuperscript} for ``st'', ``nd'', ...:
+E.g., \enquote{The 2\textsuperscript{nd} conference on examples}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{splncs03}
+\bibliography{paper_2.bib}
+
+All links were last followed on October 5, 2014.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nocite{*}
+\end{document}

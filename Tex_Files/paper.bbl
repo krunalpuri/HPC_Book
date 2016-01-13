@@ -1,0 +1,164 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{domo}
+{Data Never Sleeps},
+  \url{https://www.domo.com/blog/2015/08/data-never-sleeps-3-0/}
+
+\bibitem{}
+{NIST Big Data Working Group (NBD-WG)},
+  \url{http://bigdatawg.nist.gov/usecases.php}
+
+\bibitem{borthakur2011apache}
+Borthakur, D., Gray, J., Sarma, J.S., Muthukkaruppan, K., Spiegelberg, N.,
+  Kuang, H., Ranganathan, K., Molkov, D., Menon, A., Rash, S., et~al.: Apache
+  hadoop goes realtime at facebook. In: Proceedings of the 2011 ACM SIGMOD
+  International Conference on Management of data. pp. 1071--1080. ACM (2011)
+
+\bibitem{braam2004lustre}
+Braam, P.J., et~al.: The lustre storage architecture (2004)
+
+\bibitem{chen2014dadiannao}
+Chen, Y., Luo, T., Liu, S., Zhang, S., He, L., Wang, J., Li, L., Chen, T., Xu,
+  Z., Sun, N., et~al.: Dadiannao: A machine-learning supercomputer. In:
+  Microarchitecture (MICRO), 2014 47th Annual IEEE/ACM International Symposium
+  on. pp. 609--622. IEEE (2014)
+
+\bibitem{chilimbi2014project}
+Chilimbi, T., Suzue, Y., Apacible, J., Kalyanaraman, K.: Project adam: Building
+  an efficient and scalable deep learning training system. In: 11th USENIX
+  Symposium on Operating Systems Design and Implementation (OSDI 14). pp.
+  571--582 (2014)
+
+\bibitem{dean2012large}
+Dean, J., Corrado, G., Monga, R., Chen, K., Devin, M., Mao, M., Senior, A.,
+  Tucker, P., Yang, K., Le, Q.V., et~al.: Large scale distributed deep
+  networks. In: Advances in Neural Information Processing Systems. pp.
+  1223--1231 (2012)
+
+\bibitem{deelman2009workflows}
+Deelman, E., Gannon, D., Shields, M., Taylor, I.: Workflows and e-science: An
+  overview of workflow system features and capabilities. Future Generation
+  Computer Systems  25(5),  528--540 (2009)
+
+\bibitem{deng2009imagenet}
+Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: Imagenet: A
+  large-scale hierarchical image database. In: Computer Vision and Pattern
+  Recognition, 2009. CVPR 2009. IEEE Conference on. pp. 248--255. IEEE (2009)
+
+\bibitem{ekanayake2010twister}
+Ekanayake, J., Li, H., Zhang, B., Gunarathne, T., Bae, S.H., Qiu, J., Fox, G.:
+  Twister: a runtime for iterative mapreduce. In: Proceedings of the 19th ACM
+  International Symposium on High Performance Distributed Computing. pp.
+  810--818. ACM (2010)
+
+\bibitem{fox2014towards}
+Fox, G.C., Jha, S., Qiu, J., Luckow, A.: Towards an understanding of facets and
+  exemplars of big data applications. In: In proceedings of Workshop: Twenty
+  Years of Beowulf (2014)
+
+\bibitem{FrankSchmuck}
+{Frank Schmuck}, R.H.: {GPFS: A Shared-Disk File System for Large Computing
+  Clusters}
+  \url{http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.19.7147}
+
+\bibitem{gentzsch2001sun}
+Gentzsch, W.: Sun grid engine: Towards creating a compute power grid. In:
+  Cluster Computing and the Grid, 2001. Proceedings. First IEEE/ACM
+  International Symposium on. pp. 35--36. IEEE (2001)
+
+\bibitem{ghemawat2003google}
+Ghemawat, S., Gobioff, H., Leung, S.T.: The google file system. In: ACM SIGOPS
+  operating systems review. vol.~37, pp. 29--43. ACM (2003)
+
+\bibitem{grimshaw2013gffs}
+Grimshaw, A., Morgan, M., Kalyanaraman, A.: Gffs—the xsede global federated
+  file system. Parallel Processing Letters  23(02),  1340005 (2013)
+
+\bibitem{hinton2006fast}
+Hinton, G.E., Osindero, S., Teh, Y.W.: A fast learning algorithm for deep
+  belief nets. Neural computation  18(7),  1527--1554 (2006)
+
+\bibitem{Jha2014}
+Jha, S., Qiu, J., Luckow, A., Mantha, P., Fox, G.C.: {A Tale of Two
+  Data-Intensive Paradigms: Applications, Abstractions, and Architectures}. In:
+  2014 IEEE International Congress on Big Data. pp. 645--652. IEEE (jun 2014),
+  \url{http://ieeexplore.ieee.org/articleDetails.jsp?arnumber=6906840}
+
+\bibitem{le2013building}
+Le, Q.V.: Building high-level features using large scale unsupervised learning.
+  In: Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE International
+  Conference on. pp. 8595--8598. IEEE (2013)
+
+\bibitem{luckow2012p}
+Luckow, A., Santcroos, M., Merzky, A., Weidner, O., Mantha, P., Jha, S.: P∗:
+  a model of pilot-abstractions. In: E-Science (e-Science), 2012 IEEE 8th
+  International Conference on. pp. 1--10. IEEE (2012)
+
+\bibitem{mantha2012pilot}
+Mantha, P.K., Luckow, A., Jha, S.: Pilot-mapreduce: an extensible and flexible
+  mapreduce implementation for distributed data. In: Proceedings of third
+  international workshop on MapReduce and its Applications Date. pp. 17--24.
+  ACM (2012)
+
+\bibitem{plimpton2011mapreduce}
+Plimpton, S.J., Devine, K.D.: Mapreduce in mpi for large-scale graph
+  algorithms. Parallel Computing  37(9),  610--632 (2011)
+
+\bibitem{Qiu2014}
+Qiu, J.: {Towards HPC-ABDS : An Initial High-Performance Big Data Stack}  1(1),
+   1--22 (2014)
+
+\bibitem{qiu2014towards}
+Qiu, J., Jha, S., Luckow, A., Fox, G.C.: Towards hpc-abds: An initial
+  high-performance big data stack. Building Robust Big Data Ecosystem ISO/IEC
+  JTC 1 Study Group on Big Data pp. 18--21 (2014)
+
+\bibitem{raicu2008many}
+Raicu, I., Foster, I.T., Zhao, Y.: Many-task computing for grids and
+  supercomputers. In: Many-Task Computing on Grids and Supercomputers, 2008.
+  MTAGS 2008. Workshop on. pp. 1--11. IEEE (2008)
+
+\bibitem{rajasekar2010irods}
+Rajasekar, A., Moore, R., Hou, C.y., Lee, C.A., Marciano, R., de~Torcy, A.,
+  Wan, M., Schroeder, W., Chen, S.Y., Gilbert, L., et~al.: irods primer:
+  integrated rule-oriented data system. Synthesis Lectures on Information
+  Concepts, Retrieval, and Services  2(1),  1--143 (2010)
+
+\bibitem{Reed2015}
+Reed, D.a., Dongarra, J.: {Exascale computing and big data}. Communications of
+  the ACM  58(7),  56--68 (2015),
+  \url{http://dl.acm.org/ft{\_}gateway.cfm?id=2699414{\&}type=html}
+
+\bibitem{shaun2007storage}
+Shaun De~Witt, R.: The storage resource manager interface specification  (2007)
+
+\bibitem{shvachko2010hadoop}
+Shvachko, K., Kuang, H., Radia, S., Chansler, R.: The hadoop distributed file
+  system. In: Mass Storage Systems and Technologies (MSST), 2010 IEEE 26th
+  Symposium on. pp. 1--10. IEEE (2010)
+
+\bibitem{staples2006torque}
+Staples, G.: Torque resource manager. In: Proceedings of the 2006 ACM/IEEE
+  conference on Supercomputing. p.~8. ACM (2006)
+
+\bibitem{vavilapalli2013apache}
+Vavilapalli, V.K., Murthy, A.C., Douglas, C., Agarwal, S., Konar, M., Evans,
+  R., Graves, T., Lowe, J., Shah, H., Seth, S., et~al.: Apache hadoop yarn: Yet
+  another resource negotiator. In: Proceedings of the 4th annual Symposium on
+  Cloud Computing. p.~5. ACM (2013)
+
+\bibitem{yoo2003slurm}
+Yoo, A.B., Jette, M.A., Grondona, M.: Slurm: Simple linux utility for resource
+  management. In: Job Scheduling Strategies for Parallel Processing. pp.
+  44--60. Springer (2003)
+
+\bibitem{zaharia2012resilient}
+Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauley, M., Franklin,
+  M.J., Shenker, S., Stoica, I.: Resilient distributed datasets: A
+  fault-tolerant abstraction for in-memory cluster computing. In: Proceedings
+  of the 9th USENIX conference on Networked Systems Design and Implementation.
+  pp. 2--2. USENIX Association (2012)
+
+\end{thebibliography}

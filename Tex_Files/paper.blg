@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: paper.aux
+The style file: splncs03.bst
+Database file #1: paper_2.bib.bib
+Repeated entry---line 265 of file paper_2.bib.bib
+ : @inproceedings{dean2012large
+ :                             ,
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in domo
+Warning--to sort, need author or key in 
+Warning--empty journal in FrankSchmuck
+Warning--empty year in FrankSchmuck
+Warning--can't use both volume and number fields in ghemawat2003google
+Warning--empty journal in Qiu2014
+Warning--empty journal in shaun2007storage
+You've used 32 entries,
+            2785 wiz_defined-function locations,
+            765 strings with 11123 characters,
+and the built_in function-call counts, 20296 in all, are:
+= -- 1703
+> -- 752
+< -- 34
++ -- 313
+- -- 276
+* -- 1311
+:= -- 2595
+add.period$ -- 60
+call.type$ -- 32
+change.case$ -- 266
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 1703
+empty$ -- 1718
+format.name$ -- 300
+if$ -- 4440
+int.to.chr$ -- 0
+int.to.str$ -- 32
+missing$ -- 360
+newline$ -- 101
+num.names$ -- 60
+pop$ -- 692
+preamble$ -- 1
+purify$ -- 196
+quote$ -- 0
+skip$ -- 561
+stack$ -- 0
+substring$ -- 1086
+swap$ -- 977
+text.length$ -- 34
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 128
+warning$ -- 7
+while$ -- 162
+width$ -- 34
+write$ -- 323
+(There was 1 error message)
