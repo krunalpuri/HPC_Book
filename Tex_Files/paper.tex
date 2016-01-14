@@ -339,11 +339,27 @@ A global Parameter Server stores the global values for the updated weights of al
 
 Convolutional neural networks are a special type of neural networks that has one or more convolution layers. Such networks are primary choice for image classification and vision since convolutional layers are capable of detecting features. It should be noted that Adam is not merely an image classification system and is capable of training any deep neural network with back-propagation. Figure \ref{fig:adam_parallelism} shows that Adam is partitioned in a way that each machine possess some of the convolution and some of the fully connected layers. This type partitioning allows for the communication of the convolution layers across machines be minimized.\\
 
-\subsection{Intra machine architecture and optimizations}
+\subsection*{Intra machine architecture and optimizations}
 
 Training process on each single machine is multi-threaded. Threads hold activation functions and weights to use during feed-forward and back-propagation through None Uniform Memory Access (NUMA) fashion to reduce the cross-memory bus traffic.\\
 
-Earlier we mentioned that neural networks are resilient so that we could use asynchronous communication between machines and global Parameter Server for updating weights. Same argument could be applied here for weight updates by threads on a single machine. On each machine a shared model holds the weights from all of threads weight updates. In order to avoid the lock times, threads update weights on the shared model without locking. Resilience of the neural networks along with commutativity and associativity properties of weight updates make the model work despite possible overwriting and race conditions of weight updates. This is one of the most important optimizations that allow scaling of deep neural network training process.
+Earlier we mentioned that neural networks are resilient so that we could use asynchronous communication between machines and global Parameter Server for updating weights. Same argument could be applied here for weight updates by threads on a single machine. On each machine a shared model holds the weights from all of threads weight updates. In order to avoid the lock times, threads update weights on the shared model without locking. Resilience of the neural networks along with commutativity and associativity properties of weight updates make the model work despite possible overwriting and race conditions of weight updates. This is one of the most important optimizations that allow scaling of deep neural network training process.\\
+
+\subsection*{Memory optimizations}
+
+During the training process weights need to be transmitted back and forth among layers. In order to minimize redundant copies, a pointer is passed along rather than rather than the values. In addition, in the model parallelism architectures, there are some communication between layers across multiple machines. These non-local communications are performed through a library built by project Adam team. The library is custom fit to the communication design of Adam, which supports pointer addressing to blocks of neurons that their output needs communication.\\
+
+The partitioning of the models is Adam is done in a way that the working sets fit inside a L3 cache. Besides, an assembly kernel is implemented and tuned to exploit the locality during feed-forward and back propagation. The kernel allows for optimal matrix multiplication whether row major or column major blocks of weights are to be multiplied.\\
+
+\subsection*{Global Parameter Server}
+
+The Global Parameter Server holds the updated weights of the overall model from all machines. Due to high volume of weight updates, the Global Parameter Server of Adam require a more complex design rather than a conventional key value store. Figure \ref{fig:adam_global_param} depicts the architecture of the Global Server node for Adam.
+\begin{figure}[h]
+	\includegraphics[scale=0.42]{./images/adam_global_param_server.png}
+	\centering
+	\caption{Global Parameter Server architecture of Adam\cite{chilimbi2014project}.}
+	\label{fig:adam_global_param}
+\end{figure} 
 
 
 
