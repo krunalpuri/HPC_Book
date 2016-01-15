@@ -359,8 +359,63 @@ The Global Parameter Server holds the updated weights of the overall model from 
 	\centering
 	\caption{Global Parameter Server architecture of Adam\cite{chilimbi2014project}.}
 	\label{fig:adam_global_param}
-\end{figure} 
+\end{figure}
 
+Model parameters on the parameter server is partitioned into weight shards of size 1MB. The model partition in the Parameter Server helps with the spatial locality of the updates. In addition, to lower the communication between L3 caches and the parameter server, weight updates are not sent over to the parameter server once they are ready. Instead, weights are batched into blocks and then transferred over to parameter server. To assure the fault tolerance of the processes on the parameter server, there are three copies of weight shards available. One of the shards is assigned as the primary and the other two as the secondary to be used in the primary is cannot be used.
+
+\subsection*{Project Adam's Hardware} Adam is formed of a cluster of 120 machines in three racks connected using IBM G8264 switches. Machine is Adam cluster are ervers of HP Proliant servers consisting of dual Intel Xeon E5-2450L processors with 16 cores and 98GB main memory along with two 10Gb NICs and one 1Gb NIC. There are four 7200 rpm hard drive storages for each machine. One of the hard drives that has the Windows 2012 server as operating server is of size 1TB. The rest three hard drives each are 3TB and are connected is RAID fashion. Out of 120 machines, 90 are allocated for training the model, 20 for parameter server, and the rest 10 for image inputs.
+
+\subsection*{Results}
+
+The accuracy of trained models is always one of the most important concerns. Adam's trained models are evaluated against two benchmarks. First, the MNIST benchmark that is well known to the machine learning community, which contains image of a series of handwritten digits. Second, the ImageNet, which is an image dataset with 22k object categories.\\
+
+Adam architecture for testing against the MNIST benchmark consisted of two convolutional layers, two fully connected layers, and a ten class softmax output layer\cite{simard2003best}. The accuracy of Adam compared to the top 1  model by Goodfellow et al \cite{goodfellow2013maxout} is shown in table \ref{table:MNIST}.
+
+\begin{table}
+	\centering
+	\caption{Adam accuracy on MNIST benchmark compared to the existing top accuracy model.}
+	\begin{tabular}{ |p{5cm}|p{2cm}|  }
+		\hline
+		\textbf{Model} & \textbf{Accuracy} \\
+		\hline
+		Goodfellow et al. & 99.55\%\\
+		\hline
+		Adam (asynchronous) & 99.63\% \\
+		\hline
+		Adam (synchronous) & 99.39\% \\
+		
+		\hline
+		
+	\end{tabular}
+	\label{table:MNIST}
+\end{table}
+
+It should be noted that the Adam accuracy is reported with asynchronous and synchronous communication of model shards in machine to the global parameter server. We mentioned that due to resiliency of the neural networks weight updates can be sent to global parameter server asynchronously. Even withing a machine weight updates coming from multiple threads is also asynchronous without using locks. The results in table \ref{table:MNIST} show that asynchrony not only did not lower the Adam accuracy, but also improved it by $0.24\%$.\\
+
+For the ImageNet dataset, Adam was trained with a common architecture as reported in earlier works in literature. The architecture consist of 5 convolutional layers, 3 fully connected layers, and a 22k-way softmax layer. The accuracy of Adam compared to the top 1 system by Le et al \cite{le2013building} is tabulated table \ref{table:ImageNet}.
+
+\begin{table}
+	\centering
+	\caption{Adam accuracy on ImageNet benchmark compared to the existing top accuracy model.}
+	\begin{tabular}{ |p{5cm}|p{2cm}|  }
+		\hline
+		\textbf{Model} & \textbf{Accuracy} \\
+		\hline
+		Le et al. (without pre-training) & 13.6\%\\
+		\hline
+		Le et al. (with pre-training)  & 15.8\% \\
+		\hline
+		Adam & 29.8\% \\
+		
+		\hline
+		
+	\end{tabular}
+	\label{table:ImageNet}
+\end{table}
+
+The results in table \ref{table:ImageNet} show a much more significant improvement by a factor of almost $2\times$ compared to the top accuracy model by Le et al \cite{le2013building}. The training process took 10 days to complete on a total of 62 machines, which is 32 times less than 2000 machines used by the top 1 model.\\
+
+In conclusion, Adam succeeded to outperform the top 1 model in accuracy, number of machines used, and XXXX through a set of optimizations. It also seems that asynchrony plays a major role in enabling Adam to scale well training very large models.
 
 
 

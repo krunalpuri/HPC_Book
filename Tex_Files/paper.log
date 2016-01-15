@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  14 JAN 2016 11:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 JAN 2016 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -732,7 +732,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
  []
 
 [3 <./images/Ecosystems.png>] [4]
-Overfull \hbox (1.77306pt too wide) in paragraph at lines 187--188
+Overfull \hbox (2.12305pt too wide) in paragraph at lines 187--188
  []\T1/clm2/bx/n/10 High Per-for-mance Big Data Sys-tem (HPBDS) project [[]][] 
 \T1/clm2/m/n/10 (-20) : The HPBDS
  []
@@ -842,7 +842,22 @@ Package pdftex.def Info: ./images/adam_global_param_server.png used on input li
 ne 358.
 (pdftex.def)             Requested size: 252.94327pt x 235.65881pt.
  [12 <./images/adam_global_param_server.png>]
-LaTeX Font Info:    Try loading font information for T1+clm2v on input line 375
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
+
+ []
+
+[14]
+LaTeX Font Info:    Try loading font information for T1+clm2v on input line 430
 .
  (/usr/local/texlive/2015/texmf-dist/tex/latex/cfr-lm/t1clm2v.fd
 File: t1clm2v.fd 2010/05/25 Fontinst v1.933 font definitions for T1/clm2v.
@@ -852,36 +867,40 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(./paper.bbl [13] [14])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 385.
- [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 385.
+(./paper.bbl [15] [16])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 440.
+ [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 385.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 385.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 440.
  ) 
 Here is how much of TeX's memory you used:
- 11849 strings out of 493089
- 189270 string characters out of 6134842
+ 11883 strings out of 493089
+ 189685 string characters out of 6134842
  346767 words of memory out of 5000000
- 14801 multiletter control sequences out of 15000+600000
- 71523 words of font info for 246 fonts, out of 8000000 for 9000
+ 14807 multiletter control sequences out of 15000+600000
+ 72099 words of font info for 261 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  34i,11n,55p,1122b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cfr-lm/dotdigits-clm.enc}
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cfr-lm/t1-clm.enc}{/usr/loc
-al/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/lm/lmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr
-10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/lm/lmvtt10.pfb>
-Output written on paper.pdf (15 pages, 1144394 bytes).
+al/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive
+/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2015/texm
+f-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/lm/lmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/lm/lmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbx9
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/lm/lmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmv
+tt10.pfb>
+Output written on paper.pdf (17 pages, 1160474 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 360 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
+ 90 named destinations out of 1000 (max. 500000)
  21028 words of extra memory for PDF output out of 24883 (max. 10000000)
 
