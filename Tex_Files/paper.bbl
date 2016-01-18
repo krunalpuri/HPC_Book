@@ -19,6 +19,11 @@ Borthakur, D., Gray, J., Sarma, J.S., Muthukkaruppan, K., Spiegelberg, N.,
 \bibitem{braam2004lustre}
 Braam, P.J., et~al.: The lustre storage architecture (2004)
 
+\bibitem{chen2014diannao}
+Chen, T., Du, Z., Sun, N., Wang, J., Wu, C., Chen, Y., Temam, O.: Diannao: A
+  small-footprint high-throughput accelerator for ubiquitous machine-learning.
+  In: ACM SIGPLAN Notices. vol.~49, pp. 269--284. ACM (2014)
+
 \bibitem{chen2014dadiannao}
 Chen, Y., Luo, T., Liu, S., Zhang, S., He, L., Wang, J., Li, L., Chen, T., Xu,
   Z., Sun, N., et~al.: Dadiannao: A machine-learning supercomputer. In:
@@ -52,6 +57,12 @@ Ekanayake, J., Li, H., Zhang, B., Gunarathne, T., Bae, S.H., Qiu, J., Fox, G.:
   Twister: a runtime for iterative mapreduce. In: Proceedings of the 19th ACM
   International Symposium on High Performance Distributed Computing. pp.
   810--818. ACM (2010)
+
+\bibitem{esmaeilzadeh2012neural}
+Esmaeilzadeh, H., Sampson, A., Ceze, L., Burger, D.: Neural acceleration for
+  general-purpose approximate programs. In: Proceedings of the 2012 45th Annual
+  IEEE/ACM International Symposium on Microarchitecture. pp. 449--460. IEEE
+  Computer Society (2012)
 
 \bibitem{farber1997parallel}
 Farber, P., Asanovic, K.: Parallel neural network training on multi-spert. In:
@@ -156,6 +167,11 @@ Simard, P.Y., Steinkraus, D., Platt, J.C.: Best practices for convolutional
 \bibitem{staples2006torque}
 Staples, G.: Torque resource manager. In: Proceedings of the 2006 ACM/IEEE
   conference on Supercomputing. p.~8. ACM (2006)
+
+\bibitem{temam2012defect}
+Temam, O.: A defect-tolerant accelerator for emerging high-performance
+  applications. In: ACM SIGARCH Computer Architecture News. vol.~40, pp.
+  356--367. IEEE Computer Society (2012)
 
 \bibitem{vavilapalli2013apache}
 Vavilapalli, V.K., Murthy, A.C., Douglas, C., Agarwal, S., Konar, M., Evans,

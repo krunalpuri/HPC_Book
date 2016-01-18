@@ -9,50 +9,52 @@ Repeated entry---line 265 of file paper_2.bib.bib
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in domo
 Warning--to sort, need author or key in 
+Warning--can't use both volume and number fields in chen2014diannao
 Warning--empty journal in FrankSchmuck
 Warning--empty year in FrankSchmuck
 Warning--can't use both volume and number fields in ghemawat2003google
 Warning--empty journal in Qiu2014
 Warning--empty journal in shaun2007storage
-You've used 35 entries,
+Warning--can't use both volume and number fields in temam2012defect
+You've used 38 entries,
             2785 wiz_defined-function locations,
-            780 strings with 11666 characters,
-and the built_in function-call counts, 21977 in all, are:
-= -- 1847
-> -- 808
-< -- 36
-+ -- 336
-- -- 296
-* -- 1410
-:= -- 2815
-add.period$ -- 67
-call.type$ -- 35
-change.case$ -- 289
+            798 strings with 12327 characters,
+and the built_in function-call counts, 24150 in all, are:
+= -- 2042
+> -- 874
+< -- 41
++ -- 364
+- -- 320
+* -- 1550
+:= -- 3081
+add.period$ -- 76
+call.type$ -- 38
+change.case$ -- 316
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 1854
-empty$ -- 1867
-format.name$ -- 323
-if$ -- 4813
+cite$ -- 47
+duplicate$ -- 2035
+empty$ -- 2055
+format.name$ -- 349
+if$ -- 5301
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 390
-newline$ -- 110
-num.names$ -- 66
-pop$ -- 753
+int.to.str$ -- 38
+missing$ -- 427
+newline$ -- 119
+num.names$ -- 72
+pop$ -- 822
 preamble$ -- 1
-purify$ -- 212
+purify$ -- 230
 quote$ -- 0
-skip$ -- 607
+skip$ -- 670
 stack$ -- 0
-substring$ -- 1163
-swap$ -- 1053
-text.length$ -- 36
+substring$ -- 1299
+swap$ -- 1159
+text.length$ -- 41
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 140
-warning$ -- 7
-while$ -- 175
-width$ -- 37
-write$ -- 354
+type$ -- 152
+warning$ -- 9
+while$ -- 193
+width$ -- 40
+write$ -- 389
 (There was 1 error message)

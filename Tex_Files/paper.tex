@@ -188,7 +188,7 @@ Big Data and HPC used to be used interchangeably for many years. But, with HPC t
 
 The primary proposed execution of HPBDS is built around Apache Hadoop and therefore named High Performance Computing Big Data Stack (HPC-ABDS). The HPC-ABDS comprise two sub-project,
 \begin{figure}[h]
-	\includegraphics[scale=0.2]{./images/MIDASSPIDAL.png}
+	\includegraphics[scale=0.25]{./images/MIDASSPIDAL.png}
 	\centering
 	\caption{MIDAS and SPIDAL within HPC-ABDS stack\cite{qiu2014towards}}
 	\label{fig:MIDAS_SPIDAL}
@@ -203,7 +203,7 @@ Figure \ref{fig:MIDAS_SPIDAL} depicts the structure of the MIDAS-SPIDAL with tre
 The HPC-ABDS project is inspired by the NIST Big Data initiative in Fall 2013, when NIST provided a collection of use cases. These use cases were analyzed against the identifiers proposed as big data Ogres \cite{fox2014towards}. The result is tabulated in Table \ref{table:NIST_vs_ogres}.
 \begin{table}
 	\centering
-	\caption{Armin}
+	\caption{Categories of the NIST use cases.}
 	\begin{tabular}{ |p{2cm}|p{1.5cm}|p{8cm}|  }
 		\hline
 		Abbrevation & Count & Description \\
@@ -251,7 +251,37 @@ Agent & 2 & Simulations of models of data-defined macroscopic entities represent
 	\end{tabular}
 	\label{table:NIST_vs_ogres}
 \end{table}
-Based on the data in
+Based on the the tabulated results od the table \ref{table:NIST_vs_ogres}, Qiu et al. \cite{Qiu2014} identified five programming models to be used programs addressed in big data HPC problems. These five programming models are shown in table \ref{table:NIST_5_Programming_model}.
+%%%%%%%%%%%%%%%%%%%% EXACTT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}
+	\centering
+	\caption{Five programming models identified for big data HPC problems based on NIST big data use cases.}
+	\begin{tabular}{ |p{4cm}|p{7cm}|  }
+		\hline
+		\textbf{Programming Model} & \textbf{Description} \\
+		\hline
+		Pleasingly Parallel & Applications such as local machine learning where processing is applied over many items in a local machine. Either Hadoop or other HPC tools could be used. \\
+		\hline
+		Classic MapReduce & Including MRStat, some search applications, collaborative filtering and motif finding. Traditional Hadoop and MapReduce could be used.\\
+		\hline
+		Iterative Map Collective & Iterative applications of MapReduce using collective communication. Hadoop 2.0 along with tools such as Spark could be used.\\
+		\hline
+		Iterative Map Communication & Iterative MapReduce such as Giraph with pointto-point
+		communication, includes most graph algorithms
+		such as maximum clique, connected
+		component, finding diameter, community detection).
+		 \\
+		\hline
+		Shared Large Memory & Thread-based (event driven) graph algorithms
+		such as shortest path and Betweenness centrality.
+		Large memory applications.\\
+		\hline
+		
+	\end{tabular}
+	\label{table:NIST_5_Programming_model}
+\end{table}
+
+
 \newpage
 \subsection{Machine Learning and HPC}
 Traditionally the words Machine Learning and HPC would imply two separate worlds with distinct border. But, over the past decade areas of AI such as machine learning and training neural networks of deep learning have found their ways through HPC world.\\
@@ -421,6 +451,33 @@ In conclusion, Adam succeeded to outperform the top 1 model in accuracy, number 
 
 
 \subsection*{Dadiannao: A machine-learning supercomputer \cite{chen2014dadiannao}}
+With the re-emergence of neural networks in 2006 and introduction of deep learning algorithms, one stream of research has been focused on specialized hardware tailored to deep learning applications rather than using multi-purpose GPUs \cite{temam2012defect}\cite{esmaeilzadeh2012neural}.\\
+
+One of such specialized deep learning accelerators is the one introduced by Chen et al, namely DianNao \cite{chen2014diannao}. DianNao comprises two major group of components. First, buffers for retrieving and holding inputs and outputs of neurons and synapses. Second, a Neural Functional Unit (NFU), which performs typical computations required to calculate outputs of neurons. These calculations are mainly matrix multiplication of weights and input in the first stage, summation of the results of first stage in the second stage, and applying an activation function in the third stage. Depending on the architecture of network and the layer types some other types of operation is also embedded such as convolution, averaging, etc. Figure \ref{fig:diannao_arch} depicts the block diagram of the DianNao accelerator.
+\begin{figure}[h]
+	\includegraphics[scale=0.42]{./images/diannao.png}
+	\centering
+	\caption{Block diagram of the DianNao accelerator\cite{chen2014dadiannao}.}
+	\label{fig:diannao_arch}
+\end{figure}
+In order to evaluate the performance of DianNao, Chen et al. structure two neural networks with similar architecture, but one with GPU and the other one with DianNao acceleration. They also implemented the same network using CPU only without any acceleration. Figure \ref{fig:diannao_speedup} compares the speedup of GPU over both DianNao and CPU.
+\begin{figure}[h]
+	\includegraphics[scale=0.42]{./images/diannao_speedup.png}
+	\centering
+	\caption{Speedup of CPU/GPU and CPU/DianNao for various layer types of network\cite{chen2014dadiannao}.}
+	\label{fig:diannao_speedup}
+\end{figure}
+
+We can see from figure \ref{fig:diannao_speedup} that DianNao give speedups up to 100 for some of the layers. However, in some other layers, mostly convolutional layers with private kernels and classification layers, which are common in both Deep Neural Networks (DNN) and Convolutional Neural Networks (CNN), GPUs may be preferred over DianNao. Authors believe that memory bandwidth is the major reason that DianNao performs worse than GPU in such layers. It should be noted that both convolutional and classification layers share the property that they have high number of synaptic connections even in range of millions. As DianNao takes up only about 53\% of the GPU (K20M), which is used for the sake of this comparison, it has the potential to compete GPUs.
+\subsection*{Dadiannao, the machine learning supercomputer}
+
+While the authors name Dadiannao the machine learning supercomputer, it seems the seems the design of Dadiannao were more focused on DNNs and CNNs. With that in mind, Dadiannao is capable of holding large models of even up to tens of GB in size in a multi node structure.\\
+
+As we mentioned in the earlier part of this section, memory is thought to be the bottleneck of DianNao.
+
+
+
+
 \newpage
 \section{Conclusion and Outlook}
 
