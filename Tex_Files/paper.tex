@@ -483,20 +483,46 @@ The high level architecture of Dadiannao consist of many nodes arranged in a mes
 	\caption{Block diagram of a node within Dadiannao architecture \cite{chen2014dadiannao}.}
 	\label{fig:NFU_Diagram}
 \end{figure}
-It should be noted that although SRAMs are generally preferred over other types of memory such as DRAM and eDRAM due to the higher speed, their size is limiting factor for them. A typical eDRAM can accommodate more than $2.5\times$ data compared to a SRAM. It should be noted that more storage density is required if parameters of big models are to be stored within chip to avoid external memory access. As a result, eDRAM is selected over SRAM in Dadiannao's proposed design. Refuting the memory bandwidth limitations for for computational units allows for scaling since more inputs and outputs to each neuron can be calculated simultaneously. However, eDRAMs suffer from some drawbacks compared to SRAMs namely, slower response, periodical refreshing requirement, and destructive read that may result in inaccurate values. 
+It should be noted that although SRAMs are generally preferred over other types of memory such as DRAM and eDRAM due to the higher speed, their size is limiting factor for them. A typical eDRAM can accommodate more than $2.5\times$ data compared to a SRAM. It should be noted that more storage density is required if parameters of big models are to be stored within chip to avoid external memory access. As a result, eDRAM is selected over SRAM in Dadiannao's proposed design. Refuting the memory bandwidth limitations for for computational units allows for scaling since more inputs and outputs to each neuron can be calculated simultaneously. However, eDRAMs suffer from some drawbacks compared to SRAMs namely, slower response, periodical refreshing requirement, and destructive read that may result in inaccurate values.\\
 
+In order to exploit high bandwidth within nodes, a tile fashion layout is implemented as shown in figure \ref{fig:tiles}. In this design output neurons are assigned to various tile units. This enables NFUs to process data from multiple neurons in parallel.
+\begin{figure}[h]
+	\includegraphics[scale=0.42]{./images/tiles.png}
+	\centering
+	\caption{Left: Tile implementation of a node. Right: Layout of unit inside a tile. \cite{chen2014dadiannao}.}
+	\label{fig:tiles}
+\end{figure}
 
+Tiles in figure \ref{fig:tiles} are connected to two eDRAM reservoirs in the middle, one for input neurons from tiles and one for output neurons. It should be noted that even though there are many tiles and NFUs in a node, the number of neurons in a typical deep learning architecture is much more to be a one to one relationship between NFUs and neurons. As a result, each NFU has the job of calculating many neuron outputs. 
 
+\subsection*{Experimental Results}
+In this part we present the performance and energy consumption Dadiannao. In figure \ref{fig:diannao_speedup}, performance of Dadiannao in the training mode is compared against its NVIDIA K20M GPU implementation counterpart.
+\begin{figure}[h]
+	\includegraphics[scale=0.45]{./images/dadiannao_speedup.png}
+	\centering
+	\caption{Speedup of Dadiannao/GPU for various types of layers. CONV1 and fullNN layers require at least 4 nodes. CONV3* and CONV4* need at least 36 nodes to operate\cite{chen2014dadiannao}.}
+	\label{fig:dadiannao_speedup}
+\end{figure}
 
+Figure \ref{fig:dadiannao_speedup} shows that Dadiannao could reach a speedup of more than 100 over the GPU system in almost all types of layers. The speedup is even higher up to more than 2000 for the CONV1 and CONV2 layers. It should be noted that the size of CONV3* and CONV4* layers (which have private kernels) is relatively large in the range of GB. As a result, the performance of these layers can only be measured of on a more than 36-node arrangement. The fullNN layer, which is a fully connected layer also accounts for more than 50M synaptic connections and hence cannot be implemented on a system with only 1 node. Generally speaking, average speedup of $21.38\times,$ $79.81\times,$ $216.72\times,$and $450.65\times$ is reported for Dadiannao over GPU for 1-node, 4-node, 16-node, and 64-node configurations, respectively. However, the speedup and scaling of various types of layers are wildly different due to the inherent characteristics of each type of layer.\\
 
-\newpage
-\section{Conclusion and Outlook}
+Similarly, the performance of Dadiannao against GPU baseline in evaluated from energy point of view. Figures \ref{fig:dadiannao_training} and \ref{fig:dadiannao_inference} depict these performance analysis for both training and inference modes. In the training mode the energy reduction rates against the GPU baseline are $172.39\times,$ $180.42\times,$ $142.59\times,$ and $66.94\times$ for the 1-node, 4-node, 16-node, and 64-node respectively. The energy reduction number reported in the inference mode is even higher. In the inference mode, the energy reduction for the 1-node, 4-node, 16-node, and 64-node configuration is $330.56\times,$ $323.74\times,$ $270.04\times$, and $150.31\times,$ respectively.
 
-\subsubsection*{Acknowledgments}
-...
+\begin{figure}[!htb]
+	\includegraphics[scale=0.45]{./images/dadiannao_training.png}
+	\centering
+	\caption{Comparison of energy reduction of Dadiannao against GPU in the training mode\cite{chen2014dadiannao}.}
+	\label{fig:dadiannao_training}
+\end{figure}
+\begin{figure}[!htb]
+	\includegraphics[scale=0.45]{./images/dadiannao_inference.png}
+	\centering
+	\caption{Comparison of energy reduction of Dadiannao against GPU in the inference mode\cite{chen2014dadiannao}.}
+	\label{fig:dadiannao_inference}
+\end{figure}
 
-In the bibliography, use \texttt{\textbackslash textsuperscript} for ``st'', ``nd'', ...:
-E.g., \enquote{The 2\textsuperscript{nd} conference on examples}.
+\section*{Conclusion and Outlook}
+Machine learning and deep learning  have already become a part of our lives that we even do not notice them anymore. From search engines, voice recognition systems in our phones, and self-driving cars, all the way to commercial and financial analytics, they all benefit from machine learning and deep learning. With the help of fast CPUs and GPUs, training of models within machine learning and deep learning frame encountered a huge boost in the recent past. However, it seems that the future attempts to guarantee the the scalability of such systems should be focused on designing specialized software and hardware frameworks tailored to these applications such as project Adam by Microsoft and Dadiannao supercomputer. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{splncs03}
