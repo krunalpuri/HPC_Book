@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 JAN 2016 10:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 JAN 2016 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -732,13 +732,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--173
  []
 
 [3 <./images/Ecosystems.png>] [4]
-Overfull \hbox (1.61305pt too wide) in paragraph at lines 187--188
+Overfull \hbox (2.30305pt too wide) in paragraph at lines 188--189
  []\T1/clm2/bx/n/10 High Per-for-mance Big Data Sys-tem (HPBDS) project [[]][] 
 \T1/clm2/m/n/10 (-20) : The HPBDS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
@@ -746,217 +746,305 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--188
 File: ./images/MIDASSPIDAL.png Graphic file (type png)
 
 <use ./images/MIDASSPIDAL.png>
-Package pdftex.def Info: ./images/MIDASSPIDAL.png used on input line 191.
+Package pdftex.def Info: ./images/MIDASSPIDAL.png used on input line 192.
 (pdftex.def)             Requested size: 239.64473pt x 143.78683pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
 [5 <./images/MIDASSPIDAL.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 207.
+(Font)              <9> on input line 208.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 207.
+(Font)              <6> on input line 208.
  [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+<./images/midas_architecture.png, id=157, 947.54pt x 527.9725pt>
+File: ./images/midas_architecture.png Graphic file (type png)
+
+<use ./images/midas_architecture.png>
+Package pdftex.def Info: ./images/midas_architecture.png used on input line 299
+.
+(pdftex.def)             Requested size: 303.219pt x 168.95465pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--311
+
+ []
+
+[8 <./images/midas_architecture.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
-<./images/data_parallelism.png, id=162, 769.87625pt x 511.9125pt>
+<./images/data_parallelism.png, id=183, 769.87625pt x 511.9125pt>
 File: ./images/data_parallelism.png Graphic file (type png)
 
 <use ./images/data_parallelism.png>
-Package pdftex.def Info: ./images/data_parallelism.png used on input line 338.
+Package pdftex.def Info: ./images/data_parallelism.png used on input line 367.
 (pdftex.def)             Requested size: 230.96466pt x 153.57494pt.
 
-<./images/model_parallelism.png, id=163, 587.19376pt x 508.90125pt>
+<./images/model_parallelism.png, id=184, 587.19376pt x 508.90125pt>
 File: ./images/model_parallelism.png Graphic file (type png)
 
 <use ./images/model_parallelism.png>
-Package pdftex.def Info: ./images/model_parallelism.png used on input line 345.
+Package pdftex.def Info: ./images/model_parallelism.png used on input line 374.
 
 (pdftex.def)             Requested size: 176.15948pt x 152.67155pt.
- [9 <./images/data_parallelism.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+ [10 <./images/data_parallelism.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
 
-[10 <./images/model_parallelism.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+[11 <./images/model_parallelism.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
 
  []
 
-<./images/adam_parallelization.png, id=192, 762.85pt x 548.0475pt>
+<./images/adam_parallelization.png, id=214, 762.85pt x 548.0475pt>
 File: ./images/adam_parallelization.png Graphic file (type png)
 
 <use ./images/adam_parallelization.png>
 Package pdftex.def Info: ./images/adam_parallelization.png used on input line 3
-62.
+91.
 (pdftex.def)             Requested size: 228.85677pt x 164.41551pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 
  []
 
-[11 <./images/adam_parallelization.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 370--371
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+[12 <./images/adam_parallelization.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 399--400
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
 
-<./images/adam_global_param_server.png, id=214, 602.25pt x 561.09625pt>
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
+
+ []
+
+<./images/adam_global_param_server.png, id=236, 602.25pt x 561.09625pt>
 File: ./images/adam_global_param_server.png Graphic file (type png)
 
 <use ./images/adam_global_param_server.png>
 Package pdftex.def Info: ./images/adam_global_param_server.png used on input li
-ne 388.
+ne 417.
 (pdftex.def)             Requested size: 252.94327pt x 235.65881pt.
- [13 <./images/adam_global_param_server.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+ [14 <./images/adam_global_param_server.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--424
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 446--447
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
 
  []
 
-<./images/diannao.png, id=255, 688.5725pt x 415.5525pt>
+<./images/diannao.png, id=276, 688.5725pt x 415.5525pt>
 File: ./images/diannao.png Graphic file (type png)
 
 <use ./images/diannao.png>
-Package pdftex.def Info: ./images/diannao.png used on input line 458.
+Package pdftex.def Info: ./images/diannao.png used on input line 487.
 (pdftex.def)             Requested size: 289.19847pt x 174.53085pt.
 
-<./images/diannao_speedup.png, id=259, 786.94pt x 356.33125pt>
+<./images/diannao_speedup.png, id=280, 786.94pt x 356.33125pt>
 File: ./images/diannao_speedup.png Graphic file (type png)
 
 <use ./images/diannao_speedup.png>
-Package pdftex.def Info: ./images/diannao_speedup.png used on input line 465.
+Package pdftex.def Info: ./images/diannao_speedup.png used on input line 494.
 (pdftex.def)             Requested size: 330.51254pt x 149.6581pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15] [16 <./images/diannao.png> <./images/diannao_speedup.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+[16] [17 <./images/diannao.png> <./images/diannao_speedup.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
-<./images/NFU_diagram.png, id=289, 608.2725pt x 400.49625pt>
+<./images/NFU_diagram.png, id=310, 608.2725pt x 400.49625pt>
 File: ./images/NFU_diagram.png Graphic file (type png)
 
 <use ./images/NFU_diagram.png>
-Package pdftex.def Info: ./images/NFU_diagram.png used on input line 481.
+Package pdftex.def Info: ./images/NFU_diagram.png used on input line 510.
 (pdftex.def)             Requested size: 255.47272pt x 168.20728pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--487
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
 
  []
 
-<./images/tiles.png, id=293, 807.015pt x 334.24875pt>
+<./images/tiles.png, id=314, 807.015pt x 334.24875pt>
 File: ./images/tiles.png Graphic file (type png)
  <use ./images/tiles.png>
-Package pdftex.def Info: ./images/tiles.png used on input line 490.
+Package pdftex.def Info: ./images/tiles.png used on input line 519.
 (pdftex.def)             Requested size: 338.94398pt x 140.38351pt.
 
-[17] <./images/dadiannao_speedup.png, id=306, 785.93625pt x 352.31625pt>
+[18] <./images/dadiannao_speedup.png, id=327, 785.93625pt x 352.31625pt>
 File: ./images/dadiannao_speedup.png Graphic file (type png)
 
 <use ./images/dadiannao_speedup.png>
-Package pdftex.def Info: ./images/dadiannao_speedup.png used on input line 501.
+Package pdftex.def Info: ./images/dadiannao_speedup.png used on input line 530.
 
 (pdftex.def)             Requested size: 353.66805pt x 158.54083pt.
 
-Overfull \hbox (6.54451pt too wide) in paragraph at lines 501--503
+Overfull \hbox (6.54451pt too wide) in paragraph at lines 530--532
  [][] 
  []
 
-[18 <./images/NFU_diagram.png> <./images/tiles.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+[19 <./images/NFU_diagram.png> <./images/tiles.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 
  []
 
-<./images/dadiannao_training.png, id=321, 787.94376pt x 357.335pt>
+<./images/dadiannao_training.png, id=343, 787.94376pt x 357.335pt>
 File: ./images/dadiannao_training.png Graphic file (type png)
 
 <use ./images/dadiannao_training.png>
-Package pdftex.def Info: ./images/dadiannao_training.png used on input line 512
+Package pdftex.def Info: ./images/dadiannao_training.png used on input line 541
 .
 (pdftex.def)             Requested size: 354.57141pt x 160.79926pt.
 
-Overfull \hbox (7.44788pt too wide) in paragraph at lines 512--514
+Overfull \hbox (7.44788pt too wide) in paragraph at lines 541--543
  [][] 
  []
 
-<./images/dadiannao_inference.png, id=326, 779.91376pt x 351.3125pt>
+<./images/dadiannao_inference.png, id=348, 779.91376pt x 351.3125pt>
 File: ./images/dadiannao_inference.png Graphic file (type png)
 
 <use ./images/dadiannao_inference.png>
-Package pdftex.def Info: ./images/dadiannao_inference.png used on input line 51
-8.
+Package pdftex.def Info: ./images/dadiannao_inference.png used on input line 54
+7.
 (pdftex.def)             Requested size: 350.95795pt x 158.08916pt.
 
-Overfull \hbox (3.83441pt too wide) in paragraph at lines 518--520
+Overfull \hbox (3.83441pt too wide) in paragraph at lines 547--549
  [][] 
  []
 
-[19 <./images/dadiannao_speedup.png>] (./paper.bbl [20 <./images/dadiannao_trai
-ning.png> <./images/dadiannao_inference.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--556
+
+ []
+
+[20 <./images/dadiannao_speedup.png>] [21 <./images/dadiannao_training.png> <./
+images/dadiannao_inference.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 557--559
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--563
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 578--580
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 583--584
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--634
+
+ []
+
+[26] (./paper.bbl
 LaTeX Font Info:    Try loading font information for T1+clm2v on input line 7.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/cfr-lm/t1clm2v.fd
@@ -966,23 +1054,23 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `clm2v' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [21] [22])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 534.
+ [27] [28])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 645.
 
-[23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 534.
+[29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 645.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 534.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 534.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 645.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 645.
  ) 
 Here is how much of TeX's memory you used:
- 11950 strings out of 493089
- 191239 string characters out of 6134842
+ 12010 strings out of 493089
+ 191960 string characters out of 6134842
  350767 words of memory out of 5000000
- 14850 multiletter control sequences out of 15000+600000
- 64645 words of font info for 258 fonts, out of 8000000 for 9000
+ 14857 multiletter control sequences out of 15000+600000
+ 65109 words of font info for 270 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 34i,11n,55p,1122b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,11n,55p,1122b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cfr-lm/dotdigits-clm.enc}
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cfr-lm/t1-clm.enc}{/usr/loc
 al/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive
@@ -996,10 +1084,10 @@ ive/2015/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2015/texmf-dist/fon
 ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
 ublic/lm/lmvtt10.pfb>
-Output written on paper.pdf (23 pages, 1611171 bytes).
+Output written on paper.pdf (29 pages, 1760880 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
- 310 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
- 20039 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 528 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 20044 words of extra memory for PDF output out of 20736 (max. 10000000)
 

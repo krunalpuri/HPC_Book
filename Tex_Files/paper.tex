@@ -184,6 +184,7 @@ In this section we will review some of the state of the art researches and proje
 \end{enumerate}
 \subsection{Integration of HPC and Big Data stack}
 Big Data and HPC used to be used interchangeably for many years. But, with HPC targeting scientific problems with huge number of iterations, and Big Data aiming for relatively simple model on huge datasets, it seems they diverged for a while. As the rate of data generation increase, deployment of HPC tools and techniques seem more and more inevitable. Following projects are some of the state of the arts in combining HPC and Big Data stack.
+
 \subsubsection{High Performance Big Data System (HPBDS) project \cite{qiu2014towards}}: The HPBDS project aims for integrating some of the components of the HPC such as scientific libraries, fast communication and resource management features with commercial Big Data ecosystem namely, ABDS.\\
 
 The primary proposed execution of HPBDS is built around Apache Hadoop and therefore named High Performance Computing Big Data Stack (HPC-ABDS). The HPC-ABDS comprise two sub-project,
@@ -281,6 +282,34 @@ Based on the the tabulated results od the table \ref{table:NIST_vs_ogres}, Qiu e
 	\label{table:NIST_5_Programming_model}
 \end{table}
 
+SPIDAL project will take advantage of the characteristics identified by analyzing NIST uses cases and programming models in Table \ref{table:NIST_5_Programming_model} to build higher level abstractions based on the middleware analytic tools proposed by MIDAS. In the following parts of this section we introduce the algorithms introduced by SPIDAL and MIDAS.
+\subsection*{Scalable Parallel Interoperable Data-Analytics Library (SPIDAL) }
+\begin{enumerate}
+	\item Graph and Network Algorithms
+	\item Spacial Queries and Spacial Analytics
+	\item Image Processing
+	\item Machine learning
+\end{enumerate}
+
+\subsection*{Middleware for Data Intensive Analytics and Science (MIDAS)}
+
+MIDAS is proposed to enable a lower abstraction level, which include run time and resource management systems for SPIDAL. We now know from analysis of big data ogres and NIST use cases that big data application vary widely in requirements and characteristics. Therefore, different programming models and parallel approaches should be considered dealing with each type of problems. With this in mind, MIDAS has targeted two major objectives. First, a high abstraction level environment that supports querying and analysis via HPC and big data tools such as SLURM and YARN as schedulers. Secondly, provide a middleware that support the four of the identified programming models in table \ref{table:NIST_5_Programming_model} namely, Pleasingly Parallel, Classic MapReduce, Iterative Map with Collectives, and Iterative Map Communication. Figure \ref{fig:MIDAS_ARCH} depicts the layered architecture of MIDAS.
+
+\begin{figure}[!htp]
+	\includegraphics[scale=0.32]{./images/midas_architecture.png}
+	\centering
+	\caption{MIDAS architecture digram, where lower layers provide support for the top level tools \cite{qiu2014towards}.}
+	\label{fig:MIDAS_ARCH}
+\end{figure}
+
+It can be seen from figure \ref{fig:MIDAS_ARCH} that many abstraction layers has been proposed to support mentioned programming models. For instance, in applications that better suit the iterative MapReduce, most operations are collective and MPI would perform better compared to MapReduce techniques. In contrast, graph processing application require more point to point communications.\\
+%
+%\subsection{Big Data at HPC Wales \cite{kashyap2015big}.}
+%In a parallel approach to take advantage of computing power of supercomputers along with Hadoop's capabilities in managing distributed resources, HPC Wales launched the Big Data at HPC Wales project. The project exploits YARN to couple with HPC tasks, which conventionally would use MPI, OpenMP, CUDA, etc.\\
+%
+% HPC Wales is a supercomputing center with around 17,000 cores distributed % in six campuses. The Big Data at HPC Wales proposed architecture tries to % take advantage of best of the two worlds of HPC and ABDS. The proposed % architecture is based on a series of design choices as follows.
+
+%%\textbf{Job Scheduling:} An API enabled to understand multiple languages takes the job submission enabling non-HPC Wales users to submit jobs
 
 \newpage
 \subsection{Machine Learning and HPC}
@@ -522,9 +551,91 @@ Similarly, the performance of Dadiannao against GPU baseline in evaluated from e
 \end{figure}
 
 \section*{Conclusion and Outlook}
-Machine learning and deep learning  have already become a part of our lives that we even do not notice them anymore. From search engines, voice recognition systems in our phones, and self-driving cars, all the way to commercial and financial analytics, they all benefit from machine learning and deep learning. With the help of fast CPUs and GPUs, training of models within machine learning and deep learning frame encountered a huge boost in the recent past. However, it seems that the future attempts to guarantee the the scalability of such systems should be focused on designing specialized software and hardware frameworks tailored to these applications such as project Adam by Microsoft and Dadiannao supercomputer. 
+Machine learning and deep learning  have already become a part of our lives that we even do not notice them anymore. From search engines, voice recognition systems in our phones, and self-driving cars, all the way to commercial and financial analytics, they all benefit from machine learning and deep learning. With the help of fast CPUs and GPUs, training of models within machine learning and deep learning frame encountered a huge boost in the recent past. However, it seems that the future attempts to guarantee the the scalability of such systems should be focused on designing specialized software and hardware frameworks tailored to these applications such as project Adam and Dadiannao supercomputer.\\
+%%%%%%% KRUNAL ADDED
+\subsection{Parallel Databases}
+Although the idea of parallel database system was refuted by a paper prophesying demise of database machine in 1983 but that did not stop the adoption of parallel database. Companies like Teradata, Tandem and many other startup companies pioneered a path for successful parallel database systems. The success of parallel database is accorded to wide adoption of relational model which favors the idea of parallel dataflow graph leading to pipelined parallelism and partitioned parallelism.(Explain if necessary) (Ten years later a paper from Dewitt explains how parallel database system would be the future of high performance database systems). With the advances in high speed interconnect network, the client-server operating system gave much higher performance over price than its mainframe equivalent.
+A parallel database system can be classified based on the terms of how data is shared amongst multiprocessor system i.e. shared-memory, shared-disk or shared-nothing.\\
+
+By the early 90's, it was clear that shared-nothing architecture along with conventional processor, memories and disk would be the future of scalable parallel and distributed system. Linear speedup and linear scaleup are two characteristics of an ideal parallel database system. (Add definition for both if necessary) .But usually a sub optimal speedup and scaleup is observed due to these three issues: startup, interference and skew (definition)
+SQL language was introduced by Codd, in his historic paper, to support data independence and boost programmer's productivity by separating execution logic from query itself. However, it came along with added benefits of parallelism, making it possible to represent each relational operator on a data flow graph and dividing data into a parallel data streams for partitioning. There are several partitioning strategies like round-robin, hash, range partitioning etc.
+Although, there is a heated argument about the performance benefits of using a Map Reduce system against the parallel DBMS system, former has been widely adopted because it offers better performance with complex queries on unstructured data.\\
+
+
+High performance computing systems have high speed network, parallel file systems and diskless nodes while Big data analytics research has evolved from an increasing demand for extracting knowledge from large data set on a big and small cluster with low speed network with each node having its own local file system and a disk. For example, Lustre file system is widely used in HPC environment whereas Hadoop's HDFS is popular for big data analytic applications. The main focus of HPC machine is optimize and exploit the resources, with a parallel file system.\\
+
+During the past decade, several attempts are made to bridge the gap between HPC and Big data analytics giving rise to new terms called High Performance Data Analysis. In next section, we would be discussing about the different research that has been propelled towards having an amalgamation of these two giants that have been on different track so far.
+
+\subsection{Project SCOPE}
+Structure Computation Optimization for Parallel Execution (Scope) is a distributed computing system, that incorporates best characteristics of traditional parallel database system and map reduce execution engine like scalability and robust implementation. It is being used in many of the online service from Microsoft like Bing. A physical execution plan containing a directed acyclic graph are crafted from a script by a Cascade framework based optimizer.  Like MapReduce, a Job Manager provides fault tolerance and recovery and at the same time a declarative scripting language similar to SQL that provides abstraction and highly extensibility through user defined functions and relational operations.\\
+
+\subsection*{SCOPE Platform Architecture}
+Storage and analysis of large scale data sets is performed on a distributed data platform called COSMOS which provides data replication and meta-data for fault tolerance. Each server has a direct attached disk storage disks that contains a distributed data. End to end on disk data for reliability by checks for corrupt and stale data periodically before it's utilized by the system. For performance, each job is divided into a sub jobs of computation and distributed among huge among of CPU's and storage devices.\\
+
+Writes are always append-only and serialization is used for concurrent writes. The storage system consist of a physical partitions called extends, which are the unit of space allocation and replication, typically of few 100 MB size. Application extends, often compressed and decompressed at client side, contains application-defined records and define a block boundary. Local as well as remote read and write are enabled through high-bandwidth network. Directed acyclic graph (DAG) are used for modeling a query plan. Job submission and management, job queue monitoring, interoperability, job status tracking, error reporting and transferring data in and out of COSMOS are provided through an interface from front-end services.\\
+
+\subsection*{Data Representations-Streams}
+It supports both structure and unstructured stream.
+Unstructured stream are defined as a logical sequence of bytes that requires an extractor for users to interpret it. An extractor defines the schema and iterator interface for transforming the data. It also provides an outputters that writes output in an unstructured streams.\\
+
+Structured stream are handled by build-in function that allow an unvarying access time by storing data with into different schemas which are self-contained, that is, with rich metadata information such as schemas, structural properties and access method. \\
+
+Usually these data are horizontally portioned with different schemes like hash and range partitioning. Each structural stream can consist of several physical extents which allows effective replication and fault tolerance. Data is stored based on store affinity that assigs affinity id, with each affinity group having same id. Storage priority is given first at same machine level, if the storage is full then at same rank and then at next close rank[KP1].\\
+
+Another optimization to improve performance is stream references, in this technique the output stream is referenced with another corresponding partition based on affinity id based on the storage priority shown above. Some other features are Indexing for random access, column group for vertical partitioning.\\
+
+\subsection*{Query Language for Scope}
+SCOPE query language resembles SQL and has many SQL-like extensions that enable users to separate application logic from underline implementation on a distributed system. For unstructured stream, it provides personalized commands for EXTRACT and OUTPUT, for reading from source and writing data to a sink. Structure stream removes the constraints of specifying columns because it is already contained in the stream metadata during compilation. Reference clause can be used to specify affinity of output to another stream. REDUCE command can be replaced by adding an optional PRESORT and PRODUCE clause.
+
+\subsection*{Query compilation and optimization}
+Diagram: COMPILATION OF SCOPE SCRIPT
+
+\subsection*{Code Generation and Runtime Engine}
+SCOPE runtime engine supports all the relational operators along with build in and optimized UDOs like DefaultTextExtractor and DefaultTextOutputter. Simple functions like open, next and close are performed by operator which inherently supports pipelining of these operators.  The runtime engine, after optimization, generates a physical execution tree by doing these tasks:
+\begin{enumerate}
+	\item The whole plan is analyzed to produce corresponding codes for operator based on the internal operator template.
+	\item  Output tree is partitioned at exchanges and spool operators to generate a super vertex that contains a series of physical exchanges.
+	\item Break large super vertex into smaller ones to avoid skew delay due to longer execution time.
+	\item An assembly is made by compiling all the generated code into it and the entry functions for each super vertex is written into super vertex definition.
+	\item Each super-vertex is schedule to execute on a single machine.
+	\item Like traditional db system, a queue of additional super vertices are maintained through admission control technique when all resources are allocated.
+\end{enumerate}
+
+Compilation script output consist of three components:
+\begin{enumerate}
+	\item Algebra file: Enumeration of all super-vertex and the data flow relationship between them.
+	\item Super vertex definition file: Specification and entry point in the generated code for all super vertex.
+	\item Assembly: Contains the generated code.
+\end{enumerate}
+
+\subsection*{Execusion Model}
+Similar to MapReduce, SCOPE implements a pull execution model. Super vertex, reads data either locally or remotely, are executed in a pipelined fashion with an end result written to a local disk and waiting for the next vertex to pull data. It contrast with the execution model of parallel database which transfer intermediate data directly without any disk access. However, pull execution model has an advantage that both parties involved in data exchange need not run simultaneously and the data can be recovered from disk on failure.
+
+\subsection*{Runtime Data Exchange}
+Since shuffling of data is the most expensive part considering the network overhead, SCOPE runtime provided many partitioning and merge operators.
+Hash partitioning
+Range partitioning
+
+\subsection*{Job Scheduling}
+SCOPE's job manager is an adaption from Dryad, which takes care of job graph and resource scheduling on clusters. DAG of super vertices is scheduled to execute separately on different machines. Vertices are classified into different stages by Job manager and all the vertices in a single stage perform same task.  Data storage and computation can be performed by all the machine.\\
+\subsection*{Diagram SCOPE job scheduling}
+Local system resources are maintained by processing node services and it schedules execution of local vertices along with monitoring state of a job. Based on available resources and priorities it generates process on behalf of Job managers and maintains a local queues of vertex execution request from different Job manager. It stores the assembly of vertex in a cache and uses it if the vertex is executed again.\\
+
+An initial DAF is formed, when the job begins, to oversee relationship among different vertex. According to execution results and variation in system environment, the job graph is dynamically adapts itself. Resource availability and vertex priority defines the actual vertex scheduling order and it's the task of Job Manager to notify any vertex execution failure.
+
+\subsection*{Runtime optimization}
+
+Stil working on these parts
+
+\subsection*{Adaptive Hybrid OLAP Architecture}
+OLAP (Online Analytic processing) has a fundamental structure of a data cube which consist of multi-dimensional data that enables user to explore relation between different more one than one dimensional data. An adaptive hybrid OLAP architecture is proposed in [] to exploit different memory subsystem and memory access patterns of CPU and GPU.  In multidimensional OLAP cube (MOLAP) data is preprocessed during the cube creation time and due 0to its sparsity and huge size its more suitable to be processed on host (CPU) keeping in mind the NUMA(Non uniform memory access) architecture.\\
+
+However, GPU's architecture is suitable to processes relational OLAP (ROLAP) cube which is created by manipulating data to appear like traditional OLAP with slicing and dicing functionality.\\
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \bibliographystyle{splncs03}
 \bibliography{paper_2.bib}
 
