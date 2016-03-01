@@ -3,6 +3,7 @@
 \usepackage[american]{babel}
 
 \usepackage{graphicx}
+\usepackage{lipsum}
 
 %extended enumerate, such as \begin{compactenum}
 \usepackage{paralist}
@@ -153,14 +154,27 @@ In order to answer the above questions we first may need to identify the workloa
 Over the past decade, the rate of data generation has dramatically increased. As a result, we saw the emergence of data-intensive applications to solve a range of problems from data  distribution and management to data processing. The open-source Apache Big Data Stack with it's Hadoop Data File System (HDFS) kernel and many higher abstraction level frameworks for data analytics and machine learning has provided a coherent ecosystem, which has dominated the industry.\\
 
 In contrast, HPC with roots in computational intensive scientific computing, has mainly been applied and fine-tuned for particular problems, which resulted in significantly more limited implementations compared to ABDS.
+
+Figure \ref*{fig:bigdata_hpc_ecosystem} depicts the HPC and Big Data ecosystems from many abstraction level view. The lowest layers are the resources, resource management, and communication layers. The higher layers comprise of processing and analytical components. In remaining parts of this section we compare current typical HPC and Big Data architectures and their respective ecosystems.
+\newpage
+\subsection{Big Data Ecosystem}
+\lipsum[1]
+
+
+\subsubsection*{ABDS Architectures}
+The Apache Big Data Stack is formed around the Hadoop Distributed File System (HDFS), which originated at Yahoo but is an open source implementation of Google's file system \cite{shvachko2010hadoop} \cite{ghemawat2003google}. As we know now, the idea behind ABDS was to bring the computation to data, which is usually stored at cheap commodity hardware. Hadoop 1.0 also took advantage of Google's MapReduce programming model for data processing. MapReduce imposes it's own limitations since all processes is forced to be implemented in the form of a mapper followed by a reducer. MapReduce's inherent limitations along with tight coupling of Hadoop and MapReduce proved to be inflexible when used in applications such as iterative computations, which is an indispensable piece of all Machine Learning algorithms.\\
+
 \begin{figure}
 	\includegraphics[scale=0.33]{./images/Ecosystems.png}
 	\centering
 	\caption{Apache Big Data Stack (ABDS) ecosystem vs. High Performance Computing (HPC) ecosystem \cite{Jha2014}.}
 	\label{fig:bigdata_hpc_ecosystem}
 \end{figure}
-Figure \ref*{fig:bigdata_hpc_ecosystem} depicts the HPC and Big Data ecosystems from many abstraction level view. The lowest layers are the resources, resource management, and communication layers. The higher layers comprise of processing and analytical components. In remaining parts of this section we compare current typical HPC and Big Data architectures and their respective ecosystems.
-\subsection{HPC Architecture}
+
+As a result of such deficits in Hadoop 1.0, Apache YARN was introduced with Hadoop 2.0 as a much more lenient resource manager, enabling many applications and frameworks with higher level abstractions \cite{vavilapalli2013apache}. YARN's key feature was introduction multi-level scheduling, which would allow higher level applications to schedule their own processes. As a results we saw the emerge of many high level applications such as, HBase, a column based distributed database, Spark, Giraph, which are iterative and graph processing applications\cite{borthakur2011apache}\cite{zaharia2012resilient}.
+\newpage
+\newpage
+\subsection{HPC Ecosystem}
 A typical HPC architecture consists of processing units such a multi-core structures, possibly accelerated by GPUs, FPGAs, or even CPUs such as intel Xeon Phi. These processing units are supported by local storage units with Lustre \cite{braam2004lustre} or General Parallel File System (GPFS) \cite{FrankSchmuck} file system or a remote storage connected through a fast network such as Infiniband.\\
 
 Lustre and GPFS are parallel file systems designed mainly for clusters. Lustre, which combines the words Linux and Cluster is generally accepted as the file system with scalability for large scale cluster computing. Due to its high performance it has been continuously used by top supercomputers. On the other hand GPFS introduced by IBM and adopted by many of the biggest companies all around the word. GPFS have it roots in academic grounds and its scalability is a matter of question. Storage resources in HPC are managed by storage management unit such as integrated Rule-Oriented Data-management System (iRODS), Storage Resource Manager interface (SRM) \cite{shaun2007storage} \cite{rajasekar2010irods},  Global Federated File System (GFFS) \cite{grimshaw2013gffs}.\\
@@ -168,10 +182,6 @@ Lustre and GPFS are parallel file systems designed mainly for clusters. Lustre, 
 While storage resources are usually shared in applications, computational resources are local. Such local compute resources are managed by their own management units such as Slurm \cite{yoo2003slurm}, Torque \cite{staples2006torque}, and Sun Grid Engine (SGE) \cite{gentzsch2001sun}.
 
 In HPC applications, data need to fly around across network using a low latency communication. These fast interconnect networks along with features such as non-blocking and one-sided communications allow for more data-intensive HPC within HPC environment. As a matter of fact, data-intensive applications are not totally unfamiliar to HPC community. There has been many approaches to implement MapReduce compatible with HPC environment such as MapReduce-MPI \cite{plimpton2011mapreduce}, Pilot-MapReduce \cite{mantha2012pilot}, and Twister for machine learning applications \cite{ekanayake2010twister}.In a parallel effort, there has been many implementations of data intensive loosely coupled tasks at run-time level \cite{luckow2012p}\cite{raicu2008many}\cite{deelman2009workflows}.
-\subsection{ABDS Architectures}
-The Apache Big Data Stack is formed around the Hadoop Distributed File System (HDFS), which originated at Yahoo but is an open source implementation of Google's file system \cite{shvachko2010hadoop} \cite{ghemawat2003google}. As we know now, the idea behind ABDS was to bring the computation to data, which is usually stored at cheap commodity hardware. Hadoop 1.0 also took advantage of Google's MapReduce programming model for data processing. MapReduce imposes it's own limitations since all processes is forced to be implemented in the form of a mapper followed by a reducer. MapReduce's inherent limitations along with tight coupling of Hadoop and MapReduce proved to be inflexible when used in applications such as iterative computations, which is an indispensable piece of all Machine Learning algorithms.\\
-
-As a result of such deficits in Hadoop 1.0, Apache YARN was introduced with Hadoop 2.0 as a much more lenient resource manager, enabling many applications and frameworks with higher level abstractions \cite{vavilapalli2013apache}. YARN's key feature was introduction multi-level scheduling, which would allow higher level applications to schedule their own processes. As a results we saw the emerge of many high level applications such as, HBase, a column based distributed database, Spark, Giraph, which are iterative and graph processing applications\cite{borthakur2011apache}\cite{zaharia2012resilient}.
 \newpage
 \section{State of the art projects}
 In this section we will review some of the state of the art researches and projects within HPC-Big Data domains. We categorized these project under four class of research topics, namely,
@@ -179,7 +189,6 @@ In this section we will review some of the state of the art researches and proje
 	\item Integration of HPC and ABDS stack
 	\item Machine Learning (ML) using HPC
 	\item Parallel databases
-	\item Parallel I/O
 	
 \end{enumerate}
 \subsection{Integration of HPC and Big Data stack}
@@ -310,7 +319,14 @@ It can be seen from figure \ref{fig:MIDAS_ARCH} that many abstraction layers has
 % HPC Wales is a supercomputing center with around 17,000 cores distributed % in six campuses. The Big Data at HPC Wales proposed architecture tries to % take advantage of best of the two worlds of HPC and ABDS. The proposed % architecture is based on a series of design choices as follows.
 
 %%\textbf{Job Scheduling:} An API enabled to understand multiple languages takes the job submission enabling non-HPC Wales users to submit jobs
+\newpage
+\subsubsection{RDMA-enabled interconnects for Big Data applications}.
+\\
+\lipsum[1]
 
+\subsubsection{MARIANE:MapReduce Implementation Adapted for HPC Environment}.
+\\
+\lipsum[1]
 \newpage
 \subsection{Machine Learning and HPC}
 Traditionally the words Machine Learning and HPC would imply two separate worlds with distinct border. But, over the past decade areas of AI such as machine learning and training neural networks of deep learning have found their ways through HPC world.\\
@@ -379,6 +395,25 @@ In a similar manner, in model parallelization scheme, models are cut into smalle
 
 There are many primary questions to be addressed when thinking about integration of machine learning and HPC. Questions such as, aside from accelerating machine learning applications with GPUs and FPGAs, is traditional HPC ready to be the drive force behind data savvy machine learning applications? Are current top 500 supercomputers capable of powering new AI era of machine learning and deep learning? From software point of view, does conventional HPC require extensive modification to deal with mostly correlated data variables in machine learning application?
 In the remaining of this section we will briefly introduce some of the ongoing researches and projects concentrated empowering machine learning with HPC medium.
+\newpage
+\subsection*{IBM Watson for Data Analytics} %NEEDS PARAPHRASING
+IBM has announced the upcoming release of a cloud-based Watson Analytics service that promises to streamline and simplify the data-analysis process for untrained business users. Business people want to make data-driven decisions, but between the complexities of data acquisition and data cleansing, on the one hand, and the profusion of data-analysis and data-visualization methods on the other, it's just way too hard for many, according to IBM. Watson Analytics is aimed at eliminating these barriers.\\
+
+Watson cognitive computing technology provides a natural-language-savvy interface to what's described as an end-to-end data-analysis workflow. Behind the scenes, IBM is employing multiple technologies from its vast data-management and analytics portfolio:
+
+\begin{itemize}
+	\item InfoSphere Data Refinery services are used to assess data sources and automatically suggest data corrections that users can accept or decline.
+	\item Catalyst Engine technologies rooted in IBM SPSS analytics automatically find correlations between data sets and relevant trends in data, helping business users to understand the information and select predictive analyses.
+	\item Project Neo technologies from IBM Labs automatically suggest appropriate data visualizations to make sense of the data.
+	\item IBM Concert technologies evolved out of TM1 performance-management software supports collaborative decision making around visualizations and dashboards.
+\end{itemize}
+
+Watson Analytics is a cloud-based service, so there's nothing to download. "You start by uploading files, and then you either explore the data, type in specific questions, or apply use-case story templates we're creating for common sales, marketing, HR, and operational scenarios," said Eric Sall, IBM's VP of marketing, Business Analytics, in an interview with InformationWeek.\\
+
+The Watson Analytics service is not confined to specific types of problems, nor does it require the kind of training often associated with Watson deployments, according to Sall. The service will start with free use for individuals who will have access to all data-refining, predictive, visual-analysis, and collaborative capabilities. Premium users will be able to analyze higher volumes of data and more data sources, including live links to sources such as data warehouses and cloud sources.\\
+
+The new service will soon enter a public beta period, so it has yet to be tested in real-world scenarios. But Watson Analytics was demonstrated in a variety of analysis scenarios at an event in New York on Tuesday. "Story" starting points shown included improving e-commerce performance, optimizing marketing campaigns, retaining employees, predicting retail purchases by segment, and finding patterns in sales wins and losses, among others.  
+
 
 \subsection*{Project Adam: Building an Efficient and Scalable Deep Learning Training System \cite{chilimbi2014project}}
 In 2012 Google announced that they have trained an unsupervised image recognition neural network with 1 billion connections using 10 million training images, which can recognize cats from Youtube videos. Their training system consisted of a cluster of 1,000 computers with an aggregate of 16,000 cores \cite{le2013building}.\\
@@ -561,12 +596,12 @@ By the early 90's, it was clear that shared-nothing architecture along with conv
 SQL language was introduced by Codd, in his historic paper, to support data independence and boost programmer's productivity by separating execution logic from query itself. However, it came along with added benefits of parallelism, making it possible to represent each relational operator on a data flow graph and dividing data into a parallel data streams for partitioning. There are several partitioning strategies like round-robin, hash, range partitioning etc.
 Although, there is a heated argument about the performance benefits of using a Map Reduce system against the parallel DBMS system, former has been widely adopted because it offers better performance with complex queries on unstructured data.\\
 
-
+\subsubsection{Massively Parallel Databases and Map/Reduce Systems.}
 High performance computing systems have high speed network, parallel file systems and diskless nodes while Big data analytics research has evolved from an increasing demand for extracting knowledge from large data set on a big and small cluster with low speed network with each node having its own local file system and a disk. For example, Lustre file system is widely used in HPC environment whereas Hadoop's HDFS is popular for big data analytic applications. The main focus of HPC machine is optimize and exploit the resources, with a parallel file system.\\
 
 During the past decade, several attempts are made to bridge the gap between HPC and Big data analytics giving rise to new terms called High Performance Data Analysis. In next section, we would be discussing about the different research that has been propelled towards having an amalgamation of these two giants that have been on different track so far.
 
-\subsection{Project SCOPE}
+\subsubsection{Project SCOPE: Parallel databases meet Map/Reduce}
 Structure Computation Optimization for Parallel Execution (Scope) is a distributed computing system, that incorporates best characteristics of traditional parallel database system and map reduce execution engine like scalability and robust implementation. It is being used in many of the online service from Microsoft like Bing. A physical execution plan containing a directed acyclic graph are crafted from a script by a Cascade framework based optimizer.  Like MapReduce, a Job Manager provides fault tolerance and recovery and at the same time a declarative scripting language similar to SQL that provides abstraction and highly extensibility through user defined functions and relational operations.\\
 
 \subsection*{SCOPE Platform Architecture}
@@ -631,8 +666,10 @@ Stil working on these parts
 OLAP (Online Analytic processing) has a fundamental structure of a data cube which consist of multi-dimensional data that enables user to explore relation between different more one than one dimensional data. An adaptive hybrid OLAP architecture is proposed in [] to exploit different memory subsystem and memory access patterns of CPU and GPU.  In multidimensional OLAP cube (MOLAP) data is preprocessed during the cube creation time and due 0to its sparsity and huge size its more suitable to be processed on host (CPU) keeping in mind the NUMA(Non uniform memory access) architecture.\\
 
 However, GPU's architecture is suitable to processes relational OLAP (ROLAP) cube which is created by manipulating data to appear like traditional OLAP with slicing and dicing functionality.\\
-
-
+\newpage
+\subsubsection{Adaptive Hybrid OLAP Architecture with optimized memory access patters}.
+\\
+\lipsum[1]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
