@@ -1,0 +1,51 @@
+\begin{table}
+	\centering
+	\caption{Categories of the NIST use cases.}
+	\begin{tabular}{ |p{2cm}|p{1.5cm}|p{8cm}|  }
+		\hline
+		Abbrevation & Count & Description \\
+		\hline
+		PP & 26 & Pleasingly Parallel or Map Only \\
+		\hline
+		MR & 18 & Classic MapReduce MR (add MRStat below for full count) \\
+		\hline
+		MRStats & 7 & Simple version of MR where key computations are simple reduction as found in
+statistical averages such as histograms and averages \\
+\hline
+MRIter & 23 & Iterative MapReduce or MPI \\
+\hline
+Graph & 9 & Complex graph data structure needed in analysis \\
+\hline
+Fusion & 11 & Integrate diverse data to aid discovery/decision making; could involve sophisticated
+algorithms or could just be a portal \\
+\hline
+Streaming & 41 & Some data comes in incrementally and is processed this way \\
+\hline
+Classify & 30 & Classification: divide data into categories\\
+\hline
+S/Q & 12 & Index, Search and Query\\
+\hline
+CF & 4 & Collaborative Filtering for recommender engines \\
+\hline
+LML & 36 & Local Machine Learning (Independent for each parallel entity) \\
+\hline
+GML & 26 & Global Machine Learning: Deep Learning, Clustering, LDA, PLSI, MDS, Large
+Scale Optimizations as in Variational Bayes, MCMC, Lifted Belief Propagation,
+Stochastic Gradient Descent, L-BFGS, Levenberg-Marquardt. Can call EGO or
+Exascale Global Optimization with scalable parallel algorithm \\
+\hline
+ & 51 & Workflow: Universal so no label \\
+\hline 
+ GIS & 16 & Geotagged data and often displayed in ESRI, Microsoft Virtual Earth, Google
+Earth, GeoServer etc. \\
+\hline
+HPC & 5 & Classic large-scale simulation of cosmos, materials, etc. generating (visualization)
+data \\
+\hline
+Agent & 2 & Simulations of models of data-defined macroscopic entities represented as agents \\
+\hline
+
+	\end{tabular}
+	\label{table:NIST_vs_ogres}
+\end{table}
+Based on the the tabulated results od the table \ref{table:NIST_vs_ogres}, Qiu et al. \cite{Qiu2014} identified five programming models to be used programs addressed in big data HPC problems. These five programming models are shown in table \ref{table:NIST_5_Programming_model}.

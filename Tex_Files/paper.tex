@@ -141,127 +141,106 @@ Abstract goes here
 \section{Introduction}\label{sec:intro}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\blindtext
-With the recent emergence of Big Data over the past few years, one of the questions that arises is, how Big Data is different from High Performance Computing (HPC) at various levels such as application, technology, investment, etc. Another critical question to be asked is if Big Data is widely different from HPC, which of the technologies may we want to adopt or, do we really have to choose one from the two to apply to our problems? Another scenario is that the gap between Big Data and HPC may form a spectrum of choices rather than two independent worlds. To answer these questions in this chapter we will first bring an introduction and look at Big Data and HPC from a high level abstraction view. Then, we explain the state of the art efforts to take advantage of the best of two worlds. Finally, we will address future challenges and future directions.\\
+For a long time the terms Big Data and High Performance Computing (HPC) have been used interchangeably implying that they convey the same meaning. Many experts take this even further and recognize HPC as the entity that gave birth to Big Data. However, the two seem to have chosen separate paths fueled by two different driving forces namely, scientific community and industry. HPC has its roots in computation-intensive scientific modeling performing iterative algorithms. In contrast, Big Data was born as a result of a demand for gaining insight from large unstructured data stored by industries and nowadays by us human beings digital life. But, as data generation rate out-paces its processing workforce, Big Data solutions face an inevitable require to adopt more advance processing approaches having higher efficiency and performance.  As a result the boundary between HPC and Big Data is fading everyday. Authors believe that the gap between Big Data and HPC may form a spectrum of choices rather than two independent worlds. In this chapter we will first bring a brief introduction on Big Data and HPC then we will take and look at big data and HPC from a high level abstraction view. The majority of this chapter is dedicated to state of the art efforts to take advantage of the best of two worlds. Finally, we will address future challenges and future directions.\\
 
 \begin{figure}
-\includegraphics[scale=0.31]{./images/BigData_HPC.png}
+\includegraphics[width=\textwidth]{./images/bigdata_matrix.png}
 \centering
 \caption{Matrix of data and computation applications.}
 \label{fig:bigdata_hpc_matrix}
 \end{figure}
-In order to answer the above questions we first may need to identify the workloads and computational requirements of workflows for our applications. It is also important to not focus only current trends, and take into account the future data and computation demands. Figure \ref{fig:bigdata_hpc_matrix} shows the matrix of data size versus computation size for some applications. It also shows that the current big data technologies, formed around Apache Big Data Stack (ABDS), is data-intensive but focused less on computational performance. On the other hand the High Performance Computing (HPC), which mostly applied to solving scientific problems, has been mostly concentrated on computation-savvy, data limited application such and iterative simulations.\\
+In order to address the above issues we first may need to identify the workloads and computational requirements of workflows for each application. It is also important to not focus only on current trends, and take into account the future data and computation demands. Figure \ref{fig:bigdata_hpc_matrix} shows the matrix of data size versus computation size for some applications. It also shows that the current big data technologies is data-intensive but focused less on computational performance. On the other hand the High Performance Computing (HPC), which mostly applied to solving scientific problems and fine-tuned for particular problems, has been mostly concentrated on computation-savvy, data limited application such and iterative simulations commonly used to solve scientific problems.\\
 
-Over the past decade, the rate of data generation has dramatically increased. As a result, we saw the emergence of data-intensive applications to solve a range of problems from data  distribution and management to data processing. The open-source Apache Big Data Stack with it's Hadoop Data File System (HDFS) kernel and many higher abstraction level frameworks for data analytics and machine learning has provided a coherent ecosystem, which has dominated the industry.\\
 
-In contrast, HPC with roots in computational intensive scientific computing, has mainly been applied and fine-tuned for particular problems, which resulted in significantly more limited implementations compared to ABDS.
-
-Figure \ref*{fig:bigdata_hpc_ecosystem} depicts the HPC and Big Data ecosystems from many abstraction level view. The lowest layers are the resources, resource management, and communication layers. The higher layers comprise of processing and analytical components. In remaining parts of this section we compare current typical HPC and Big Data architectures and their respective ecosystems.
-\newpage
 \subsection{Big Data Ecosystem}
-\lipsum[1]
+Big data is commonly distinguished by its 5V properties namely, Volume, Variety, Velocity, Value, and Veracity. However, Vs are not the only factors impacting the architecture of a big data ecosystem. In \cite{demchenko2014defining} Demchenko \textit{et al.} propose a definition of big data characteristics and requirements in five categories. These categories are, 5V properties, new data models, new data analytics, new infrastructures, and new data sources and targets. Therefore, a big data ecosystem should be able to address the problems introduced by each of these properties.\\
+
+It should be noted that there has not been a well accepted definition of big data either by industry or academia. This ambiguity makes it even harder to characterize big data and define requirements of a big data ecosystem. In addition, big data ecosystem is not merely made out of a single or couple of components such as a file system or a database. A big data ecosystem should account for lots of components from storage and processing to orchestration and high level applications. Figure \ref{fig:bigdata_ecosystem} depicts a generic architecture of a big data ecosystem.
+
+\begin{figure}
+	\includegraphics[scale=0.23]{./images/bigdata_ecosystem.png}
+	\centering
+	\caption{A general big data ecosystem architecture.}
+	\label{fig:bigdata_ecosystem}
+\end{figure}
+
 
 
 \subsubsection*{ABDS Architectures}
-The Apache Big Data Stack is formed around the Hadoop Distributed File System (HDFS), which originated at Yahoo but is an open source implementation of Google's file system \cite{shvachko2010hadoop} \cite{ghemawat2003google}. As we know now, the idea behind ABDS was to bring the computation to data, which is usually stored at cheap commodity hardware. Hadoop 1.0 also took advantage of Google's MapReduce programming model for data processing. MapReduce imposes it's own limitations since all processes is forced to be implemented in the form of a mapper followed by a reducer. MapReduce's inherent limitations along with tight coupling of Hadoop and MapReduce proved to be inflexible when used in applications such as iterative computations, which is an indispensable piece of all Machine Learning algorithms.\\
+The Apache Big Data Stack is formed around the Hadoop Distributed File System (HDFS), which originated at Yahoo but is an open source implementation of Google's file system \cite{shvachko2010hadoop} \cite{ghemawat2003google}. As we know now, the idea behind ABDS was to bring the computation to data, which is usually stored at cheap commodity heterogeneous hardware. Apache Hadoop 1.0 adopted Google's MapReduce programming model for data processing. MapReduce imposes its own limitations since all processes are forced to be implemented in the form of a mapper and a reducer. MapReduce's inherent limitations along with tight coupling of Hadoop and MapReduce proved to be inflexible when used in applications such as iterative computations, which is an essential piece of most of higher level analytics such as Machine Learning algorithms. Figure \ref{fig:ABDS_ecosystem} depicts the ABDS ecosystem.\\
 
 \begin{figure}
-	\includegraphics[scale=0.33]{./images/Ecosystems.png}
+	\includegraphics[scale=0.23]{./images/abds_ecosystem.png}
 	\centering
-	\caption{Apache Big Data Stack (ABDS) ecosystem vs. High Performance Computing (HPC) ecosystem \cite{Jha2014}.}
-	\label{fig:bigdata_hpc_ecosystem}
+	\caption{Apache Big Data Stack (ABDS) ecosystem.}
+	\label{fig:ABDS_ecosystem}
 \end{figure}
 
-As a result of such deficits in Hadoop 1.0, Apache YARN was introduced with Hadoop 2.0 as a much more lenient resource manager, enabling many applications and frameworks with higher level abstractions \cite{vavilapalli2013apache}. YARN's key feature was introduction multi-level scheduling, which would allow higher level applications to schedule their own processes. As a results we saw the emerge of many high level applications such as, HBase, a column based distributed database, Spark, Giraph, which are iterative and graph processing applications\cite{borthakur2011apache}\cite{zaharia2012resilient}.
-\newpage
-\newpage
+As a result of such shortcomings of Hadoop 1.0, Apache YARN was introduced with Hadoop 2.0 as a much more lenient resource manager, enabling many applications and frameworks with higher level abstractions \cite{vavilapalli2013apache}. YARN's key feature was introduction multi-level scheduling, which would allow higher level applications to schedule their own processes. As a results we saw the emerge of many high level applications such as, HBase, a column based distributed database, Spark, Giraph, which are iterative and graph processing applications respectively\cite{borthakur2011apache}\cite{zaharia2012resilient}.
+
 \subsection{HPC Ecosystem}
-A typical HPC architecture consists of processing units such a multi-core structures, possibly accelerated by GPUs, FPGAs, or even CPUs such as intel Xeon Phi. These processing units are supported by local storage units with Lustre \cite{braam2004lustre} or General Parallel File System (GPFS) \cite{FrankSchmuck} file system or a remote storage connected through a fast network such as Infiniband.\\
+
+A typical HPC architecture consists of processing units such a multi-core structures, possibly accelerated by GPUs, FPGAs, or even CPUs such as intel Xeon Phi. These processing units are supported by local storage units with Lustre \cite{braam2004lustre} or General Parallel File System (GPFS) \cite{FrankSchmuck} file system or a remote storage connected through a fast network such as Infiniband. Figure \ref{fig:HPC_ecosystem} shows an example of a typical HPC ecosystem.\\
+
+\begin{figure}
+	\includegraphics[scale=0.23]{./images/hpc_ecosystem.png}
+	\centering
+	\caption{An example of HPC ecosystem.}
+	\label{fig:HPC_ecosystem}
+\end{figure}
 
 Lustre and GPFS are parallel file systems designed mainly for clusters. Lustre, which combines the words Linux and Cluster is generally accepted as the file system with scalability for large scale cluster computing. Due to its high performance it has been continuously used by top supercomputers. On the other hand GPFS introduced by IBM and adopted by many of the biggest companies all around the word. GPFS have it roots in academic grounds and its scalability is a matter of question. Storage resources in HPC are managed by storage management unit such as integrated Rule-Oriented Data-management System (iRODS), Storage Resource Manager interface (SRM) \cite{shaun2007storage} \cite{rajasekar2010irods},  Global Federated File System (GFFS) \cite{grimshaw2013gffs}.\\
 
 While storage resources are usually shared in applications, computational resources are local. Such local compute resources are managed by their own management units such as Slurm \cite{yoo2003slurm}, Torque \cite{staples2006torque}, and Sun Grid Engine (SGE) \cite{gentzsch2001sun}.
 
 In HPC applications, data need to fly around across network using a low latency communication. These fast interconnect networks along with features such as non-blocking and one-sided communications allow for more data-intensive HPC within HPC environment. As a matter of fact, data-intensive applications are not totally unfamiliar to HPC community. There has been many approaches to implement MapReduce compatible with HPC environment such as MapReduce-MPI \cite{plimpton2011mapreduce}, Pilot-MapReduce \cite{mantha2012pilot}, and Twister for machine learning applications \cite{ekanayake2010twister}.In a parallel effort, there has been many implementations of data intensive loosely coupled tasks at run-time level \cite{luckow2012p}\cite{raicu2008many}\cite{deelman2009workflows}.
-\newpage
+ 
+\subsection{Big Data Applications}
+In the beginning of the twenty first century data mining and data processing became the driving force behind many fields such as business, Information Technology (IT), etc. Over the recent past Big Data has risen to address the many large-scale data driven problems, which formerly viewed as unsolvable. In this part we will briefly discuss these applications in two major environments namely, commercial and scientific environments.\\
+
+\textit{Big Data Commercial Applications:} Since 90s until the recent present, most of the data stored by companies were in the form of relational databases. However, nowadays with the enormous data generated in various forms such as activity logs, pictures, audio, clicks, and lot of other types, old database paradigms proved to be inefficient. As a results big data analytics with non-relational databases, distributed storages, secure and fault tolerant architectures have gained momentum in data analytics from data storing, data cleansing, to complicated statistical analysis for predictive analytics and visualization. In parallel, fields such as Machine Learning and Deep Learning where data is the driving thrust, benefited the most from Big Data. This trend introduced and revived many applications within Artificial Intelligent (AI) realm. The synergy between the AI and dominance of web based applications working with unstructured data has already discovered new universe of applications such as videos surveillance for law enforcements and intelligence agencies, recommendation engines for personalized shopping, etc. \\
+
+
+\textit{Big Data Scientific Applications:} Scientific communities acquaintance with big data predates industry. Particle physics, Astrophysics, Genetics, Meteorology, and lot of other fields have been dealing with massive amounts of data, most of the times beyond their processing power. Recently, the National Science Foundation (NSF) announced the Big Data research initiative and called the researches to extract knowledge and insight from data.
+\subsection{Integration of big data and HPC ecosystems}
+Traditional data analytics in the past have been able to extract general high level information from data. But, as the data started to generated with the 5V properties, those old method proved to be less and less effective. Consequently, many data consumers have pointed their short-term and long-term agendas towards implementation and adoption of new methods of data analysis.\\
+
+Despite Big Data and HPC's different contexts, HPC has a relatively long history addressing many of these challenges. HPC is conventionally built around the expensive supercomputers including a large number of servers. On the other hand Big Data has its roots in commodity hardware focusing on priorities such a fault tolerance, scheduling, and heterogeneous computing. HPC components are usually tightly coupled as opposed to its loosely coupled big data counterpart. It is evident that in order to take advantage of the best of the two worlds, we need some breakthroughs in HPC to provide more heterogeneous computing power and Big Data to embrace more efficient components from HPC.\\
+
+In addition, HPC and big data communities have favored different programming models. Due to shortcomings of MPI alone, which is incapable of scaling at Exascale, current trend in HPC is to take advantage of MPI+X as runtime communication libraries. These libraries require to support many MPI+X combinations such as MPI+OpenMP, MPI+UPC, MPI+SHMEM, etc. It should be noted that at Exascale such libraries should be able to provide inter/intra node communications for billion processors.  
+
+
 \section{State of the art projects}
 In this section we will review some of the state of the art researches and projects within HPC-Big Data domains. We categorized these project under four class of research topics, namely,
 \begin{enumerate}
 	\item Integration of HPC and ABDS stack
 	\item Machine Learning (ML) using HPC
+	\item High Performance Graph processing
 	\item Parallel databases
+	\item HPC implementation of MapReduce 
 	
 \end{enumerate}
-\subsection{Integration of HPC and Big Data stack}
-Big Data and HPC used to be used interchangeably for many years. But, with HPC targeting scientific problems with huge number of iterations, and Big Data aiming for relatively simple model on huge datasets, it seems they diverged for a while. As the rate of data generation increase, deployment of HPC tools and techniques seem more and more inevitable. Following projects are some of the state of the arts in combining HPC and Big Data stack.
+\subsection{Integration of HPC and big data stack}
+Earlier in this chapter we discussed how HPC can offer many solutions to Big Data's current challenges. In this section we review a state of the art effort to combine HPC and Big Data ecosystem under {High Performance big data System (HPBDS) project. 
 
-\subsubsection{High Performance Big Data System (HPBDS) project \cite{qiu2014towards}}: The HPBDS project aims for integrating some of the components of the HPC such as scientific libraries, fast communication and resource management features with commercial Big Data ecosystem namely, ABDS.\\
+\subsubsection{High Performance Big Data System (HPBDS) project \cite{qiu2014towards}}: The HPBDS project aims for combining some of the components of the HPC such as scientific libraries, fast communication and resource management features with commercial Big Data ecosystem namely, ABDS.\\
 
-The primary proposed execution of HPBDS is built around Apache Hadoop and therefore named High Performance Computing Big Data Stack (HPC-ABDS). The HPC-ABDS comprise two sub-project,
+The proposed design of HPBDS is built around the commercial Apache Hadoop project and therefore named High Performance Computing Big Data Stack (HPC-ABDS). The HPC-ABDS comprise two sub-project,
 \begin{figure}[h]
-	\includegraphics[scale=0.25]{./images/MIDASSPIDAL.png}
+	\includegraphics[scale=0.25]{./images/hpc_abds.png}
 	\centering
 	\caption{MIDAS and SPIDAL within HPC-ABDS stack\cite{qiu2014towards}}
 	\label{fig:MIDAS_SPIDAL}
 \end{figure}
 \begin{enumerate}
-	\item Middleware for Data Intensive Analytics and Science (MIDAS)
-	\item Scalable Parallel Interoperable Data Analytics Library (SPIDAL)  
+	\item Scalable Parallel Interoperable Data Analytics Library (SPIDAL)
+	\item Middleware for Data Intensive Analytics and Science (MIDAS)  
 \end{enumerate}
 
-Figure \ref{fig:MIDAS_SPIDAL} depicts the structure of the MIDAS-SPIDAL with trespect to the overall HPC-ABDS stack. MIDAS is proposed to provide a lower level infrastructure based on which higher level components such as libraries operates. On the other hand SPIDAL goal is to take advantage of useful tool within HPC such as MPI, PETSc, and SCALAPACK and modify them for data intensive applications.\\
+Figure \ref{fig:MIDAS_SPIDAL} depicts the structure of the MIDAS-SPIDAL with respect to the overall HPC-ABDS stack. MIDAS is proposed to provide a lower level infrastructure based on which higher level components such as libraries operates. MIDAS aims to couple performance of HPC with functionality of heterogeneity of Apache Hadoop tools. On the other hand SPIDAL goal is to take advantage of useful tool within HPC such as MPI, PETSc, and SCALAPACK and modify them for data intensive applications.\\
 
-The HPC-ABDS project is inspired by the NIST Big Data initiative in Fall 2013, when NIST provided a collection of use cases. These use cases were analyzed against the identifiers proposed as big data Ogres \cite{fox2014towards}. The result is tabulated in Table \ref{table:NIST_vs_ogres}.
-\begin{table}
-	\centering
-	\caption{Categories of the NIST use cases.}
-	\begin{tabular}{ |p{2cm}|p{1.5cm}|p{8cm}|  }
-		\hline
-		Abbrevation & Count & Description \\
-		\hline
-		PP & 26 & Pleasingly Parallel or Map Only \\
-		\hline
-		MR & 18 & Classic MapReduce MR (add MRStat below for full count) \\
-		\hline
-		MRStats & 7 & Simple version of MR where key computations are simple reduction as found in
-statistical averages such as histograms and averages \\
-\hline
-MRIter & 23 & Iterative MapReduce or MPI \\
-\hline
-Graph & 9 & Complex graph data structure needed in analysis \\
-\hline
-Fusion & 11 & Integrate diverse data to aid discovery/decision making; could involve sophisticated
-algorithms or could just be a portal \\
-\hline
-Streaming & 41 & Some data comes in incrementally and is processed this way \\
-\hline
-Classify & 30 & Classification: divide data into categories\\
-\hline
-S/Q & 12 & Index, Search and Query\\
-\hline
-CF & 4 & Collaborative Filtering for recommender engines \\
-\hline
-LML & 36 & Local Machine Learning (Independent for each parallel entity) \\
-\hline
-GML & 26 & Global Machine Learning: Deep Learning, Clustering, LDA, PLSI, MDS, Large
-Scale Optimizations as in Variational Bayes, MCMC, Lifted Belief Propagation,
-Stochastic Gradient Descent, L-BFGS, Levenberg-Marquardt. Can call EGO or
-Exascale Global Optimization with scalable parallel algorithm \\
-\hline
- & 51 & Workflow: Universal so no label \\
-\hline 
- GIS & 16 & Geotagged data and often displayed in ESRI, Microsoft Virtual Earth, Google
-Earth, GeoServer etc. \\
-\hline
-HPC & 5 & Classic large-scale simulation of cosmos, materials, etc. generating (visualization)
-data \\
-\hline
-Agent & 2 & Simulations of models of data-defined macroscopic entities represented as agents \\
-\hline
+The HPC-ABDS project is inspired by the NIST big data initiative in Fall 2013, when NIST provided a collection of use cases. These use cases were analyzed against the identifiers proposed as big data Ogres \cite{fox2014towards}. Based on the results from analyzing 71 use cases provided by NIST against data Ogres, five programing models was established. Table \ref{table:NIST_5_Programming_model} summarizes these programming models. 
 
-	\end{tabular}
-	\label{table:NIST_vs_ogres}
-\end{table}
-Based on the the tabulated results od the table \ref{table:NIST_vs_ogres}, Qiu et al. \cite{Qiu2014} identified five programming models to be used programs addressed in big data HPC problems. These five programming models are shown in table \ref{table:NIST_5_Programming_model}.
 %%%%%%%%%%%%%%%%%%%% EXACTT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
 	\centering
@@ -291,47 +270,27 @@ Based on the the tabulated results od the table \ref{table:NIST_vs_ogres}, Qiu e
 	\label{table:NIST_5_Programming_model}
 \end{table}
 
-SPIDAL project will take advantage of the characteristics identified by analyzing NIST uses cases and programming models in Table \ref{table:NIST_5_Programming_model} to build higher level abstractions based on the middleware analytic tools proposed by MIDAS. In the following parts of this section we introduce the algorithms introduced by SPIDAL and MIDAS.
 \subsection*{Scalable Parallel Interoperable Data-Analytics Library (SPIDAL) }
-\begin{enumerate}
-	\item Graph and Network Algorithms
-	\item Spacial Queries and Spacial Analytics
-	\item Image Processing
-	\item Machine learning
-\end{enumerate}
+SPIDAL project is formed around characteristics identified by analyzing NIST uses cases and programming models in Table \ref{table:NIST_5_Programming_model} to build higher level abstractions based on the middleware analytic tools proposed by MIDAS. The followings comprise  core library category of SPIDAL.
+\begin{itemize}
+	\item \textbf{Graph and Networks:} With graphs taking over many applications that traditionally did not belong to them, graph processing has become a more and more important. SPIDAL approach for graph processing involve creation of new tools and techniques based on both MapReduce and Giraph \cite{avery2011giraph} model. Graph processing solutions are based on structures withing the graph or network. For a wide range of structures Giraph based solutions seem to better perform mostly when a distributed memory parallel approach is taken. On the other hand a range of graphs respond better to MapReduce solutions when problem can be disintegrated into reduction operations.\\
+	\item \textbf{Spacial Queries and Special Analytics:} Spacial Data Management Systems (SDBMS) are incapable of performing tasks that require lots of computations optimally. Thus, the proposed design shards the space into partitions and breaks the most time-consuming partitions into multiple chunks feeding them into parallel MapReduce. Hadoop-GIS \cite{aji2013hadoop} embedded into Apache Hive enables querying on MapReduce.\\
+	
+	\item \textbf{Image Processing:} Computer vision over the past few years has been empowered by introduction of new tools and techniques such as GPUs and Learning algorithms. In addition, image processing tasks generally tend to be highly parallelizeable. SPIDAL will provide a comprehensive image processing library both at high system level and primitive pre-processing functions and kernels such as Convolution.\\
+	 
+	\item \textbf{Machine learning:} There are many Machine Learning libraries designed for Apache Hadoop framework. Within Hadoop ecosystem, Apache Mahout supports many of both supervised and unsupervised Machine Learning algorithms. SPIDAL will include a set of key Machine Learning algorithms such as Support Vector Machines (SVM), Random Forests, etc. SPIDAL will try to have Machine Libraries parallelized. Besides, SPIDAL will give those iterative algorithms that require disk I/O in current Big Data environment, a bigger boost in performance.  
+\end{itemize}
 
 \subsection*{Middleware for Data Intensive Analytics and Science (MIDAS)}
 
-MIDAS is proposed to enable a lower abstraction level, which include run time and resource management systems for SPIDAL. We now know from analysis of big data ogres and NIST use cases that big data application vary widely in requirements and characteristics. Therefore, different programming models and parallel approaches should be considered dealing with each type of problems. With this in mind, MIDAS has targeted two major objectives. First, a high abstraction level environment that supports querying and analysis via HPC and big data tools such as SLURM and YARN as schedulers. Secondly, provide a middleware that support the four of the identified programming models in table \ref{table:NIST_5_Programming_model} namely, Pleasingly Parallel, Classic MapReduce, Iterative Map with Collectives, and Iterative Map Communication. Figure \ref{fig:MIDAS_ARCH} depicts the layered architecture of MIDAS.
+MIDAS is proposed to facilitate a lower abstraction level, which includes run time and resource management for SPIDAL. We now know from analysis of big data ogres and NIST use cases that big data application vary widely in requirements and characteristics. Therefore, different programming models and parallel approaches should be considered dealing with each type of problems. With this in mind, MIDAS has targeted two major objectives. First, a high abstraction level environment that supports querying and analysis via HPC and big data tools such as SLURM and YARN as schedulers. Secondly, to provide a middleware that support the four of the identified programming models in table \ref{table:NIST_5_Programming_model} namely, Pleasingly Parallel, Classic MapReduce, Iterative Map with Collectives, and Iterative Map Communication. Hence, difference abstraction layers have been recommended. For instance, in applications that better fit the iterative MapReduce, most operations are collective and MPI would perform better compared to MapReduce techniques. In contrast, graph processing application require more point to point communications.\\
 
-\begin{figure}[!htp]
-	\includegraphics[scale=0.32]{./images/midas_architecture.png}
-	\centering
-	\caption{MIDAS architecture digram, where lower layers provide support for the top level tools \cite{qiu2014towards}.}
-	\label{fig:MIDAS_ARCH}
-\end{figure}
+In conclusion, HPC-ABDS as claimed by the authors is the first attempt to create a HPC empowered big data stack. The HPC-ABDS tries to find and characterize application patterns through a set of features named as Ogres. A set of libraries (SPIDAL) are created based on characteristics identified by the Ogres run across various computing platforms. SPIDAL runs on MIDAS, which is a middleware with resource management and data abstraction capabilities. 
 
-It can be seen from figure \ref{fig:MIDAS_ARCH} that many abstraction layers has been proposed to support mentioned programming models. For instance, in applications that better suit the iterative MapReduce, most operations are collective and MPI would perform better compared to MapReduce techniques. In contrast, graph processing application require more point to point communications.\\
-%
-%\subsection{Big Data at HPC Wales \cite{kashyap2015big}.}
-%In a parallel approach to take advantage of computing power of supercomputers along with Hadoop's capabilities in managing distributed resources, HPC Wales launched the Big Data at HPC Wales project. The project exploits YARN to couple with HPC tasks, which conventionally would use MPI, OpenMP, CUDA, etc.\\
-%
-% HPC Wales is a supercomputing center with around 17,000 cores distributed % in six campuses. The Big Data at HPC Wales proposed architecture tries to % take advantage of best of the two worlds of HPC and ABDS. The proposed % architecture is based on a series of design choices as follows.
-
-%%\textbf{Job Scheduling:} An API enabled to understand multiple languages takes the job submission enabling non-HPC Wales users to submit jobs
-\newpage
-\subsubsection{RDMA-enabled interconnects for Big Data applications}.
-\\
-\lipsum[1]
-
-\subsubsection{MARIANE:MapReduce Implementation Adapted for HPC Environment}.
-\\
-\lipsum[1]
-\newpage
 \subsection{Machine Learning and HPC}
-Traditionally the words Machine Learning and HPC would imply two separate worlds with distinct border. But, over the past decade areas of AI such as machine learning and training neural networks of deep learning have found their ways through HPC world.\\
+Traditionally the words Machine Learning and HPC would imply two separate worlds with distinct border. But, over the recent past, areas of AI such as machine learning and training neural networks of deep learning have found their ways through HPC world.\\
 
-Iterative AI tools such as machine learning and deep learning initially introduced to HPC by adopting GPU accelerators and FPGAs. Such tools adopted to perform a wide range of AI task from image classification, audio recognition, data analytics. Machine learning is not a novel concept and has been around for a relatively long time. But, along with more computational power introduced by accelerators, two major factors played an undeniable role in re-emergence of machine learning and deep learning. First, data generation at the very fast rates fuels up machine learning training algorithms. In a series of reports by Domo, \cite{domo} the amount of data created at the some of the biggest Internet giants, is presented. Table show some of these numbers in only one minute time of Internet. Secondly, introduction of new training algorithms such as those adopted to train deep belief nets and resulted to the birth of the term Deep Learning \cite{hinton2006fast}. Only even twenty years ago it would take very long time, if possible, to train a neural network with only ten hidden layers.
+Iterative AI tools such as machine learning and deep learning initially introduced to HPC through GPU accelerators and FPGAs. These tools were adopted to perform a wide range of AI tasks from image classification, audio recognition, to data analytics. Machine learning is not a novel concept and has been around for a relatively long time. But, along with more computational power introduced by accelerators, two major factors played an undeniable role in re-emergence of machine learning and deep learning. First, data generation at blasting rates fuels up machine learning training algorithms. In a series of reports by Domo, \cite{domo} the amount of data created at the some of the biggest Internet giants, is presented. Table \ref{table:Domo} shows some of these numbers in only one minute time of Internet. Secondly, introduction of new training algorithms, which also gave birth to the term Deep Learning \cite{hinton2006fast}.
 \begin{table}
 	\centering
 	\caption{One minute of Internet usage \cite{domo}.}
@@ -374,56 +333,38 @@ Iterative AI tools such as machine learning and deep learning initially introduc
 	\label{table:Domo}
 \end{table}
 
-Deep Learning, which itself is a sub-category of machine learning. The major distinguishing difference between most of machine learning techniques and deep learning is in feature selection stage. In conventional machine learning techniques labeled/unlabeled data is fed into a set of hand crafted feature detectors to extract features. A classifier takes the features as inputs to perform some statistical analysis and decide on the class of each input. Since the engineering of a good set of such hand crafted features is extremely costly and require a lot of expertise and domain knowledge, deep learning is introduced to find and tune such features automatically using machine and data to be used for a particular task.\\
+Deep Learning, which itself is a sub-category of Machine Learning, has gained momentum in solving many of the most complicated AI problems. In many fields such as computer vision and voice recognition Deep Learning outperforms best conventional models and techniques both in accuracy and speed. The major distinguishing difference between most of Machine Learning techniques and that of Deep Learning is in feature selection stage. In conventional Machine Learning, labeled/unlabeled data is fed into a set of hand crafted feature detectors. A classifier takes the features as inputs to perform some statistical analysis and decide on the class of each input. Since the engineering of a good set of such hand crafted features is extremely costly and require a lot of expertise and domain knowledge, Deep Learning is introduced as a solution to find and tune such features automatically using machine and data for a particular task.\\
 
-There is a general consensus that scaling up each of the the training data size and model size will increase the accuracy of prediction in deep learning. Therefore, as the size of training data or the model increases, we require to parallelize the process on many machines and processing cores to enable the scaling. Consequently, two parallelization schemes is offered namely, data parallelization and model parallelization.\\
+There is a general consensus that, increasing the size of either or both if training data and/or model size will increase the accuracy of prediction in Deep Learning. Therefore, as the size of training data or the model increases, we require to parallelize the process on many machines and processing cores to enable the scaling. Consequently, two parallelization schemes is offered namely, data parallelization and model parallelization.\\
 
-In data parallelization scheme, the training set is sharded into smaller data fragments. Each of these fragments is assigned to a different processing node. Each node replicates the global model so that each model will have a fragment of data with a copy of full model. During the training process the model is updated. Since different copies of the model are updated separately using different data, we need to synchronize all copies of the model into a global model, which is representative of all the data. The issue with such synchronizations is that the model are usually relatively big (up to Gigabytes) that we cannot easily synchronize them frequently. In addition, it is also so hard to fit large models in GPUs' memory. \\
+In data parallelization scheme, the training set is cut into smaller data fragments. Each of these fragments is assigned to a different processing node. Each node replicates the global model so that each model will have a fragment of data with a copy of full model. During the training process the model is updated. Since different copies of the model are updated separately using different fragmentations of data, we need to synchronize all copies of the model into a global model that is representative of all the data. The issue with such synchronizations is the large communication overhead. Models are usually relatively huge (currently up to Gigabytes) that we cannot easily synchronize them frequently. In addition, it is also so hard to fit large models in GPUs' memory.\\
+
 \begin{figure}[h]
-	\includegraphics[scale=0.3]{./images/data_parallelism.png}
+	\includegraphics[scale=0.33]{./images/data_parallel.png}
 	\centering
-	\caption{Data parallelism architecture performing Stochastic Gradient Descent (SGC). Model replicas at each node calculate gradients $\Delta w $ on a piece of data. Gradients are later transmitted asynchronously to Parameter Server to calculate updated weights.}
+	\caption{Data parallelism performing Gradient Descent (GD). Model replicas at each node calculate gradients $\Delta w $ on a piece of data. Gradients are later transmitted to global model server to calculate updated weights.}
 	\label{fig:data_parallelism}
 \end{figure}
-In a similar manner, in model parallelization scheme, models are cut into smaller pieces, which allows for scaling of the model. A drawback of model parallelization is that you have to synchronize all your copies of the model even more frequently than data parallelization. Synchronization should take place for each model at every layer of it, which for nowadays deep networks can be tens of layers. Thus, networking plays an very important role when it comes to model parallelization. For instance, a typical neural network architecture with 1 billion nodes may require tens of seconds is using a typical Ethernet networking for synchronization. As a results, HPC known tools such a Infiniband and PCI Express would greatly enhance the networking bottleneck for Inter-node and Intra-node communications respectively.\\
+In model parallelization scheme, models are split into smaller pieces, which allows for scaling of the model. A drawback of model parallelization is that one has to synchronize all copies of the model even more frequently than data parallelization. Synchronization should take place for each model at every layer, which for nowadays deep networks can be tens of layers. Thus, interconnects play a very important role when it comes to model parallelization. For instance, a typical neural network architecture with 1 billion nodes may require tens of seconds when using a typical Ethernet networking for synchronization. In contrast, HPC known interconnects such a Infiniband and PCI Express would allow for more efficient networking with higher performance.\\
 \begin{figure}[h]
-	\includegraphics[scale=0.3]{./images/model_parallelism.png}
+	\includegraphics[scale=0.33]{./images/model_parallel.png}
 	\centering
-	\caption{An example of model parallelism scheme in DistBelief framework for deep distributed neural networks by Google \cite{dean2012large}. Model is distributed accross four machines. Only nodes, which have edges crossing from one machine to another need to report their state.}
+	\caption{An example of model parallelism. Each node store a fragment of the overall model and a whole copy of data.}
 	\label{fig:model_parallelism}
 \end{figure}
 
-There are many primary questions to be addressed when thinking about integration of machine learning and HPC. Questions such as, aside from accelerating machine learning applications with GPUs and FPGAs, is traditional HPC ready to be the drive force behind data savvy machine learning applications? Are current top 500 supercomputers capable of powering new AI era of machine learning and deep learning? From software point of view, does conventional HPC require extensive modification to deal with mostly correlated data variables in machine learning application?
-In the remaining of this section we will briefly introduce some of the ongoing researches and projects concentrated empowering machine learning with HPC medium.
-\newpage
-\subsection*{IBM Watson for Data Analytics} %NEEDS PARAPHRASING
-IBM has announced the upcoming release of a cloud-based Watson Analytics service that promises to streamline and simplify the data-analysis process for untrained business users. Business people want to make data-driven decisions, but between the complexities of data acquisition and data cleansing, on the one hand, and the profusion of data-analysis and data-visualization methods on the other, it's just way too hard for many, according to IBM. Watson Analytics is aimed at eliminating these barriers.\\
-
-Watson cognitive computing technology provides a natural-language-savvy interface to what's described as an end-to-end data-analysis workflow. Behind the scenes, IBM is employing multiple technologies from its vast data-management and analytics portfolio:
-
-\begin{itemize}
-	\item InfoSphere Data Refinery services are used to assess data sources and automatically suggest data corrections that users can accept or decline.
-	\item Catalyst Engine technologies rooted in IBM SPSS analytics automatically find correlations between data sets and relevant trends in data, helping business users to understand the information and select predictive analyses.
-	\item Project Neo technologies from IBM Labs automatically suggest appropriate data visualizations to make sense of the data.
-	\item IBM Concert technologies evolved out of TM1 performance-management software supports collaborative decision making around visualizations and dashboards.
-\end{itemize}
-
-Watson Analytics is a cloud-based service, so there's nothing to download. "You start by uploading files, and then you either explore the data, type in specific questions, or apply use-case story templates we're creating for common sales, marketing, HR, and operational scenarios," said Eric Sall, IBM's VP of marketing, Business Analytics, in an interview with InformationWeek.\\
-
-The Watson Analytics service is not confined to specific types of problems, nor does it require the kind of training often associated with Watson deployments, according to Sall. The service will start with free use for individuals who will have access to all data-refining, predictive, visual-analysis, and collaborative capabilities. Premium users will be able to analyze higher volumes of data and more data sources, including live links to sources such as data warehouses and cloud sources.\\
-
-The new service will soon enter a public beta period, so it has yet to be tested in real-world scenarios. But Watson Analytics was demonstrated in a variety of analysis scenarios at an event in New York on Tuesday. "Story" starting points shown included improving e-commerce performance, optimizing marketing campaigns, retaining employees, predicting retail purchases by segment, and finding patterns in sales wins and losses, among others.  
-
+There are many crucial issues to be addressed when thinking about integration of Machine Learning and HPC. Questions such as, aside from accelerating Machine Learning with GPUs and FPGAs, is traditional HPC ready to be the drive force behind data savvy Machine Learning applications? Are current top 500 supercomputers capable of powering new AI era of machine learning and Deep Learning? From software point of view, does conventional HPC require extensive modification to deal with mostly correlated data variables in Machine Learning application?
+In the remaining of this section we will briefly introduce some of the ongoing researches and projects concentrated empowering Machine Learning with HPC medium.
 
 \subsection*{Project Adam: Building an Efficient and Scalable Deep Learning Training System \cite{chilimbi2014project}}
-In 2012 Google announced that they have trained an unsupervised image recognition neural network with 1 billion connections using 10 million training images, which can recognize cats from Youtube videos. Their training system consisted of a cluster of 1,000 computers with an aggregate of 16,000 cores \cite{le2013building}.\\
+In 2012 Google announced that they have trained an unsupervised image recognition neural network with 1 billion connections using 10 million training images, which can recognize pictures of cats from Youtube videos. Their training system consisted of a cluster of 1,000 computers with an aggregate of 16,000 cores \cite{le2013building}.\\
 
-Project Adam by Microsoft could be thought as the successor of Google's project. The goal of the project Adam is to train a photograph classifier using 14 million images of Imagenet \cite{deng2009imagenet} into 22,000 image categories. The trained system by project Adam is claimed to be 50 times faster than the state of the art system. Speed is not the only concern of Microsoft researchers, it is also claimed that the system will be as twice accurate with 30 times less number of machines.\\
+Project Adam by Microsoft could be thought as the successor of Google's project. Adam is built using with 30 times less number of machines compared to previous best image classifier. It also is able to train a image classifier using 14 million images of Imagenet \cite{deng2009imagenet} into 22,000 image categories with almost 2 times better accuracy compared to the last best system. Adam is claimed to be 50 times faster than the state of the art systems.\\
 
 \subsection*{High level architecture}
-Adam is similar in architecture to the Multi-Spert system introduced by Farber at Berkeley \cite{farber1997parallel}. A set of machine have the role of providing the inputs of the neural network with the input data, while another set train the model. Adam takes advantage of both model and data parallelism. Models are partitioned into many worker machines. Data is also fragmented to provide data parallelism. In order for each piece of the model to be trained only by a small chunk of data, many replicas of the same piece of model in parallel are trained on different data chunks.\\
+Adam is similar in architecture to the Multi-Spert system introduced by Farber at Berkeley \cite{farber1997parallel}. A set of machine have the role of providing the inputs of the neural network with the input data, while another set train the model. Adam takes advantage of both model and data parallelism. Models machines each hold a chunk of model in a way that the communication overhead between machines is minimized. In order for each piece of the model to be trained only by a small chunk of data, many replicas of the same piece of model in parallel are trained on different data chunks.\\
 \begin{figure}[h]
-	\includegraphics[scale=0.3]{./images/adam_parallelization.png}
+	\includegraphics[scale=0.33]{./images/adam_architecture.png}
 	\centering
 	\caption{Model and data partitioning in Adam architecture\cite{chilimbi2014project}.}
 	\label{fig:adam_parallelism}
@@ -431,33 +372,21 @@ Adam is similar in architecture to the Multi-Spert system introduced by Farber a
 
 A global Parameter Server stores the global values for the updated weights of all model pieces and replicas. The communication between the models and the Partition Server is asynchronous. Although the asynchrony between models and Parameter Servers may seem to introduce inconsistencies, but due to the resilient nature of the neural networks, they usually get trained successfully. As a matter of fact Microsoft researchers found that when they switched from asynchronous to synchronous communication between the models and the Parameter Server, the accuracy of the model dropped. The drop in the accuracy is justified as most of cost functions is datasets such as Imagenet and MNist are not convex functions. As a result, during the training process, the trainer may gets stuck at local optima rather than the global optima. The asynchronous updating of the weights cause the trainer in local optima get some momentum to escape local optima towards a global optima.\\
 
-Convolutional neural networks are a special type of neural networks that has one or more convolution layers. Such networks are primary choice for image classification and vision since convolutional layers are capable of detecting features. It should be noted that Adam is not merely an image classification system and is capable of training any deep neural network with back-propagation. Figure \ref{fig:adam_parallelism} shows that Adam is partitioned in a way that each machine possess some of the convolution and some of the fully connected layers. This type partitioning allows for the communication of the convolution layers across machines be minimized.\\
-
-\subsection*{Intra machine architecture and optimizations}
+In traditional neural networks, propagating from one layer to the next layer is equivalent to a mathematical matrix multiplication between the outputs of previous layer and the weights. In some cases there may be other mathematical operations used instead of matrix multiplication. Convolution is one of these operations. Convolutional neural networks are a special type of neural networks that have one or more convolution layers. Such networks are primary choice for image classification and vision since convolutional layers are capable of detecting features. It should be noted that Adam is not merely an image classification system and is capable of training any deep neural network with back-propagation. In Figure \ref{fig:adam_parallelism} each local model server possess some of the convolution and some of the fully connected layers. This type partitioning allows for the communication of the convolution layers across machines to be minimized.\\
 
 Training process on each single machine is multi-threaded. Threads hold activation functions and weights to use during feed-forward and back-propagation through None Uniform Memory Access (NUMA) fashion to reduce the cross-memory bus traffic.\\
 
 Earlier we mentioned that neural networks are resilient so that we could use asynchronous communication between machines and global Parameter Server for updating weights. Same argument could be applied here for weight updates by threads on a single machine. On each machine a shared model holds the weights from all of threads weight updates. In order to avoid the lock times, threads update weights on the shared model without locking. Resilience of the neural networks along with commutativity and associativity properties of weight updates make the model work despite possible overwriting and race conditions of weight updates. This is one of the most important optimizations that allow scaling of deep neural network training process.\\
 
-\subsection*{Memory optimizations}
-
 During the training process weights need to be transmitted back and forth among layers. In order to minimize redundant copies, a pointer is passed along rather than rather than the values. In addition, in the model parallelism architectures, there are some communication between layers across multiple machines. These non-local communications are performed through a library built by project Adam team. The library is custom fit to the communication design of Adam, which supports pointer addressing to blocks of neurons that their output needs communication.\\
 
 The partitioning of the models is Adam is done in a way that the working sets fit inside a L3 cache. Besides, an assembly kernel is implemented and tuned to exploit the locality during feed-forward and back propagation. The kernel allows for optimal matrix multiplication whether row major or column major blocks of weights are to be multiplied.\\
 
-\subsection*{Global Parameter Server}
+The Global Parameter Server holds the updated weights of the overall model from all machines. Due to high volume of weight updates, the Global Parameter Server of Adam require a more complex design rather than a conventional key value store.\\
 
-The Global Parameter Server holds the updated weights of the overall model from all machines. Due to high volume of weight updates, the Global Parameter Server of Adam require a more complex design rather than a conventional key value store. Figure \ref{fig:adam_global_param} depicts the architecture of the Global Server node for Adam.
-\begin{figure}[h]
-	\includegraphics[scale=0.42]{./images/adam_global_param_server.png}
-	\centering
-	\caption{Global Parameter Server architecture of Adam\cite{chilimbi2014project}.}
-	\label{fig:adam_global_param}
-\end{figure}
+Model parameters on the parameter server is partitioned into weight shards of size 1MB. The model partition in the Parameter Server helps with the spatial locality of the updates. In addition, to lower the communication between L3 caches and the parameter server, weight updates are not sent over to the parameter server once they are ready. Instead, weights are batched into blocks and then transferred over to parameter server. To assure the fault tolerance of the processes on the parameter server, there are three copies of weight shards available. One of the shards is assigned as the primary and the other two as the secondary to be used in the primary is cannot be used.\\
 
-Model parameters on the parameter server is partitioned into weight shards of size 1MB. The model partition in the Parameter Server helps with the spatial locality of the updates. In addition, to lower the communication between L3 caches and the parameter server, weight updates are not sent over to the parameter server once they are ready. Instead, weights are batched into blocks and then transferred over to parameter server. To assure the fault tolerance of the processes on the parameter server, there are three copies of weight shards available. One of the shards is assigned as the primary and the other two as the secondary to be used in the primary is cannot be used.
-
-\subsection*{Project Adam's Hardware} Adam is formed of a cluster of 120 machines in three racks connected using IBM G8264 switches. Machine is Adam cluster are ervers of HP Proliant servers consisting of dual Intel Xeon E5-2450L processors with 16 cores and 98GB main memory along with two 10Gb NICs and one 1Gb NIC. There are four 7200 rpm hard drive storages for each machine. One of the hard drives that has the Windows 2012 server as operating server is of size 1TB. The rest three hard drives each are 3TB and are connected is RAID fashion. Out of 120 machines, 90 are allocated for training the model, 20 for parameter server, and the rest 10 for image inputs.
+Adam is formed of a cluster of 120 machines in three racks connected using IBM G8264 switches. Machine is Adam cluster are servers of HP Proliant servers consisting of dual Intel Xeon E5-2450L processors with 16 cores and 98GB main memory along with two 10Gb NICs and one 1Gb NIC. There are four 7200 rpm hard drive storages for each machine. One of the hard drives that has the Windows 2012 server as operating server is of size 1TB. The rest three hard drives each are 3TB and are connected is RAID fashion. Out of 120 machines, 90 are allocated for training the model, 20 for parameter server, and the rest 10 for image inputs.
 
 \subsection*{Results}
 
@@ -515,29 +444,29 @@ In conclusion, Adam succeeded to outperform the top 1 model in accuracy, number 
 
 
 \subsection*{Dadiannao: A machine-learning supercomputer \cite{chen2014dadiannao}}
-With the re-emergence of neural networks in 2006 and introduction of deep learning algorithms, one stream of research has been focused on specialized hardware tailored to deep learning applications rather than using multi-purpose GPUs \cite{temam2012defect}\cite{esmaeilzadeh2012neural}.\\
+With the re-emergence of neural networks in 2006 and introduction of deep learning algorithms, one stream of research has been focused on specialized hardware tailored to Deep Learning applications rather than using multi-purpose GPUs \cite{temam2012defect}\cite{esmaeilzadeh2012neural}.\\
 
-One of such specialized deep learning accelerators is the one introduced by Chen et al, namely DianNao \cite{chen2014diannao}. DianNao comprises two major group of components. First, buffers for retrieving and holding inputs and outputs of neurons and synapses. Second, a Neural Functional Unit (NFU), which performs typical computations required to calculate outputs of neurons. These calculations are mainly matrix multiplication of weights and input in the first stage, summation of the results of first stage in the second stage, and applying an activation function in the third stage. Depending on the architecture of network and the layer types some other types of operation is also embedded such as convolution, averaging, etc. Figure \ref{fig:diannao_arch} depicts the block diagram of the DianNao accelerator.
+One of such specialized Deep Learning accelerators is the one introduced by Chen \textit{et al.}, namely DianNao \cite{chen2014diannao}. DianNao comprises two major group of components. First, buffers for retrieving and holding inputs and outputs of neurons and synapses. Second, a Neural Functional Unit (NFU), which performs computations to calculate outputs of neurons. These calculations are mainly matrix multiplication of weights and input in the first stage, summation of the results of first stage in the second stage, and applying an activation function in the third stage. According to the architecture of network and the characteristics of layers some other types of operation is also embedded such as convolution, averaging, etc. Figure \ref{fig:diannao_arch} depicts a simplified block diagram of the DianNao accelerator.
 \begin{figure}[h]
-	\includegraphics[scale=0.42]{./images/diannao.png}
+	\includegraphics[scale=0.23]{./images/diannao.png}
 	\centering
 	\caption{Block diagram of the DianNao accelerator\cite{chen2014dadiannao}.}
 	\label{fig:diannao_arch}
 \end{figure}
-In order to evaluate the performance of DianNao, Chen et al. structure two neural networks with similar architecture, but one with GPU and the other one with DianNao acceleration. They also implemented the same network using CPU only without any acceleration. Figure \ref{fig:diannao_speedup} compares the speedup of GPU over both DianNao and CPU.
+To evaluate the performance of DianNao, Chen et al. structures two neural networks with similar architecture, but one with GPU and the other one with DianNao acceleration. They also implemented the same network using CPU only without any acceleration. Figure \ref{fig:diannao_speedup} compares the speedup of GPU over both DianNao and CPU.
 \begin{figure}[h]
-	\includegraphics[scale=0.42]{./images/diannao_speedup.png}
+	\includegraphics[width=\textwidth]{./images/diannao_results.png}
 	\centering
 	\caption{Speedup of CPU/GPU and CPU/DianNao for various layer types of network\cite{chen2014dadiannao}.}
 	\label{fig:diannao_speedup}
 \end{figure}
 
-We can see from figure \ref{fig:diannao_speedup} that DianNao give speedups up to 100 for some of the layers. However, in some other layers, mostly convolutional layers with private kernels and classification layers, which are common in both Deep Neural Networks (DNN) and Convolutional Neural Networks (CNN), GPUs may be preferred over DianNao. Authors believe that memory bandwidth is the major reason that DianNao performs worse than GPU in such layers. It should be noted that both convolutional and classification layers share the property that they have high number of synaptic connections even in range of millions. As DianNao takes up only about 53\% of the GPU (K20M), which is used for the sake of this comparison, it has the potential to compete GPUs.
+We can see from figure \ref{fig:diannao_speedup} that DianNao gives speedups up to 100 for some of the layers. However, in some other layers, mostly convolutional layers with private kernels and classification layers, which are common in both Deep Neural Networks (DNN) and Convolutional Neural Networks (CNN), GPUs may be preferred over DianNao. Authors believe that memory bandwidth is the major reason that DianNao performs worse than GPU in such layers. It should be noted that both convolutional and classification layers share the property that they have high number of synaptic connections in the range of millions. As DianNao takes up only about 53\% space of the a equivalent GPU (K20M), which is used for the sake of this comparison, it has shown the potential to compete with GPUs.
 \subsection*{Dadiannao, the machine learning supercomputer}
 
-While the authors name Dadiannao the machine learning supercomputer, it seems the seems the design of Dadiannao were more focused on DNNs and CNNs. With that in mind, Dadiannao is capable of holding large models of even up to tens of GB in size in a multi node structure.\\
+While the authors name Dadiannao the machine learning supercomputer, it seems that design of Dadiannao was more focused on DNNs and CNNs. With that in mind, Dadiannao is capable of holding large models of even up to tens of GBs in size in a multi node structure.\\
 
-As we mentioned in the earlier part of this section, memory is thought to be the bottleneck of DianNao in convolutional layers with private kernel and classifier layers. The design of Dadiannao as a supercomputer aims to address these problems. First, in order to minimize data movement cost, synapses are placed near to the neurons consuming their data in a fully distributed architecture with no main memory unit. Secondly, nodes are biased towards storing data rather than computation. Thirdly, since the number of synaptic connections is orders of magnitude bigger than neurons,  instead of sending synaptic weights to neurons, neuron values is sent to synapses. This saves a lot in inter node communication bandwidth. Fourthly, intra-node, the storage units are broken into many storage units to increase the bandwidth.\\
+Earlier we sat that, memory is thought to be the bottleneck of DianNao in convolutional layers with private kernel and classifier layers. The design of Dadiannao as a supercomputer aims to address these problems. First, in order to minimize data movement cost, synapses are placed near to the neurons consuming their data in a fully distributed architecture with no main memory unit. Secondly, nodes are biased towards storing data rather than computation. Thirdly, since the number of synaptic connections is orders of magnitude bigger than neurons,  instead of sending synaptic weights to neurons, neuron values is sent to synapses. This saves a lot in inter node communication bandwidth. Fourthly, intra-node, the storage units are broken into many storage units to increase the bandwidth.\\
 
 The high level architecture of Dadiannao consist of many nodes arranged in a mesh configuration. Each node contains the storage units to store the synaptic and neuron values. In addition a, NFU unit is embedded similar to what introduced in DianNao \cite{chen2014diannao}.The NFU in Dadiannao is capable of carrying out more complex types of computation depending on the layers and mode of operation (training or inferencing). Figure \ref{fig:NFU_Diagram} shows the block diagram of a node for Dadiannao architecture. \\
 
@@ -587,45 +516,66 @@ Similarly, the performance of Dadiannao against GPU baseline in evaluated from e
 
 \section*{Conclusion and Outlook}
 Machine learning and deep learning  have already become a part of our lives that we even do not notice them anymore. From search engines, voice recognition systems in our phones, and self-driving cars, all the way to commercial and financial analytics, they all benefit from machine learning and deep learning. With the help of fast CPUs and GPUs, training of models within machine learning and deep learning frame encountered a huge boost in the recent past. However, it seems that the future attempts to guarantee the the scalability of such systems should be focused on designing specialized software and hardware frameworks tailored to these applications such as project Adam and Dadiannao supercomputer.\\
+\subsection{High Performance Graph Processing}
+Graphs are abstract mathematical concepts that have numerous applications in science and engineering. Depending on the application and context they are being adopted in, they may have different types such a directed or undirected, cyclic or acyclic, finite or infinite, etc.\\
+\begin{figure}[!ht]
+	\includegraphics[scale=0.38]{./images/BSP_model.png}
+	\centering
+	\caption{Execution mechanism of BSP programming model \cite{sakr2013processing}.}
+	\label{fig:BSP}
+\end{figure}
+With the explosion of data over the past decade, graphs have dictated themselves as tools with many interesting properties. Nowadays, graphs are an indispensable component of large data modeling systems. Graph databases are being more and more favored over relational databases with focus on relations as connections indicate foreign-keys in the traditional relational databases. Among many interesting inherent properties of graphs, their scalability is probably the most important distinguishing factor.\\
+
+As Google's MapReduce originally designed to perform large volume data processing, heterogeneous commodity computer clusters can take advantage of MapReduce to run data analytics over hundreds of machines. On the other hand Hadoop implementation of MapReduce is not an optimal design for graph processing. As a result other graph processing technologies are suggested. Giraph \cite{avery2011giraph}, GraphLab \cite{low2014graphlab}, Apache Hama \cite{seo2010hama}, and GoldenOrb  are some of such technologies. In the remaining of this section we will briefly review Giraph and how it works.\\
+
+Apache Giraph is inspired by Google Pregel \cite{malewicz2010pregel} at yahoo and donated to Apache Software Foundation (ASF) later. Giraph jobs can easily be run on Hadoop within a cluster. Depending on the version of Hadoop in use it can either employ mappers or execution containers from Yarn. Giraph adopts a Vertex-centric API approach to perform the processes, which is inspired by the Bulk Synchronous Parallel (BSP) programming model. It means that vertices send and receive value from other vertices. During a series of iterations called \textit{supersteps}, at each iteration a vetix is executed with a user-defined function. Vertices receive messages from other vertices in the past executions. Respectively they send messages to other vertices to be executed in the next iteration. Figure \ref{fig:BSP} depicts the execution of computations using BSP.
+
+Each vertex has the option of becoming active or inactive during each iteration. If a vertex does not receive a message it can vote to halt and become inactive. Similarly, an inactive can become active upon arrival of a message. The overall execution continues until no vertex has a message to send. Figure \ref{fig:max_super} illustrates an example of finding the maximum value in a graph.
+\begin{figure}[!ht]
+	\includegraphics[scale=0.38]{./images/max_superstep.png}
+	\centering
+	\caption{Example of computing maximum vertex value. In the first superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold.  \cite{sakr2013processing}.}
+	\label{fig:max_super}
+\end{figure}
+
 %%%%%%% KRUNAL ADDED
-\subsection{Parallel Databases}
-Although the idea of parallel database system was refuted by a paper prophesying demise of database machine in 1983 but that did not stop the adoption of parallel database. Companies like Teradata, Tandem and many other startup companies pioneered a path for successful parallel database systems. The success of parallel database is accorded to wide adoption of relational model which favors the idea of parallel dataflow graph leading to pipelined parallelism and partitioned parallelism.(Explain if necessary) (Ten years later a paper from Dewitt explains how parallel database system would be the future of high performance database systems). With the advances in high speed interconnect network, the client-server operating system gave much higher performance over price than its mainframe equivalent.
-A parallel database system can be classified based on the terms of how data is shared amongst multiprocessor system i.e. shared-memory, shared-disk or shared-nothing.\\
+\subsection{Parallel Databases and I/O}
+Although the idea of parallel database system was refuted by a paper prophesying demise of database machine in 1983 but that did not stop the adoption of parallel database. Companies like Teradata, Tandem and many other startup companies pioneered a path for successful parallel database systems. The success of parallel database is accorded to wide adoption of relational model which favors the idea of parallel dataflow graph leading to pipelined parallelism and partitioned parallelism. Ten years later a paper from Dewitt explains how parallel database system would be the future of high performance database systems. With the advances in high speed interconnect network, the client-server operating system gave much higher performance over price than its mainframe equivalent.\\
 
-By the early 90's, it was clear that shared-nothing architecture along with conventional processor, memories and disk would be the future of scalable parallel and distributed system. Linear speedup and linear scaleup are two characteristics of an ideal parallel database system. (Add definition for both if necessary) .But usually a sub optimal speedup and scaleup is observed due to these three issues: startup, interference and skew (definition)
-SQL language was introduced by Codd, in his historic paper, to support data independence and boost programmer's productivity by separating execution logic from query itself. However, it came along with added benefits of parallelism, making it possible to represent each relational operator on a data flow graph and dividing data into a parallel data streams for partitioning. There are several partitioning strategies like round-robin, hash, range partitioning etc.
-Although, there is a heated argument about the performance benefits of using a Map Reduce system against the parallel DBMS system, former has been widely adopted because it offers better performance with complex queries on unstructured data.\\
+A parallel database system can be classified based on the terms of how data is shared amongst multiprocessor system i.e. shared-memory, shared-disk or shared-nothing. By the early 90's, it was clear that shared-nothing architecture along with conventional processor, memories and disk would be the future of scalable parallel and distributed system. Linear speedup and linear scaleup are two characteristics of an ideal parallel database system. But usually a sub optimal speedup and scaleup is observed due to these three issues: startup, interference and skew. SQL language was introduced by Codd, in his historic paper, to support data independence and boost programmer's productivity by separating execution logic from query itself. However, it came along with added benefits of parallelism, making it possible to represent each relational operator on a data flow graph and dividing data into a parallel data streams for partitioning. There are several partitioning strategies like round-robin, hash, range partitioning etc. \\
 
-\subsubsection{Massively Parallel Databases and Map/Reduce Systems.}
-High performance computing systems have high speed network, parallel file systems and diskless nodes while Big data analytics research has evolved from an increasing demand for extracting knowledge from large data set on a big and small cluster with low speed network with each node having its own local file system and a disk. For example, Lustre file system is widely used in HPC environment whereas Hadoop's HDFS is popular for big data analytic applications. The main focus of HPC machine is optimize and exploit the resources, with a parallel file system.\\
-
-During the past decade, several attempts are made to bridge the gap between HPC and Big data analytics giving rise to new terms called High Performance Data Analysis. In next section, we would be discussing about the different research that has been propelled towards having an amalgamation of these two giants that have been on different track so far.
+Although, there is a heated argument about the performance benefits of using a Map Reduce system against the parallel DBMS system, former has been widely adopted because it offers better performance with complex queries on unstructured data. High performance computing systems have high speed network, parallel file systems and diskless nodes while Big data analytics research has evolved from an increasing demand for extracting knowledge from large data set on a big and small cluster with low speed network with each node having its own local file system and a disk. For example, Lustre file system is widely used in HPC environment whereas Hadoop's HDFS is popular for big data analytic applications. The main focus of HPC machine is optimize and exploit the resources, with a parallel file system. During the past decade, several attempts are made to bridge the gap between HPC and Big data analytics giving rise to new terms called High Performance Data Analysis. In the next section, we discuss about some of these research that has been propelled towards having an amalgamation of these two giants.\\
 
 \subsubsection{Project SCOPE: Parallel databases meet Map/Reduce}
 Structure Computation Optimization for Parallel Execution (Scope) is a distributed computing system, that incorporates best characteristics of traditional parallel database system and map reduce execution engine like scalability and robust implementation. It is being used in many of the online service from Microsoft like Bing. A physical execution plan containing a directed acyclic graph are crafted from a script by a Cascade framework based optimizer.  Like MapReduce, a Job Manager provides fault tolerance and recovery and at the same time a declarative scripting language similar to SQL that provides abstraction and highly extensibility through user defined functions and relational operations.\\
 
-\subsection*{SCOPE Platform Architecture}
-Storage and analysis of large scale data sets is performed on a distributed data platform called COSMOS which provides data replication and meta-data for fault tolerance. Each server has a direct attached disk storage disks that contains a distributed data. End to end on disk data for reliability by checks for corrupt and stale data periodically before it's utilized by the system. For performance, each job is divided into a sub jobs of computation and distributed among huge among of CPU's and storage devices.\\
+\subsubsection{Platform Architecture:}Structure Computation Optimization for Parallel Execution (Scope) is a distributed computing system, that incorporates best characteristics of traditional parallel database system and map reduce execution engine like scalability and robust implementation. It is being used in many of the online service from Microsoft like Bing. A physical execution plan containing a directed acyclic graph are crafted from a script by a Cascade framework based optimizer.  Like MapReduce, a Job Manager provides fault tolerance and recovery and at the same time a declarative scripting language similar to SQL that provides abstraction and highly extensibility through user defined functions and relational operations. 
 
-Writes are always append-only and serialization is used for concurrent writes. The storage system consist of a physical partitions called extends, which are the unit of space allocation and replication, typically of few 100 MB size. Application extends, often compressed and decompressed at client side, contains application-defined records and define a block boundary. Local as well as remote read and write are enabled through high-bandwidth network. Directed acyclic graph (DAG) are used for modeling a query plan. Job submission and management, job queue monitoring, interoperability, job status tracking, error reporting and transferring data in and out of COSMOS are provided through an interface from front-end services.\\
+\begin{figure}[!htb]
+	\includegraphics[scale=1]{./images/krunal1}
+	\centering
+	\caption{Architecture of cosmos platform }
+	\label{fig:architecture_of_cosmos}
+\end{figure}
+Writes are always append-only and serialization is used for concurrent writes. The storage system consist of a physical partitions called extends, which are the unit of space allocation and replication, typically of few 100 MB size. Application extends, often compressed and decompressed at client side, contains application-defined records and define a block boundary. Local as well as remote read and write are enabled through high-bandwidth network. Directed acyclic graph (DAG) are used for modelling a query plan. Job submission and management, job queue monitoring, interoperability, job status tracking, error reporting and transferring data in and out of COSMOS are provided through an interface from frontend services.\\
+
 
 \subsection*{Data Representations-Streams}
-It supports both structure and unstructured stream.
-Unstructured stream are defined as a logical sequence of bytes that requires an extractor for users to interpret it. An extractor defines the schema and iterator interface for transforming the data. It also provides an outputters that writes output in an unstructured streams.\\
+It supports both structure and unstructured stream. Unstructured stream are defined as a logical sequence of bytes that requires an extractor for users to interpret it. An extractor defines the schema and iterator interface for transforming the data. It also provides an outputters that writes output in an unstructured streams. Structured stream are handled by build-in function that allow an unvarying access time by storing data with into different schemas which are self-contained, that is, with rich metadata information such as schemas, structural properties and access method.\\
 
-Structured stream are handled by build-in function that allow an unvarying access time by storing data with into different schemas which are self-contained, that is, with rich metadata information such as schemas, structural properties and access method. \\
+Usually these data are horizontally portioned with different schemes like hash and range partitioning. Each structural stream can consist of several physical extents which allows effective replication and fault tolerance. Data is stored based on store affinity that assigs affinity id, with each affinity group having same id. Storage priority is given first at same machine level, if the storage is full then at same rank and then at next close rank.  Another optimization to improve performance is stream references, in this technique the output stream is referenced with another corresponding partition based on affinity id based on the storage priority shown above. Some other features are Indexing for random access, column group for vertical partitioning.  \\
 
-Usually these data are horizontally portioned with different schemes like hash and range partitioning. Each structural stream can consist of several physical extents which allows effective replication and fault tolerance. Data is stored based on store affinity that assigs affinity id, with each affinity group having same id. Storage priority is given first at same machine level, if the storage is full then at same rank and then at next close rank[KP1].\\
+\subsubsection{Query Language for Scope}
+SCOPE query language resembles SQL and has many SQL-like extensions that enable users to separate application logic from underline implementation on a distributed system. For unstructured stream, it provides personalized commands for EXTRACT and OUTPUT, for reading from source and writing data to a sink. Structure stream removes the constraints of specifying columns because it is already contained in the stream metadata during compilation. Reference clause can be used to specify affinity of output to another stream. REDUCE command can be replaced by adding an optional PRESORT and PRODUCE clause. Figure \ref{fig:compilation_of_a_scope} shows the all steps of transformation for a SCOPE script before executing in the cluster. 
 
-Another optimization to improve performance is stream references, in this technique the output stream is referenced with another corresponding partition based on affinity id based on the storage priority shown above. Some other features are Indexing for random access, column group for vertical partitioning.\\
+\begin{figure}[!htb]
+	\includegraphics[scale=1]{./images/krunal2}
+	\centering
+	\caption{Compilation of a SCOPE script.}
+	\label{fig:compilation_of_a_scope}
+\end{figure}
 
-\subsection*{Query Language for Scope}
-SCOPE query language resembles SQL and has many SQL-like extensions that enable users to separate application logic from underline implementation on a distributed system. For unstructured stream, it provides personalized commands for EXTRACT and OUTPUT, for reading from source and writing data to a sink. Structure stream removes the constraints of specifying columns because it is already contained in the stream metadata during compilation. Reference clause can be used to specify affinity of output to another stream. REDUCE command can be replaced by adding an optional PRESORT and PRODUCE clause.
-
-\subsection*{Query compilation and optimization}
-Diagram: COMPILATION OF SCOPE SCRIPT
-
-\subsection*{Code Generation and Runtime Engine}
+\subsubsection{Code Generation and Runtime Engine}
 SCOPE runtime engine supports all the relational operators along with build in and optimized UDOs like DefaultTextExtractor and DefaultTextOutputter. Simple functions like open, next and close are performed by operator which inherently supports pipelining of these operators.  The runtime engine, after optimization, generates a physical execution tree by doing these tasks:
 \begin{enumerate}
 	\item The whole plan is analyzed to produce corresponding codes for operator based on the internal operator template.
@@ -643,34 +593,134 @@ Compilation script output consist of three components:
 	\item Assembly: Contains the generated code.
 \end{enumerate}
 
-\subsection*{Execusion Model}
-Similar to MapReduce, SCOPE implements a pull execution model. Super vertex, reads data either locally or remotely, are executed in a pipelined fashion with an end result written to a local disk and waiting for the next vertex to pull data. It contrast with the execution model of parallel database which transfer intermediate data directly without any disk access. However, pull execution model has an advantage that both parties involved in data exchange need not run simultaneously and the data can be recovered from disk on failure.
+\subsubsection{Execusion Model}
+Similar to MapReduce, SCOPE implements a pull execution model. Super vertex, reads data either locally or remotely, are executed in a pipelined fashion with an end result written to a local disk and waiting for the next vertex to pull data. It contrast with the execution model of parallel database which transfer intermediate data directly without any disk access. However, pull execution model has an advantage that both parties involved in data exchange need not run simultaneously and the data can be recovered from disk on failure. Since shuffling of data is the most expensive part considering the network overhead, SCOPE runtime provided many partitioning and merge operators.  It supports hash, range and index-based partitioning, with number of partitions predetermined or determined based on intermediate data size during runtime.
 
-\subsection*{Runtime Data Exchange}
-Since shuffling of data is the most expensive part considering the network overhead, SCOPE runtime provided many partitioning and merge operators.
-Hash partitioning
-Range partitioning
 
-\subsection*{Job Scheduling}
+\subsubsection{Job Scheduling}
 SCOPE's job manager is an adaption from Dryad, which takes care of job graph and resource scheduling on clusters. DAG of super vertices is scheduled to execute separately on different machines. Vertices are classified into different stages by Job manager and all the vertices in a single stage perform same task.  Data storage and computation can be performed by all the machine.\\
-\subsection*{Diagram SCOPE job scheduling}
-Local system resources are maintained by processing node services and it schedules execution of local vertices along with monitoring state of a job. Based on available resources and priorities it generates process on behalf of Job managers and maintains a local queues of vertex execution request from different Job manager. It stores the assembly of vertex in a cache and uses it if the vertex is executed again.\\
+\begin{figure}[!htb]
+	\includegraphics[scale=1]{./images/krunal3}
+	\centering
+	\caption{SCOPE job scheduling }
+	\label{fig:scope_job_sched}
+\end{figure}
+Local system resources are maintained by processing node services and it schedules execution of local vertices along with monitoring state of a job. Based on available resources and priorities it generates process on behalf of Job managers and maintains a local queues of vertex execution request from different Job manager. It stores the assembly of vertex in a cache and uses it if the vertex is executed again. An initial DAF is formed, when the job begins, to oversee relationship among different vertex. According to execution results and variation in system environment, the job graph is dynamically adapts itself. Resource availability and vertex priority defines the actual vertex scheduling order and it's the task of Job Manager to notify any vertex execution failure.\\
 
-An initial DAF is formed, when the job begins, to oversee relationship among different vertex. According to execution results and variation in system environment, the job graph is dynamically adapts itself. Resource availability and vertex priority defines the actual vertex scheduling order and it's the task of Job Manager to notify any vertex execution failure.
+\subsubsection{Adaptive Hybrid OLAP Architecture}
+Since last decade, co-processor technology has evolved rapid due to huge popularity of high resolution and graphic intensive games. These co-processors are very good at processing computationally intensive tasks and since data analytics usually requires a single operation on a multiple datasets (SIMD), it's turns out to be perfect candidate. In the most of the research, the CPU ( device) acts as a supervisor and GPU (host) carries out all the task which leads to inefficient use of device resources. \\
 
-\subsection*{Runtime optimization}
+An adaptive hybrid OLAP (On-line Analytical Processing) architecture is proposed in XXXXXXPAPER that uses prediction model that can efficiently distribute and process data on CPU and GPU based on their memory subsystem and memory access pattern. OLAP has a fundamental structure of a data cube which consist of multi-dimensional data that enables user to explore relation amongst different aspects of data. Data is partitioned into two types of OLAP cubes for processing on CPU and GPU:\\
+\begin{enumerate}
+	\item Multidimensional OLAP (MOLAP): These cubes contains preprocessed data that is sparse and huge in size. It is coherent to CPU's memory system.
+	\item Relational OLAP (ROLAP): It contains data that is manipulated to appear like traditional OLAP with slicing and dicing functionality, which is suitable to be processed on GPU architecture.
+\end{enumerate}
 
-Stil working on these parts
+ A single CPU's main memory cannot accommodate all the MOLAP cuboids, due to their large size, so it spans multiple CPUs (each having a separate memory controller) which leads to a NUMA (non-uniform memory access) architecture, show in figure \ref{fig:nume_something}. This results into a memory bandwidth constraint of processing OLAP on CPU, because of the distribution of data as shown in figure 2. So all the queries for which cuboids are not pre-calculated gets forwarded to GPU.
+ 
+ \begin{figure}[!htb]
+ 	\includegraphics[scale=0.7]{./images/krunal4}
+ 	\centering
+ 	\caption{The NUMA (Non-Uniform Memory Access) effect in shared memory system with two multicore processors. Cores of each processor equally share memory controller and memory attached to it. The access to the memory of the second processor is slower than access to its own memory }
+ 	\label{fig:nume_something}
+ \end{figure}
 
-\subsection*{Adaptive Hybrid OLAP Architecture}
-OLAP (Online Analytic processing) has a fundamental structure of a data cube which consist of multi-dimensional data that enables user to explore relation between different more one than one dimensional data. An adaptive hybrid OLAP architecture is proposed in [] to exploit different memory subsystem and memory access patterns of CPU and GPU.  In multidimensional OLAP cube (MOLAP) data is preprocessed during the cube creation time and due 0to its sparsity and huge size its more suitable to be processed on host (CPU) keeping in mind the NUMA(Non uniform memory access) architecture.\\
+\begin{figure}[!htb]
+	\includegraphics[scale=0.7]{./images/krunal5}
+	\centering
+	\caption{Cuboid divided into two physical memories. In ideal case (middle) half of the sub-cube is accessed through memory controller of CPU0 and the second half is accessed through memory controller of CPU1. In suboptimal case (left) 75\% of sub-cube is accessed through CPU0 and only 25\% through CPU1. The worst case scenario (right) is when entire sub-cube is located in memory of one CPU only }
+	\label{fig:Cuboid_divide}
+\end{figure}
 
-However, GPU's architecture is suitable to processes relational OLAP (ROLAP) cube which is created by manipulating data to appear like traditional OLAP with slicing and dicing functionality.\\
+Star scheme is used for processing ROLAP cube queries and the fact tables are stored inside GPU's main memory. These fact table contains two columns:
+\begin{enumerate}
+	\item Dimension columns for indexing
+	\item Data columns that stores the OLAP cube. 
+\end{enumerate}
+
+The device handles MOLAP cuboid queries along with other query processing tasks like query translation and dimensional table search. After the dimension tables are processed on the CPU, corresponding fact table entries are handled by GPU using values in dimension column.\\
+
+A scheduler predicts whether to use to CPU or GPU based on current utilization statistics, estimated query processing time on both the architectures and availability of data. Figure \ref{fig:krunal6}, shows the block diagram of system partition and scheduler distributing six different partitions on GPU. The CPU query processing time is estimated from the size and location of the sub-cube as well as memory bandwidth for multi-dimensional data representation. Data compression plays a vital part considering the bottleneck of data bandwidth. Strings are converted into integers by creating a dictionaries of unique string for each column and the dimension table contains the indices of these string from respective dictionaries.
+\begin{figure}[!htb]
+	\includegraphics[scale=0.7]{./images/krunal6}
+	\centering
+	\caption{Block diagram of the system partitions. GPU has six different partitions, all are used to process the queries from fact tables. CPU has one partition that processes multidimensional cube.}
+	\label{fig:krunal6}
+\end{figure}
+
 \newpage
-\subsubsection{Adaptive Hybrid OLAP Architecture with optimized memory access patters}.
-\\
-\lipsum[1]
+\subsubsection{Improving IO performance with Adaptive Compression}.
+With the NUMA architecture, discussed in previous XXXXPAPER section, a large amount of I/O operations is transferred from one node's memory to either another node's memory or directly to storage. In some compute intensive prediction applications, like simulation analysis, there can also be some staging nodes and I/O nodes to perform analysis and data storage respectively. Figure \ref{fig:krunal7}  shows a block diagram of different stages in simulation analysis. 
+\begin{figure}[!htb]
+	\includegraphics[scale=0.7]{./images/krunal7}
+	\centering
+	\caption{Adaptive compression location in data analysis for simulation analysis.}
+	\label{fig:krunal7}
+	\end{figure}
+All these communication are slow compared to the computational process time and usually becomes an overhead. It can be addressed by increasing in-situ analysis and decreasing the amount of data transfer. Big data application usually results into high IO and one way to limit this overhead is through compression. The selection of best compression algorithm can be done based on different parameters like system resources, data type and type of compression (lossy or lossless) feasible. Compression can be applied at different stages of data analysis process shown in figure \ref{fig:krunal7}. However, the compression process is resource and time consuming while at the same time system resources can vary and so can the type of transfer data. It can be possible that time to compress the data and transfer time added up to be more than the actual time to transfer uncompressed data, making compression an overhead itself.\\
 
+Discusses about an adaptive data compression method that uses a hybrid technique to predict and apply efficient compression algorithm at each data transfer round. It combines two different algorithms, tentative selecting compression algorithm and predictive deciding compression algorithm, to figure out an optimal compression technique. The tentative selecting compression technique profiles the compression speed and ratio of the compression at the beginning of each round by sending some data blocks that can contain compressed or actual data. This algorithm, shown in figure 2, is simple to implement but does not take into account resource status. Table 1 lists all the notations used in compression performance quantitative model and in the pseudo-code for both the algorithms.
+\begin{figure}[!htb]
+	\includegraphics[scale=0.7]{./images/krunal8}
+	\centering
+	\caption{Two implementation of adaptive compression.}
+	\label{fig:krunal8}
+\end{figure}
+
+Predictive deciding algorithm selects the best algorithm based on the change in resource status during each round. The algorithm, shown in figure \ref{fig:krunal8}, relies on a quantitative pre-build algorithm evaluation model, which includes metrics like available processor cycles, available transfer bandwidth and memory impact factors. It produces some overhead while monitoring real-time resource status but does not predict the best compression technique when the data format changes. Figure 3 depicts three rounds, separated by black vertical lines, of data compression and transfer instructed by tentative and predictive implementation called T$\_$Selection and P$\_$Decision respectively. T$\_$Selection can accurately predict change in compression technique but it needs to check all the techniques at the beginning of the each round whereas P$\_$Decision does not have such extra overhead during each round. 
+
+\begin{figure}[!htb]
+	\includegraphics[scale=0.7]{./images/krunal9}
+	\centering
+	\caption{Data compression and transfer analysis of two implementation.}
+	\label{fig:krunal9}
+\end{figure}
+
+A hybrid technique amalgamates best of both i.e. performance profiling and resource monitoring together into one comprehensive method. Resource variation leads to change in algorithm by a predictive decision in real-time and tentative selections are carried out simultaneous with data compression selection after every threshold time interval. Figure 4 depicts the adaptive data compression and transfer method algorithm used in this hybrid technique.
+\begin{figure}[!htb]
+	\includegraphics[scale=0.7]{./images/krunal10}
+	\centering
+	\caption{Adaptive Data Compression and Transfer Method.}
+	\label{fig:krunal10}
+\end{figure}
+\newpage
+\subsection{HPC implementation of MapReduce}
+As we know now, MapReduce as a programming model is based on functional programming paradigm. MapReduce programming model is a good fit for applications where large amounts of data on many nodes require to be processed. MapReduce programming model facilitates parallel processing of data since execution of mapper and reducer function on each node, which comprise key-value pairs is embarrassingly parallel. However, during the sort/shuffle stage when output of mapper functions has to be routed toward the inputs of articular reducers, some communication overhead is introduced.\\
+
+Hadoop implementation of MapReduce is currently the most widely used tool in data centers. As map and reduce processes are distributed across a cluster of machines, data require high performance, reliable, and fast processing and communication among machines across the cluster. HPC technologies can assist current Big Data architectures through the following approaches,
+\begin{itemize}
+	\item \textbf{Accelerators:} Employing hardware accelerators like GPUs, FPGAs, and CPUs.\\
+	\item \textbf{Hardware modifications:} Adoption of efficient high throughput HPC networks such as InfiniBand through modified memory space structures like Remote Direct Memory Access (RDMA).\\
+	\item \textbf{Software modifications:} Taking advantage of alternative HPC programming models such as Partitioned Global Address Space (PGAS).\\
+\end{itemize}
+In the following part we will give two examples of MapReduce implementation from literature. The first example is a RDMA-enabled implementation of MapReduce and the second example utilizes X10 as a PGAS programming language to implement MapReduce.\\
+
+
+InfiniBand as a high performance interconnect has been quite known to HPC community for more than a decade now. In \cite{wasi2013high} \textit{Rahman et al} showed that a native InfiniBand using Remote Direct Memory Access RDMA for a 100GB TeraSort on eight nodes achieved a performance improvement of 32\% over IP-over InfiniBand (IPoIB) and 21\% over Hadoop. Figure \ref{fig:RDMA_hadoop} shows the architecture of the proposed structure.
+\begin{figure}[!htb]
+	\includegraphics[width=\textwidth]{./images/RDMA_Hadoop}
+	\centering
+	\caption{RDMA based architecture of MapReduce proposed by \cite{wasi2013high}.}
+	\label{fig:RDMA_hadoop}
+\end{figure}
+The proposed architecture in Figure \ref{fig:RDMA_hadoop} adopts a modified Shuffle and Merge design. For the RDMA based Shuffle many components are added. For instance, RDMAListener, which is initiated by on the TaskTracker side listens to connection requests that arrive from ReduceTask side and assigns a receiving request from RDMAReceiver if needed. The RDMAReceiver then forwards the request to DataRequestQueue. Requests staked at DataRequestQueue are sent to RDMAResponder for processing. On the ReduceTask side the RDMACopier submits requests to TaskTracker and as the data arrives, DataToMergeQueue will take it for merge processes. Modified merge design in the proposed architecture benefits significantly from the high performance networking. As the communication time is reduced, key-value pairs in the map outputs can be sent over many steps. Thus, reducers may start processes on a stream of key-value pairs as they arrive.\\
+
+The proposed design is improved the execution time by 21\% over Hadoop with 100GB TeraSort. The reported improvement for a 40GB regular Sort is 32\%, which is more than that of TeraSort. The design also took other optimizations such a efficient pre-fetching and caching. The authors are planning to enhance other features such as recovery time upon failure and evaluating their design on bigger clusters for more diverse number of applications.\\
+
+As we mentioned earlier, another approach for taking advantage of HPC capabilities is the software approach. PGAS programming model is one of the best fits for parallel programming. PGAS programming model allows for a global shared memory architecture while affinity of a memory location to processor/thread is transparent. The latter enables processes to take advantage of locality of data to deliver higher performances.\\
+
+In \cite{teijeiro2011design} Teijeiro \textit{et al.} implemented a parallel MapReduce using Unified Parallel C (UPC) \cite{el2006upc} programming language. UPC enables uniform parallel programming paradigm along with powerful C language features. The UPC implementation of MapReduce defines two sets of functions namely, generic management functions and user-defined functions. Generic management functions start and control basic setup and data distribution task withing both Map and Reduce stages. In contrast, user-defined functions enable to processing on elements from output of Map stage, intermediate stage, to the input of the Reduce stage. Generic Map function enables threads to be aware of all input elements. However, each thread is only given a fraction of those input elements. After each thread completes its processing task in the Map stage, the resulted intermediate values hold in a private memory for future processing in the following steps.\\
+
+At the Reduce stage, each thread should be told whether or not it is in possession of all the values required for the reduction or not. If all the threads have all the necessary values. no communication happens. Otherwise, each thread is provided with a thread number, which it has to communicate with in order to retrieve values it need for reduction.\\
+
+The performance of the UPC implementation of MapReduce is compared to that of an MPI based design for two application namely, Word Count and Histogram. The Word Count experiment essentially counts the appearance of each distinct word in a text input. The Histogram experiment comprises calculating the histogram for pixel values in a bitmap image. The results from Word Count experiment showed that the execution time for UPC implementation is only slightly better than MPI implementation for fewer number of threads. In addition as the number of threads increase beyond a point, MPI execution time become less than UPC. In contrast, for the Histogram experiment, the UPC execution time is improved up to more than two orders of magnitude compared to the MPI implementation. In conclusion, authors believe that the enhanced performance of UPC implementation is due to  generic and simple UPC frameworks. In addition the better programmability of UPC with the high performance can be the motivation behind using PGAS implementation of MapReduce. 
+
+
+
+\section{Future Direction}
+%In the last two sections of this chapter we described what big data is and reviewed some of the state of the art projects in the big data domain. In this section we will try to discuss major challenges ahead and directions to get past them. In order to keep consistency, we address challenges and direction we regards to the big data characteristics we introduced earlier in this chapter as 5Vs. 
+%
+%\subsection{Variety:} Most of the available data today is stored in a variety of types and formats as video, picture, audio, clicks, numbers, likes, tweets, etc. Even when we narrow down our search to a very specific group of data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \bibliographystyle{splncs03}

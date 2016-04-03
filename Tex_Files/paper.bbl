@@ -10,6 +10,15 @@
 {NIST Big Data Working Group (NBD-WG)},
   \url{http://bigdatawg.nist.gov/usecases.php}
 
+\bibitem{aji2013hadoop}
+Aji, A., Wang, F., Vo, H., Lee, R., Liu, Q., Zhang, X., Saltz, J.: Hadoop gis:
+  a high performance spatial data warehousing system over mapreduce.
+  Proceedings of the VLDB Endowment  6(11),  1009--1020 (2013)
+
+\bibitem{avery2011giraph}
+Avery, C.: Giraph: Large-scale graph processing infrastructure on hadoop.
+  Proceedings of the Hadoop Summit. Santa Clara  (2011)
+
 \bibitem{borthakur2011apache}
 Borthakur, D., Gray, J., Sarma, J.S., Muthukkaruppan, K., Spiegelberg, N.,
   Kuang, H., Ranganathan, K., Molkov, D., Menon, A., Rash, S., et~al.: Apache
@@ -18,6 +27,10 @@ Borthakur, D., Gray, J., Sarma, J.S., Muthukkaruppan, K., Spiegelberg, N.,
 
 \bibitem{braam2004lustre}
 Braam, P.J., et~al.: The lustre storage architecture (2004)
+
+\bibitem{chen2014big}
+Chen, M., Mao, S., Zhang, Y., Leung, V.C.: Big data applications. In: Big Data,
+  pp. 59--79. Springer (2014)
 
 \bibitem{chen2014diannao}
 Chen, T., Du, Z., Sun, N., Wang, J., Wu, C., Chen, Y., Temam, O.: Diannao: A
@@ -47,6 +60,11 @@ Deelman, E., Gannon, D., Shields, M., Taylor, I.: Workflows and e-science: An
   overview of workflow system features and capabilities. Future Generation
   Computer Systems  25(5),  528--540 (2009)
 
+\bibitem{demchenko2014defining}
+Demchenko, Y., De~Laat, C., Membrey, P.: Defining architecture components of
+  the big data ecosystem. In: Collaboration Technologies and Systems (CTS),
+  2014 International Conference on. pp. 104--112. IEEE (2014)
+
 \bibitem{deng2009imagenet}
 Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: Imagenet: A
   large-scale hierarchical image database. In: Computer Vision and Pattern
@@ -57,6 +75,10 @@ Ekanayake, J., Li, H., Zhang, B., Gunarathne, T., Bae, S.H., Qiu, J., Fox, G.:
   Twister: a runtime for iterative mapreduce. In: Proceedings of the 19th ACM
   International Symposium on High Performance Distributed Computing. pp.
   810--818. ACM (2010)
+
+\bibitem{el2006upc}
+El-Ghazawi, T., Smith, L.: Upc: unified parallel c. In: Proceedings of the 2006
+  ACM/IEEE conference on Supercomputing. p.~27. ACM (2006)
 
 \bibitem{esmaeilzadeh2012neural}
 Esmaeilzadeh, H., Sampson, A., Ceze, L., Burger, D.: Neural acceleration for
@@ -115,10 +137,21 @@ Le, Q.V.: Building high-level features using large scale unsupervised learning.
   In: Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE International
   Conference on. pp. 8595--8598. IEEE (2013)
 
+\bibitem{low2014graphlab}
+Low, Y., Gonzalez, J.E., Kyrola, A., Bickson, D., Guestrin, C.E., Hellerstein,
+  J.: Graphlab: A new framework for parallel machine learning. arXiv preprint
+  arXiv:1408.2041  (2014)
+
 \bibitem{luckow2012p}
 Luckow, A., Santcroos, M., Merzky, A., Weidner, O., Mantha, P., Jha, S.: P∗:
   a model of pilot-abstractions. In: E-Science (e-Science), 2012 IEEE 8th
   International Conference on. pp. 1--10. IEEE (2012)
+
+\bibitem{malewicz2010pregel}
+Malewicz, G., Austern, M.H., Bik, A.J., Dehnert, J.C., Horn, I., Leiser, N.,
+  Czajkowski, G.: Pregel: a system for large-scale graph processing. In:
+  Proceedings of the 2010 ACM SIGMOD International Conference on Management of
+  data. pp. 135--146. ACM (2010)
 
 \bibitem{mantha2012pilot}
 Mantha, P.K., Luckow, A., Jha, S.: Pilot-mapreduce: an extensible and flexible
@@ -139,6 +172,12 @@ Qiu, J., Jha, S., Luckow, A., Fox, G.C.: Towards hpc-abds: An initial
   high-performance big data stack. Building Robust Big Data Ecosystem ISO/IEC
   JTC 1 Study Group on Big Data pp. 18--21 (2014)
 
+\bibitem{wasi2013high}
+Wasi-ur Rahman, M., Islam, N.S., Lu, X., Jose, J., Subramoni, H., Wang, H.,
+  Panda, D.K.D.: High-performance rdma-based design of hadoop mapreduce over
+  infiniband. In: Parallel and Distributed Processing Symposium Workshops \&
+  PhD Forum (IPDPSW), 2013 IEEE 27th International. pp. 1908--1917. IEEE (2013)
+
 \bibitem{raicu2008many}
 Raicu, I., Foster, I.T., Zhao, Y.: Many-task computing for grids and
   supercomputers. In: Many-Task Computing on Grids and Supercomputers, 2008.
@@ -154,6 +193,16 @@ Rajasekar, A., Moore, R., Hou, C.y., Lee, C.A., Marciano, R., de~Torcy, A.,
 Reed, D.a., Dongarra, J.: {Exascale computing and big data}. Communications of
   the ACM  58(7),  56--68 (2015),
   \url{http://dl.acm.org/ft{\_}gateway.cfm?id=2699414{\&}type=html}
+
+\bibitem{sakr2013processing}
+Sakr, S.: Processing large-scale graph data: A guide to current technology. IBM
+  Developerworks p.~15 (2013)
+
+\bibitem{seo2010hama}
+Seo, S., Yoon, E.J., Kim, J., Jin, S., Kim, J.S., Maeng, S.: Hama: An efficient
+  matrix computation with the mapreduce framework. In: Cloud Computing
+  Technology and Science (CloudCom), 2010 IEEE Second International Conference
+  on. pp. 721--726. IEEE (2010)
 
 \bibitem{shaun2007storage}
 Shaun De~Witt, R.: The storage resource manager interface specification  (2007)
@@ -171,6 +220,12 @@ Simard, P.Y., Steinkraus, D., Platt, J.C.: Best practices for convolutional
 \bibitem{staples2006torque}
 Staples, G.: Torque resource manager. In: Proceedings of the 2006 ACM/IEEE
   conference on Supercomputing. p.~8. ACM (2006)
+
+\bibitem{teijeiro2011design}
+Teijeiro, C., Taboada, G.L., Tourino, J., Doallo, R.: Design and implementation
+  of mapreduce using the pgas programming model with upc. In: Parallel and
+  Distributed Systems (ICPADS), 2011 IEEE 17th International Conference on. pp.
+  196--203. IEEE (2011)
 
 \bibitem{temam2012defect}
 Temam, O.: A defect-tolerant accelerator for emerging high-performance
