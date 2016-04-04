@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  2 APR 2016 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 APR 2016 18:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -951,294 +951,263 @@ File: ./images/diannao_results.png Graphic file (type png)
 Package pdftex.def Info: ./images/diannao_results.png used on input line 458.
 (pdftex.def)             Requested size: 347.12354pt x 172.71436pt.
  [17 <./images/diannao.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 467--469
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
 [18 <./images/diannao_results.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
  []
 
-<./images/NFU_diagram.png, id=300, 608.2725pt x 400.49625pt>
-File: ./images/NFU_diagram.png Graphic file (type png)
+<./images/dadiannao_node.png, id=300, 1006.76125pt x 663.47874pt>
+File: ./images/dadiannao_node.png Graphic file (type png)
 
-<use ./images/NFU_diagram.png>
-Package pdftex.def Info: ./images/NFU_diagram.png used on input line 474.
-(pdftex.def)             Requested size: 255.47272pt x 168.20728pt.
+<use ./images/dadiannao_node.png>
+Package pdftex.def Info: ./images/dadiannao_node.png used on input line 475.
+(pdftex.def)             Requested size: 302.0307pt x 199.04515pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 479--480
-
- []
-
-[19 <./images/NFU_diagram.png>]
-<./images/tiles.png, id=311, 807.015pt x 334.24875pt>
-File: ./images/tiles.png Graphic file (type png)
- <use ./images/tiles.png>
-Package pdftex.def Info: ./images/tiles.png used on input line 483.
-(pdftex.def)             Requested size: 338.94398pt x 140.38351pt.
-
-<./images/dadiannao_speedup.png, id=318, 785.93625pt x 352.31625pt>
-File: ./images/dadiannao_speedup.png Graphic file (type png)
-
-<use ./images/dadiannao_speedup.png>
-Package pdftex.def Info: ./images/dadiannao_speedup.png used on input line 494.
-
-(pdftex.def)             Requested size: 353.66805pt x 158.54083pt.
-
-Overfull \hbox (6.54451pt too wide) in paragraph at lines 494--496
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--501
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
 
  []
 
-[20 <./images/tiles.png>]
-<./images/dadiannao_training.png, id=334, 787.94376pt x 357.335pt>
-File: ./images/dadiannao_training.png Graphic file (type png)
+[19 <./images/dadiannao_node.png>]
+<./images/dadiannao_tile.png, id=311, 1006.76125pt x 780.9175pt>
+File: ./images/dadiannao_tile.png Graphic file (type png)
 
-<use ./images/dadiannao_training.png>
-Package pdftex.def Info: ./images/dadiannao_training.png used on input line 505
-.
-(pdftex.def)             Requested size: 354.57141pt x 160.79926pt.
+<use ./images/dadiannao_tile.png>
+Package pdftex.def Info: ./images/dadiannao_tile.png used on input line 484.
+(pdftex.def)             Requested size: 231.55022pt x 179.60724pt.
 
-Overfull \hbox (7.44788pt too wide) in paragraph at lines 505--507
- [][] 
- []
+<./images/dadiannao_chips.png, id=316, 902.37125pt x 548.0475pt>
+File: ./images/dadiannao_chips.png Graphic file (type png)
 
-<./images/dadiannao_inference.png, id=339, 779.91376pt x 351.3125pt>
-File: ./images/dadiannao_inference.png Graphic file (type png)
+<use ./images/dadiannao_chips.png>
+Package pdftex.def Info: ./images/dadiannao_chips.png used on input line 497.
+(pdftex.def)             Requested size: 347.12354pt x 210.8275pt.
 
-<use ./images/dadiannao_inference.png>
-Package pdftex.def Info: ./images/dadiannao_inference.png used on input line 51
-1.
-(pdftex.def)             Requested size: 350.95795pt x 158.08916pt.
+Underfull \vbox (badness 5578) has occurred while \output is active []
 
-Overfull \hbox (3.83441pt too wide) in paragraph at lines 511--513
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 518--519
+ [20 <./images/dadiannao_tile.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
-<./images/BSP_model.png, id=344, 678.535pt x 414.54875pt>
-File: ./images/BSP_model.png Graphic file (type png)
-
-<use ./images/BSP_model.png>
-Package pdftex.def Info: ./images/BSP_model.png used on input line 522.
-(pdftex.def)             Requested size: 257.84598pt x 157.53015pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 520--528
+[21 <./images/dadiannao_chips.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
 
  []
 
-[21 <./images/dadiannao_speedup.png>] [22 <./images/dadiannao_training.png> <./
-images/dadiannao_inference.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 529--530
+<./images/graph_multi.png, id=335, 1007.765pt x 1218.5525pt>
+File: ./images/graph_multi.png Graphic file (type png)
+
+<use ./images/graph_multi.png>
+Package pdftex.def Info: ./images/graph_multi.png used on input line 513.
+(pdftex.def)             Requested size: 251.94063pt x 304.63737pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--519
 
  []
 
-<./images/max_superstep.png, id=372, 582.175pt x 287.0725pt>
-File: ./images/max_superstep.png Graphic file (type png)
 
-<use ./images/max_superstep.png>
-Package pdftex.def Info: ./images/max_superstep.png used on input line 535.
-(pdftex.def)             Requested size: 221.22879pt x 109.08867pt.
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+ []
+
+[22] <./images/graph_superstep.png, id=355, 1007.765pt x 933.4875pt>
+File: ./images/graph_superstep.png Graphic file (type png)
+
+<use ./images/graph_superstep.png>
+Package pdftex.def Info: ./images/graph_superstep.png used on input line 526.
+(pdftex.def)             Requested size: 231.78107pt x 214.6976pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
+
+ []
+
+[23 <./images/graph_multi.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23 <./images/BSP_model.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
+ [24 <./images/graph_superstep.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 538--539
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
 
  []
 
-[24 <./images/max_superstep.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 550--551
-
- []
-
-<./images/krunal1.png, id=395, 132.9768pt x 147.9126pt>
+<./images/krunal1.png, id=374, 132.9768pt x 147.9126pt>
 File: ./images/krunal1.png Graphic file (type png)
 
 <use ./images/krunal1.png>
-Package pdftex.def Info: ./images/krunal1.png used on input line 555.
+Package pdftex.def Info: ./images/krunal1.png used on input line 546.
 (pdftex.def)             Requested size: 132.97647pt x 147.91223pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 564--565
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
 
  []
 
 [26 <./images/krunal1.png>]
-<./images/krunal2.png, id=412, 261.1356pt x 144.0582pt>
+<./images/krunal2.png, id=391, 261.1356pt x 144.0582pt>
 File: ./images/krunal2.png Graphic file (type png)
 
 <use ./images/krunal2.png>
-Package pdftex.def Info: ./images/krunal2.png used on input line 572.
+Package pdftex.def Info: ./images/krunal2.png used on input line 563.
 (pdftex.def)             Requested size: 261.13495pt x 144.05783pt.
  [27 <./images/krunal2.png>]
-<./images/krunal3.png, id=426, 172.0026pt x 152.2488pt>
+<./images/krunal3.png, id=403, 172.0026pt x 152.2488pt>
 File: ./images/krunal3.png Graphic file (type png)
 
 <use ./images/krunal3.png>
-Package pdftex.def Info: ./images/krunal3.png used on input line 603.
+Package pdftex.def Info: ./images/krunal3.png used on input line 594.
 (pdftex.def)             Requested size: 172.00217pt x 152.24841pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--609
-
- []
-
-[28 <./images/krunal3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 611--612
+Underfull \hbox (badness 10000) in paragraph at lines 592--600
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--615
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
 
  []
 
-<./images/krunal4.png, id=439, 469.755pt x 145.9854pt>
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 604--606
+
+ []
+
+<./images/krunal4.png, id=418, 469.755pt x 145.9854pt>
 File: ./images/krunal4.png Graphic file (type png)
 
 <use ./images/krunal4.png>
-Package pdftex.def Info: ./images/krunal4.png used on input line 622.
+Package pdftex.def Info: ./images/krunal4.png used on input line 613.
 (pdftex.def)             Requested size: 328.82626pt x 102.18907pt.
 
-<./images/krunal5.png, id=440, 469.755pt x 124.7862pt>
+<./images/krunal5.png, id=419, 469.755pt x 124.7862pt>
 File: ./images/krunal5.png Graphic file (type png)
 
 <use ./images/krunal5.png>
-Package pdftex.def Info: ./images/krunal5.png used on input line 629.
+Package pdftex.def Info: ./images/krunal5.png used on input line 620.
 (pdftex.def)             Requested size: 328.82626pt x 87.34972pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
+ [29 <./images/krunal3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 632--633
 
  []
 
-[29] <./images/krunal6.png, id=452, 469.755pt x 183.084pt>
+<./images/krunal6.png, id=431, 469.755pt x 183.084pt>
 File: ./images/krunal6.png Graphic file (type png)
 
 <use ./images/krunal6.png>
-Package pdftex.def Info: ./images/krunal6.png used on input line 645.
+Package pdftex.def Info: ./images/krunal6.png used on input line 636.
 (pdftex.def)             Requested size: 328.82626pt x 128.15791pt.
  [30 <./images/krunal4.png> <./images/krunal5.png>]
-<./images/krunal7.png, id=462, 364.2408pt x 90.0966pt>
+<./images/krunal7.png, id=442, 364.2408pt x 90.0966pt>
 File: ./images/krunal7.png Graphic file (type png)
 
 <use ./images/krunal7.png>
-Package pdftex.def Info: ./images/krunal7.png used on input line 655.
+Package pdftex.def Info: ./images/krunal7.png used on input line 646.
 (pdftex.def)             Requested size: 254.96683pt x 63.06718pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 652--661
+Underfull \hbox (badness 10000) in paragraph at lines 643--652
 
  []
 
-<./images/krunal8.png, id=464, 156.585pt x 115.1502pt>
+<./images/krunal8.png, id=444, 156.585pt x 115.1502pt>
 File: ./images/krunal8.png Graphic file (type png)
 
 <use ./images/krunal8.png>
-Package pdftex.def Info: ./images/krunal8.png used on input line 664.
+Package pdftex.def Info: ./images/krunal8.png used on input line 655.
 (pdftex.def)             Requested size: 109.60873pt x 80.60458pt.
  [31 <./images/krunal6.png> <./images/krunal7.png>]
-<./images/krunal9.png, id=475, 327.624pt x 119.4864pt>
+<./images/krunal9.png, id=455, 327.624pt x 119.4864pt>
 File: ./images/krunal9.png Graphic file (type png)
 
 <use ./images/krunal9.png>
-Package pdftex.def Info: ./images/krunal9.png used on input line 673.
+Package pdftex.def Info: ./images/krunal9.png used on input line 664.
 (pdftex.def)             Requested size: 229.33522pt x 83.6399pt.
 
-<./images/krunal10.png, id=476, 183.084pt x 354.6048pt>
+<./images/krunal10.png, id=456, 183.084pt x 354.6048pt>
 File: ./images/krunal10.png Graphic file (type png)
 
 <use ./images/krunal10.png>
-Package pdftex.def Info: ./images/krunal10.png used on input line 681.
+Package pdftex.def Info: ./images/krunal10.png used on input line 672.
 (pdftex.def)             Requested size: 128.15791pt x 248.22165pt.
  [32 <./images/krunal8.png> <./images/krunal9.png>]
 [33 <./images/krunal10.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 688--689
+Underfull \hbox (badness 10000) in paragraph at lines 679--680
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 692--693
+Underfull \hbox (badness 10000) in paragraph at lines 683--684
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 694--695
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 687--688
 
  []
 
-<./images/RDMA_Hadoop.png, id=494, 732.7375pt x 493.845pt>
+<./images/RDMA_Hadoop.png, id=474, 732.7375pt x 493.845pt>
 File: ./images/RDMA_Hadoop.png Graphic file (type png)
 
 <use ./images/RDMA_Hadoop.png>
-Package pdftex.def Info: ./images/RDMA_Hadoop.png used on input line 701.
+Package pdftex.def Info: ./images/RDMA_Hadoop.png used on input line 692.
 (pdftex.def)             Requested size: 347.12354pt x 233.95335pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 699--707
+Underfull \hbox (badness 10000) in paragraph at lines 690--698
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
+Underfull \hbox (badness 10000) in paragraph at lines 699--700
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 710--711
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 712--713
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
 
  []
 
 [35 <./images/RDMA_Hadoop.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 714--715
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 
  []
 
@@ -1253,24 +1222,24 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [37] [38])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 732.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 723.
 
 [39]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 732.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 723.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 732.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 732.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 723.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 723.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 224 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 12364 strings out of 493089
- 197096 string characters out of 6134842
+ 12344 strings out of 493089
+ 196662 string characters out of 6134842
  448597 words of memory out of 5000000
- 15134 multiletter control sequences out of 15000+600000
- 71398 words of font info for 289 fonts, out of 8000000 for 9000
+ 15122 multiletter control sequences out of 15000+600000
+ 71282 words of font info for 286 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  34i,11n,55p,1388b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cfr-lm/dotd
@@ -1287,10 +1256,10 @@ exlive/2015/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
 e1/public/lm/lmvtt10.pfb>
-Output written on paper.pdf (39 pages, 2125771 bytes).
+Output written on paper.pdf (39 pages, 1697154 bytes).
 PDF statistics:
- 655 PDF objects out of 1000 (max. 8388607)
- 455 compressed objects within 5 object streams
- 177 named destinations out of 1000 (max. 500000)
- 26253 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 635 PDF objects out of 1000 (max. 8388607)
+ 448 compressed objects within 5 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 26243 words of extra memory for PDF output out of 29859 (max. 10000000)
 

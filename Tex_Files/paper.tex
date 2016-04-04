@@ -453,7 +453,7 @@ One of such specialized Deep Learning accelerators is the one introduced by Chen
 	\caption{Block diagram of the DianNao accelerator\cite{chen2014dadiannao}.}
 	\label{fig:diannao_arch}
 \end{figure}
-To evaluate the performance of DianNao, Chen et al. structures two neural networks with similar architecture, but one with GPU and the other one with DianNao acceleration. They also implemented the same network using CPU only without any acceleration. Figure \ref{fig:diannao_speedup} compares the speedup of GPU over both DianNao and CPU.
+To evaluate the performance of DianNao, Chen et al. structures two neural networks with similar architecture, but one with GPU (NVIDIA K20M) and the other one with DianNao acceleration. They also implemented the same network using CPU only without any acceleration. Figure \ref{fig:diannao_speedup} compares the speedup of GPU over both DianNao and CPU. It should be noted that the code for the GPU is developed using CUDA language and the CPU code is in C++ for different types of layers in the network.
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{./images/diannao_results.png}
 	\centering
@@ -461,17 +461,18 @@ To evaluate the performance of DianNao, Chen et al. structures two neural networ
 	\label{fig:diannao_speedup}
 \end{figure}
 
-We can see from figure \ref{fig:diannao_speedup} that DianNao gives speedups up to 100 for some of the layers. However, in some other layers, mostly convolutional layers with private kernels and classification layers, which are common in both Deep Neural Networks (DNN) and Convolutional Neural Networks (CNN), GPUs may be preferred over DianNao. Authors believe that memory bandwidth is the major reason that DianNao performs worse than GPU in such layers. It should be noted that both convolutional and classification layers share the property that they have high number of synaptic connections in the range of millions. As DianNao takes up only about 53\% space of the a equivalent GPU (K20M), which is used for the sake of this comparison, it has shown the potential to compete with GPUs.
-\subsection*{Dadiannao, the machine learning supercomputer}
+Figure \ref{fig:diannao_speedup} portrays that GPU has a speedup of around 50x to 100x for most layers. DianNao gives speedups up to 100 for some of the layers. However, in some other layers, mostly convolutional layers with private kernels and classification layers, which are common in both Deep Neural Networks (DNN) and Convolutional Neural Networks (CNN), GPUs may be preferred over DianNao. Authors believe that memory bandwidth is the major reason that DianNao performs worse than GPU in such layers. It should be noted that both convolutional and classification layers share the property that they have high number of synaptic connections in the range of millions. As DianNao takes up only about 53\% space of the a equivalent GPU, which is used for the sake of this comparison, it has shown the potential to compete with GPUs.
+\subsection*{DaDianNao, the Machine Learning supercomputer}
 
-While the authors name Dadiannao the machine learning supercomputer, it seems that design of Dadiannao was more focused on DNNs and CNNs. With that in mind, Dadiannao is capable of holding large models of even up to tens of GBs in size in a multi node structure.\\
+DaDianNao is designed to serve as a Machine Learning supercomputer tailored for DNNs and CNNs. 
+Dadiannao has a performance better or on a par with GPU options while taking up less area at lower costs. Besides, it can hold large models of even up to tens of GBs in size in a multi node structure.\\
 
-Earlier we sat that, memory is thought to be the bottleneck of DianNao in convolutional layers with private kernel and classifier layers. The design of Dadiannao as a supercomputer aims to address these problems. First, in order to minimize data movement cost, synapses are placed near to the neurons consuming their data in a fully distributed architecture with no main memory unit. Secondly, nodes are biased towards storing data rather than computation. Thirdly, since the number of synaptic connections is orders of magnitude bigger than neurons,  instead of sending synaptic weights to neurons, neuron values is sent to synapses. This saves a lot in inter node communication bandwidth. Fourthly, intra-node, the storage units are broken into many storage units to increase the bandwidth.\\
+As explained earlier, memory is thought to be the bottleneck of DianNao in convolutional layers with private kernel and classifier layers. The design of Dadiannao as a supercomputer aims to address these problems. First, in order to minimize data movement cost, synapses are placed near to the neurons consuming their data in a fully distributed architecture with no main memory unit. Secondly, nodes are designed so they tend to store instead of computation. Thirdly, since the number of synaptic connections is way more than the number of neurons,  instead of sending synaptic weights to neurons, neuron values are sent to synapses. This saves a lot in external communication bandwidth. Fourthly, intra-node, the storage units are broken into many storage units to increase the bandwidth.\\
 
 The high level architecture of Dadiannao consist of many nodes arranged in a mesh configuration. Each node contains the storage units to store the synaptic and neuron values. In addition a, NFU unit is embedded similar to what introduced in DianNao \cite{chen2014diannao}.The NFU in Dadiannao is capable of carrying out more complex types of computation depending on the layers and mode of operation (training or inferencing). Figure \ref{fig:NFU_Diagram} shows the block diagram of a node for Dadiannao architecture. \\
 
 \begin{figure}[h]
-	\includegraphics[scale=0.42]{./images/NFU_diagram.png}
+	\includegraphics[scale=0.3]{./images/dadiannao_node.png}
 	\centering
 	\caption{Block diagram of a node within Dadiannao architecture \cite{chen2014dadiannao}.}
 	\label{fig:NFU_Diagram}
@@ -480,48 +481,38 @@ It should be noted that although SRAMs are generally preferred over other types 
 
 In order to exploit high bandwidth within nodes, a tile fashion layout is implemented as shown in figure \ref{fig:tiles}. In this design output neurons are assigned to various tile units. This enables NFUs to process data from multiple neurons in parallel.
 \begin{figure}[h]
-	\includegraphics[scale=0.42]{./images/tiles.png}
+	\includegraphics[scale=0.23]{./images/dadiannao_tile.png}
 	\centering
-	\caption{Left: Tile implementation of a node. Right: Layout of unit inside a tile. \cite{chen2014dadiannao}.}
+	\caption{Tile implementation of a node \cite{chen2014dadiannao}.}
 	\label{fig:tiles}
 \end{figure}
 
-Tiles in figure \ref{fig:tiles} are connected to two eDRAM reservoirs in the middle, one for input neurons from tiles and one for output neurons. It should be noted that even though there are many tiles and NFUs in a node, the number of neurons in a typical deep learning architecture is much more to be a one to one relationship between NFUs and neurons. As a result, each NFU has the job of calculating many neuron outputs. 
+Tiles in figure \ref{fig:tiles} are connected to eDRAM reservoirs in the middle, one for input neurons from tiles and one for output neurons. It should be noted that even though there are many tiles and NFUs in a node, the number of neurons in a typical Deep Learning architecture is much more to be a one to one relationship between NFUs and neurons. As a result, each NFU has the job of calculating many neuron outputs.
+
+For most of the layer types, interconnect network of DaDianNao does not impose a bottleneck even despite the bulk number of neuron values, that has to be routed throughout the network. Hench, DaDianNao designer did not develop a custom-made network and adopted a 2D mesh topology with a HyperTransport 2.0 (HT2.0) IP block interconnection.
 
 \subsection*{Experimental Results}
-In this part we present the performance and energy consumption Dadiannao. In figure \ref{fig:diannao_speedup}, performance of Dadiannao in the training mode is compared against its NVIDIA K20M GPU implementation counterpart.
+In this part we present the performance and energy consumption of Dadiannao. In figure \ref{fig:diannao_speedup}, performance of Dadiannao in the training mode is compared against its NVIDIA K20M GPU implementation counterpart.
 \begin{figure}[h]
-	\includegraphics[scale=0.45]{./images/dadiannao_speedup.png}
+	\includegraphics[width=\textwidth]{./images/dadiannao_chips.png}
 	\centering
-	\caption{Speedup of Dadiannao/GPU for various types of layers. CONV1 and fullNN layers require at least 4 nodes. CONV3* and CONV4* need at least 36 nodes to operate\cite{chen2014dadiannao}.}
+	\caption{Speedup of Dadiannao/GPU for various types of layers. CONV1 and fullNN layers require at least 4 nodes. CONV3 and CONV4 need at least 36 nodes to operate\cite{chen2014dadiannao}.}
 	\label{fig:dadiannao_speedup}
 \end{figure}
 
-Figure \ref{fig:dadiannao_speedup} shows that Dadiannao could reach a speedup of more than 100 over the GPU system in almost all types of layers. The speedup is even higher up to more than 2000 for the CONV1 and CONV2 layers. It should be noted that the size of CONV3* and CONV4* layers (which have private kernels) is relatively large in the range of GB. As a result, the performance of these layers can only be measured of on a more than 36-node arrangement. The fullNN layer, which is a fully connected layer also accounts for more than 50M synaptic connections and hence cannot be implemented on a system with only 1 node. Generally speaking, average speedup of $21.38\times,$ $79.81\times,$ $216.72\times,$and $450.65\times$ is reported for Dadiannao over GPU for 1-node, 4-node, 16-node, and 64-node configurations, respectively. However, the speedup and scaling of various types of layers are wildly different due to the inherent characteristics of each type of layer.\\
+Figure \ref{fig:dadiannao_speedup} shows that Dadiannao could reach a speedup of more than 100 over the GPU system in almost all types of layers with 16 chips or more configuration. The speedup is even higher up to more than 1000 for the CONV1 and CONV2 layers when 64 chips are adopted. It should be noted that the size of CONV3 and CONV4 layers (which have private kernels) is relatively large in the range of GBs. As a result, the performance of these layers can only be measured with more than 36-node arrangement. The FULL NN layer, which is a fully connected layer also accounts for more than 50M synaptic connections and hence cannot be implemented on a system with only 1 node. Generally, average speedup of $21.38\times,$ $79.81\times,$ $216.72\times,$and $450.65\times$ is reported for Dadiannao over GPU for 1-node, 4-node, 16-node, and 64-node configurations, respectively. However, the speedup and scaling of various types of layers are wildly different due to the inherent characteristics of each type of layer.\\
 
-Similarly, the performance of Dadiannao against GPU baseline in evaluated from energy point of view. Figures \ref{fig:dadiannao_training} and \ref{fig:dadiannao_inference} depict these performance analysis for both training and inference modes. In the training mode the energy reduction rates against the GPU baseline are $172.39\times,$ $180.42\times,$ $142.59\times,$ and $66.94\times$ for the 1-node, 4-node, 16-node, and 64-node respectively. The energy reduction number reported in the inference mode is even higher. In the inference mode, the energy reduction for the 1-node, 4-node, 16-node, and 64-node configuration is $330.56\times,$ $323.74\times,$ $270.04\times$, and $150.31\times,$ respectively.
+In addition, the performance of DaAianNao against GPU baseline in evaluated from energy point of view. In the training mode the energy reduction rates against the GPU baseline are recorded as $172.39\times,$ $180.42\times,$ $142.59\times,$ and $66.94\times$ for the 1-node, 4-node, 16-node, and 64-node respectively. The energy reduction number reported in the inference mode is even higher. In the inference mode, the energy reduction for the 1-node, 4-node, 16-node, and 64-node configuration is $330.56\times,$ $323.74\times,$ $270.04\times$, and $150.31\times,$ respectively.
 
-\begin{figure}[!htb]
-	\includegraphics[scale=0.45]{./images/dadiannao_training.png}
-	\centering
-	\caption{Comparison of energy reduction of Dadiannao against GPU in the training mode\cite{chen2014dadiannao}.}
-	\label{fig:dadiannao_training}
-\end{figure}
-\begin{figure}[!htb]
-	\includegraphics[scale=0.45]{./images/dadiannao_inference.png}
-	\centering
-	\caption{Comparison of energy reduction of Dadiannao against GPU in the inference mode\cite{chen2014dadiannao}.}
-	\label{fig:dadiannao_inference}
-\end{figure}
 
 \section*{Conclusion and Outlook}
-Machine learning and deep learning  have already become a part of our lives that we even do not notice them anymore. From search engines, voice recognition systems in our phones, and self-driving cars, all the way to commercial and financial analytics, they all benefit from machine learning and deep learning. With the help of fast CPUs and GPUs, training of models within machine learning and deep learning frame encountered a huge boost in the recent past. However, it seems that the future attempts to guarantee the the scalability of such systems should be focused on designing specialized software and hardware frameworks tailored to these applications such as project Adam and Dadiannao supercomputer.\\
+Machine Learning and Deep Learning have already become a part of our lives that we even do not notice them anymore. From search engines, voice recognition systems in our phones, and self-driving cars, all the way to commercial and financial analytics, they all benefit from machine learning and deep learning. With the help of fast CPUs and GPUs, training of models within Machine Learning and Deep Learning frame encountered a huge boost in the recent past. However, it seems that the future attempts to guarantee the scalability of such systems should also consider designing specialized software and hardware frameworks tailored to these applications such as project Adam and DaDianNao supercomputer.\\
 \subsection{High Performance Graph Processing}
 Graphs are abstract mathematical concepts that have numerous applications in science and engineering. Depending on the application and context they are being adopted in, they may have different types such a directed or undirected, cyclic or acyclic, finite or infinite, etc.\\
 \begin{figure}[!ht]
-	\includegraphics[scale=0.38]{./images/BSP_model.png}
+	\includegraphics[scale=0.25]{./images/graph_multi.png}
 	\centering
-	\caption{Execution mechanism of BSP programming model \cite{sakr2013processing}.}
+	\caption{Execution mechanism of BSP programming model.}
 	\label{fig:BSP}
 \end{figure}
 With the explosion of data over the past decade, graphs have dictated themselves as tools with many interesting properties. Nowadays, graphs are an indispensable component of large data modeling systems. Graph databases are being more and more favored over relational databases with focus on relations as connections indicate foreign-keys in the traditional relational databases. Among many interesting inherent properties of graphs, their scalability is probably the most important distinguishing factor.\\
@@ -532,9 +523,9 @@ Apache Giraph is inspired by Google Pregel \cite{malewicz2010pregel} at yahoo an
 
 Each vertex has the option of becoming active or inactive during each iteration. If a vertex does not receive a message it can vote to halt and become inactive. Similarly, an inactive can become active upon arrival of a message. The overall execution continues until no vertex has a message to send. Figure \ref{fig:max_super} illustrates an example of finding the maximum value in a graph.
 \begin{figure}[!ht]
-	\includegraphics[scale=0.38]{./images/max_superstep.png}
+	\includegraphics[scale=0.23]{./images/graph_superstep.png}
 	\centering
-	\caption{Example of computing maximum vertex value. In the first superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold.  \cite{sakr2013processing}.}
+	\caption{Example of computing maximum vertex value. At each superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold\cite{sakr2013processing}.}
 	\label{fig:max_super}
 \end{figure}
 
