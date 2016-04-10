@@ -141,62 +141,59 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}High Performance Graph Processing}{22}{subsection.1.2.3}}
 \citation{sakr2013processing}
 \citation{sakr2013processing}
-\citation{dewitt1983database}
-\citation{dewitt1992parallel}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Execution mechanism of BSP programming model.}}{23}{figure.1.14}}
 \newlabel{fig:BSP}{{14}{23}{Execution mechanism of BSP programming model}{figure.1.14}{}}
 \newlabel{fig:BSP@cref}{{[figure][14][]14}{23}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Parallel Databases and I/O}{23}{subsection.1.2.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Example of computing maximum vertex value. At each superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold \cite  {sakr2013processing}.}}{24}{figure.1.15}}
-\newlabel{fig:max_super}{{15}{24}{Example of computing maximum vertex value. At each superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold \cite {sakr2013processing}}{figure.1.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Example of computing maximum vertex value. At each superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold\cite  {sakr2013processing}.}}{24}{figure.1.15}}
+\newlabel{fig:max_super}{{15}{24}{Example of computing maximum vertex value. At each superstep values for each vertex are sent to the neighbor. If the received value is higher than the current value, current value is updated. Otherwise, current value is hold\cite {sakr2013processing}}{figure.1.15}{}}
 \newlabel{fig:max_super@cref}{{[figure][15][]15}{24}}
-\citation{zhou2012scope}
-\citation{zhou2012scope}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Architecture of COSMOS with three main components\cite  {zhou2012scope}.}}{26}{figure.1.16}}
-\newlabel{fig:krunal8}{{16}{26}{Architecture of COSMOS with three main components\cite {zhou2012scope}}{figure.1.16}{}}
-\newlabel{fig:krunal8@cref}{{[figure][16][]16}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{Project SCOPE: Parallel databases meet Map/Reduce}{25}{section*.13}}
+\@writefile{toc}{\contentsline {subsubsection}{Platform Architecture:}{25}{section*.14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Architecture of cosmos platform }}{26}{figure.1.16}}
+\newlabel{fig:architecture_of_cosmos}{{16}{26}{Architecture of cosmos platform}{figure.1.16}{}}
+\newlabel{fig:architecture_of_cosmos@cref}{{[figure][16][]16}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{Query Language for Scope}{27}{section*.16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Compilation of a SCOPE script.}}{27}{figure.1.17}}
 \newlabel{fig:compilation_of_a_scope}{{17}{27}{Compilation of a SCOPE script}{figure.1.17}{}}
 \newlabel{fig:compilation_of_a_scope@cref}{{[figure][17][]17}{27}}
-\@writefile{toc}{\contentsline {subsubsection}{Code Generation and Runtime Engine: }{27}{section*.16}}
-\@writefile{toc}{\contentsline {subsubsection}{Execution Model: }{28}{section*.17}}
-\@writefile{toc}{\contentsline {subsubsection}{Job Scheduling: }{28}{section*.18}}
-\citation{riha2013adaptive}
+\@writefile{toc}{\contentsline {subsubsection}{Code Generation and Runtime Engine}{27}{section*.17}}
+\@writefile{toc}{\contentsline {subsubsection}{Execusion Model}{28}{section*.18}}
+\@writefile{toc}{\contentsline {subsubsection}{Job Scheduling}{28}{section*.19}}
+\@writefile{toc}{\contentsline {subsubsection}{Adaptive Hybrid OLAP Architecture}{28}{section*.20}}
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces SCOPE job scheduling }}{29}{figure.1.18}}
 \newlabel{fig:scope_job_sched}{{18}{29}{SCOPE job scheduling}{figure.1.18}{}}
 \newlabel{fig:scope_job_sched@cref}{{[figure][18][]18}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces The NUMA (Non-Uniform Memory Access) effect in two CPU with private memory and memory controller. The system has a shared memory address space but memory access has non uniform latency. Each processor has quicker access to its own physical memory and some delay while accessing other CPU's physical memory }}{30}{figure.1.19}}
-\newlabel{fig:nume_something}{{19}{30}{The NUMA (Non-Uniform Memory Access) effect in two CPU with private memory and memory controller. The system has a shared memory address space but memory access has non uniform latency. Each processor has quicker access to its own physical memory and some delay while accessing other CPU's physical memory}{figure.1.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces The NUMA (Non-Uniform Memory Access) effect in shared memory system with two multicore processors. Cores of each processor equally share memory controller and memory attached to it. The access to the memory of the second processor is slower than access to its own memory }}{30}{figure.1.19}}
+\newlabel{fig:nume_something}{{19}{30}{The NUMA (Non-Uniform Memory Access) effect in shared memory system with two multicore processors. Cores of each processor equally share memory controller and memory attached to it. The access to the memory of the second processor is slower than access to its own memory}{figure.1.19}{}}
 \newlabel{fig:nume_something@cref}{{[figure][19][]19}{30}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Sub-Cube is partitioned amongst two physical memory. Scenario 1 shows the most ideal case where partitions are equally distributed. Scenario 2 show a suboptimal case where either of the CPU have only 25\% of the data. And 3rd scenario shows worst case when a whole sub-cube is inside only single CPU's memory. }}{30}{figure.1.20}}
-\newlabel{fig:Cuboid_divide}{{20}{30}{Sub-Cube is partitioned amongst two physical memory. Scenario 1 shows the most ideal case where partitions are equally distributed. Scenario 2 show a suboptimal case where either of the CPU have only 25\% of the data. And 3rd scenario shows worst case when a whole sub-cube is inside only single CPU's memory}{figure.1.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Cuboid divided into two physical memories. In ideal case (middle) half of the sub-cube is accessed through memory controller of CPU0 and the second half is accessed through memory controller of CPU1. In suboptimal case (left) 75\% of sub-cube is accessed through CPU0 and only 25\% through CPU1. The worst case scenario (right) is when entire sub-cube is located in memory of one CPU only }}{30}{figure.1.20}}
+\newlabel{fig:Cuboid_divide}{{20}{30}{Cuboid divided into two physical memories. In ideal case (middle) half of the sub-cube is accessed through memory controller of CPU0 and the second half is accessed through memory controller of CPU1. In suboptimal case (left) 75\% of sub-cube is accessed through CPU0 and only 25\% through CPU1. The worst case scenario (right) is when entire sub-cube is located in memory of one CPU only}{figure.1.20}{}}
 \newlabel{fig:Cuboid_divide@cref}{{[figure][20][]20}{30}}
-\citation{riha2013adaptive}
-\citation{riha2013adaptive}
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Block diagram of system partition. The scheduler assigns MOLAP cube processing task to CPU and all the queries on fact table are directed to GPU partitions. Each GPU partition contains different number of streaming processor(SM) \cite  {riha2013adaptive}}}{31}{figure.1.21}}
-\newlabel{fig:krunal6}{{21}{31}{Block diagram of system partition. The scheduler assigns MOLAP cube processing task to CPU and all the queries on fact table are directed to GPU partitions. Each GPU partition contains different number of streaming processor(SM) \cite {riha2013adaptive}}{figure.1.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Block diagram of the system partitions. GPU has six different partitions, all are used to process the queries from fact tables. CPU has one partition that processes multidimensional cube.}}{31}{figure.1.21}}
+\newlabel{fig:krunal6}{{21}{31}{Block diagram of the system partitions. GPU has six different partitions, all are used to process the queries from fact tables. CPU has one partition that processes multidimensional cube}{figure.1.21}{}}
 \newlabel{fig:krunal6@cref}{{[figure][21][]21}{31}}
-\citation{zou2014improving}
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Nodes are arranged into three level in simulation analysis. Compute nodes can carry out simulation and some nodes act as a helper nodes performing intermediate analytics. Staging nodes only performs analytics and their output is passed on to I/O nodes, responsible for storage. Label 1, 2 and 3 point out the tentative adaptive compression location in simulation analysis.}}{32}{figure.1.22}}
-\newlabel{fig:krunal7}{{22}{32}{Nodes are arranged into three level in simulation analysis. Compute nodes can carry out simulation and some nodes act as a helper nodes performing intermediate analytics. Staging nodes only performs analytics and their output is passed on to I/O nodes, responsible for storage. Label 1, 2 and 3 point out the tentative adaptive compression location in simulation analysis}{figure.1.22}{}}
-\newlabel{fig:krunal7@cref}{{[figure][22][]22}{32}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Tentative Selection}}{32}{algorithm.1}}
-\newlabel{tentative}{{1}{32}{Improving IO performance with Adaptive Compression}{algorithm.1}{}}
-\newlabel{tentative@cref}{{[algorithm][1][]1}{32}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Predictive Decision}}{33}{algorithm.2}}
-\newlabel{predictive}{{2}{33}{Improving IO performance with Adaptive Compression}{algorithm.2}{}}
-\newlabel{predictive@cref}{{[algorithm][2][]2}{33}}
-\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Data compression and transfer analysis of two implementation and adaptive hybrid implementation.}}{33}{figure.1.23}}
-\newlabel{fig:krunal9}{{23}{33}{Data compression and transfer analysis of two implementation and adaptive hybrid implementation}{figure.1.23}{}}
-\newlabel{fig:krunal9@cref}{{[figure][23][]23}{33}}
+\@writefile{toc}{\contentsline {subsubsection}{Improving IO performance with Adaptive Compression}{31}{section*.21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Adaptive compression location in data analysis for simulation analysis.}}{31}{figure.1.22}}
+\newlabel{fig:krunal7}{{22}{31}{Adaptive compression location in data analysis for simulation analysis}{figure.1.22}{}}
+\newlabel{fig:krunal7@cref}{{[figure][22][]22}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Two implementation of adaptive compression.}}{32}{figure.1.23}}
+\newlabel{fig:krunal8}{{23}{32}{Two implementation of adaptive compression}{figure.1.23}{}}
+\newlabel{fig:krunal8@cref}{{[figure][23][]23}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Data compression and transfer analysis of two implementation.}}{32}{figure.1.24}}
+\newlabel{fig:krunal9}{{24}{32}{Data compression and transfer analysis of two implementation}{figure.1.24}{}}
+\newlabel{fig:krunal9@cref}{{[figure][24][]24}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Adaptive Data Compression and Transfer Method.}}{33}{figure.1.25}}
+\newlabel{fig:krunal10}{{25}{33}{Adaptive Data Compression and Transfer Method}{figure.1.25}{}}
+\newlabel{fig:krunal10@cref}{{[figure][25][]25}{33}}
 \citation{wasi2013high}
 \citation{wasi2013high}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}HPC implementation of MapReduce}{34}{subsection.1.2.5}}
 \citation{teijeiro2011design}
 \citation{el2006upc}
-\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces RDMA based architecture of MapReduce proposed by \cite  {wasi2013high}.}}{35}{figure.1.24}}
-\newlabel{fig:RDMA_hadoop}{{24}{35}{RDMA based architecture of MapReduce proposed by \cite {wasi2013high}}{figure.1.24}{}}
-\newlabel{fig:RDMA_hadoop@cref}{{[figure][24][]24}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces RDMA based architecture of MapReduce proposed by \cite  {wasi2013high}.}}{35}{figure.1.26}}
+\newlabel{fig:RDMA_hadoop}{{26}{35}{RDMA based architecture of MapReduce proposed by \cite {wasi2013high}}{figure.1.26}{}}
+\newlabel{fig:RDMA_hadoop@cref}{{[figure][26][]26}{35}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Future Direction}{36}{section.1.3}}
 \bibstyle{splncs03}
 \bibdata{paper_2.bib}
@@ -214,45 +211,40 @@
 \bibcite{deelman2009workflows}{12}
 \bibcite{demchenko2014defining}{13}
 \bibcite{deng2009imagenet}{14}
-\bibcite{dewitt1992parallel}{15}
-\bibcite{dewitt1983database}{16}
-\bibcite{ekanayake2010twister}{17}
-\bibcite{el2006upc}{18}
-\bibcite{esmaeilzadeh2012neural}{19}
-\bibcite{farber1997parallel}{20}
-\bibcite{fox2014towards}{21}
-\bibcite{FrankSchmuck}{22}
-\bibcite{gentzsch2001sun}{23}
-\bibcite{ghemawat2003google}{24}
-\bibcite{goodfellow2013maxout}{25}
-\bibcite{grimshaw2013gffs}{26}
-\bibcite{hinton2006fast}{27}
-\bibcite{Jha2014}{28}
-\bibcite{kashyap2015big}{29}
-\bibcite{le2013building}{30}
-\bibcite{low2014graphlab}{31}
-\bibcite{luckow2012p}{32}
-\bibcite{malewicz2010pregel}{33}
-\bibcite{mantha2012pilot}{34}
-\bibcite{plimpton2011mapreduce}{35}
-\bibcite{Qiu2014}{36}
-\bibcite{qiu2014towards}{37}
-\bibcite{wasi2013high}{38}
-\bibcite{raicu2008many}{39}
-\bibcite{rajasekar2010irods}{40}
-\bibcite{Reed2015}{41}
-\bibcite{riha2013adaptive}{42}
-\bibcite{sakr2013processing}{43}
-\bibcite{seo2010hama}{44}
-\bibcite{shaun2007storage}{45}
-\bibcite{shvachko2010hadoop}{46}
-\bibcite{simard2003best}{47}
-\bibcite{staples2006torque}{48}
-\bibcite{teijeiro2011design}{49}
-\bibcite{temam2012defect}{50}
-\bibcite{vavilapalli2013apache}{51}
-\bibcite{yoo2003slurm}{52}
-\bibcite{zaharia2012resilient}{53}
-\bibcite{zhou2012scope}{54}
-\bibcite{zou2014improving}{55}
+\bibcite{ekanayake2010twister}{15}
+\bibcite{el2006upc}{16}
+\bibcite{esmaeilzadeh2012neural}{17}
+\bibcite{farber1997parallel}{18}
+\bibcite{fox2014towards}{19}
+\bibcite{FrankSchmuck}{20}
+\bibcite{gentzsch2001sun}{21}
+\bibcite{ghemawat2003google}{22}
+\bibcite{goodfellow2013maxout}{23}
+\bibcite{grimshaw2013gffs}{24}
+\bibcite{hinton2006fast}{25}
+\bibcite{Jha2014}{26}
+\bibcite{kashyap2015big}{27}
+\bibcite{le2013building}{28}
+\bibcite{low2014graphlab}{29}
+\bibcite{luckow2012p}{30}
+\bibcite{malewicz2010pregel}{31}
+\bibcite{mantha2012pilot}{32}
+\bibcite{plimpton2011mapreduce}{33}
+\bibcite{Qiu2014}{34}
+\bibcite{qiu2014towards}{35}
+\bibcite{wasi2013high}{36}
+\bibcite{raicu2008many}{37}
+\bibcite{rajasekar2010irods}{38}
+\bibcite{Reed2015}{39}
+\bibcite{sakr2013processing}{40}
+\bibcite{seo2010hama}{41}
+\bibcite{shaun2007storage}{42}
+\bibcite{shvachko2010hadoop}{43}
+\bibcite{simard2003best}{44}
+\bibcite{staples2006torque}{45}
+\bibcite{teijeiro2011design}{46}
+\bibcite{temam2012defect}{47}
+\bibcite{vavilapalli2013apache}{48}
+\bibcite{yoo2003slurm}{49}
+\bibcite{zaharia2012resilient}{50}
 \citation{*}

@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/W32TeX)
+This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: paper.aux
 The style file: splncs03.bst
@@ -16,45 +16,45 @@ Warning--can't use both volume and number fields in ghemawat2003google
 Warning--empty journal in Qiu2014
 Warning--empty journal in shaun2007storage
 Warning--can't use both volume and number fields in temam2012defect
-You've used 55 entries,
+You've used 50 entries,
             2785 wiz_defined-function locations,
-            887 strings with 15939 characters,
-and the built_in function-call counts, 34957 in all, are:
-= -- 2964
-> -- 1258
-< -- 59
-+ -- 522
-- -- 460
-* -- 2226
-:= -- 4467
-add.period$ -- 110
-call.type$ -- 55
-change.case$ -- 455
+            857 strings with 14823 characters,
+and the built_in function-call counts, 31784 in all, are:
+= -- 2684
+> -- 1168
+< -- 51
++ -- 484
+- -- 428
+* -- 2030
+:= -- 4076
+add.period$ -- 101
+call.type$ -- 50
+change.case$ -- 420
 chr.to.int$ -- 0
-cite$ -- 64
-duplicate$ -- 2962
-empty$ -- 2967
-format.name$ -- 503
-if$ -- 7677
+cite$ -- 59
+duplicate$ -- 2683
+empty$ -- 2694
+format.name$ -- 467
+if$ -- 6969
 int.to.chr$ -- 0
-int.to.str$ -- 55
-missing$ -- 617
-newline$ -- 170
-num.names$ -- 106
-pop$ -- 1178
+int.to.str$ -- 50
+missing$ -- 563
+newline$ -- 155
+num.names$ -- 96
+pop$ -- 1088
 preamble$ -- 1
-purify$ -- 334
+purify$ -- 308
 quote$ -- 0
-skip$ -- 974
+skip$ -- 873
 stack$ -- 0
-substring$ -- 1895
-swap$ -- 1688
-text.length$ -- 59
+substring$ -- 1695
+swap$ -- 1514
+text.length$ -- 51
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 220
+type$ -- 200
 warning$ -- 9
-while$ -- 280
-width$ -- 57
-write$ -- 565
+while$ -- 252
+width$ -- 52
+write$ -- 513
 (There was 1 error message)

@@ -70,16 +70,6 @@ Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: Imagenet: A
   large-scale hierarchical image database. In: Computer Vision and Pattern
   Recognition, 2009. CVPR 2009. IEEE Conference on. pp. 248--255. IEEE (2009)
 
-\bibitem{dewitt1992parallel}
-DeWitt, D., Gray, J.: Parallel database systems: the future of high performance
-  database systems. Communications of the ACM  35(6),  85--98 (1992)
-
-\bibitem{dewitt1983database}
-DeWitt, D.J.: Database machines: An idea whose time has passed? a critique of
-  the future of database machines haran boral computer science department
-  technion-israel institute of technology. In: Database Machines: International
-  Workshop, Munich, September 1983. p. 166. Springer (1983)
-
 \bibitem{ekanayake2010twister}
 Ekanayake, J., Li, H., Zhang, B., Gunarathne, T., Bae, S.H., Qiu, J., Fox, G.:
   Twister: a runtime for iterative mapreduce. In: Proceedings of the 19th ACM
@@ -204,10 +194,6 @@ Reed, D.a., Dongarra, J.: {Exascale computing and big data}. Communications of
   the ACM  58(7),  56--68 (2015),
   \url{http://dl.acm.org/ft{\_}gateway.cfm?id=2699414{\&}type=html}
 
-\bibitem{riha2013adaptive}
-Riha, L., Malik, M., El-Ghazawi, T.: An adaptive hybrid olap architecture with
-  optimized memory access patterns. Cluster computing  16(4),  663--677 (2013)
-
 \bibitem{sakr2013processing}
 Sakr, S.: Processing large-scale graph data: A guide to current technology. IBM
   Developerworks p.~15 (2013)
@@ -263,16 +249,5 @@ Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauley, M., Franklin,
   fault-tolerant abstraction for in-memory cluster computing. In: Proceedings
   of the 9th USENIX conference on Networked Systems Design and Implementation.
   pp. 2--2. USENIX Association (2012)
-
-\bibitem{zhou2012scope}
-Zhou, J., Bruno, N., Wu, M.C., Larson, P.A., Chaiken, R., Shakib, D.: Scope:
-  parallel databases meet mapreduce. The VLDB Journal—The International
-  Journal on Very Large Data Bases  21(5),  611--636 (2012)
-
-\bibitem{zou2014improving}
-Zou, H., Yu, Y., Tang, W., Chen, H.M.: Improving i/o performance with adaptive
-  data compression for big data applications. In: Parallel \& Distributed
-  Processing Symposium Workshops (IPDPSW), 2014 IEEE International. pp.
-  1228--1237. IEEE (2014)
 
 \end{thebibliography}
